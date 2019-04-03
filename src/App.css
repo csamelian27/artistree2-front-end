@@ -35,7 +35,7 @@
 
 
 /* BEGIN SIGNUP FORM CSS */
-
+/*
 $font-family:   "Roboto";
 $font-size:     14px;
 
@@ -165,13 +165,13 @@ body {
     100% {
         background-position: 0 0
     }
-}
+} */
 
 /* END SIGNUP FORM CSS */
 
 /* START NAVBAR CSS */
 
-* {
+/* * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -260,6 +260,6 @@ body {
     .nav-links:hover {
         color: rgba(255, 255, 255, 1);
     }
-}
+} */
 
 /* END NAVBAR CSS */

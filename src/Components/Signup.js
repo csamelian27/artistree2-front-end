@@ -19,7 +19,7 @@ class Signup extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     console.log(e.target);
-    // e.target.parentElement.className = "form--no"
+    this.props.handleSignup(this.state)
   }
 
   render(){
