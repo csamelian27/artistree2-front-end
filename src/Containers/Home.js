@@ -6,7 +6,7 @@ class Home extends React.Component {
   render(){
     return (
       <div id="home">
-        Home
+        <Container className='welcome'> <Header as='h2'>WELCOME TO ARTISTREE</Header></Container>
       </div>
     )
   }
@@ -16,8 +16,6 @@ export default Home
 
 
 
-
 // <video autoPlay loop id='background-video'>
-// <source src='/sushi.mp4' type='video/mp4'/>
+// <source src='/art.mp4' type='video/mp4'/>
 // </video>
-// <Container className='welcome'> <Header as='h2' inverted>WELCOME TO ARTISTREE</Header></Container>

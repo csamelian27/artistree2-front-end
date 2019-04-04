@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, Switch, withRouter } from "react-router-dom";
+import { createAuth } from './Actions/userActions'
+import { connect } from 'react-redux'
 
 import Error from './Containers/Error'
 import Home from './Containers/Home'
 import Login from './Components/Login'
 import Signup from './Components/Signup'
 import NavBar from './Components/NavBar'
+import UserProfileContainer from './Containers/UserProfileContainer'
 
-// // console.log(process.env.REACT_APP_API_KEY)
-// // console.log("JWT", process.env.REACT_APP_JWT_KEY)
+// console.log(process.env.REACT_APP_API_KEY)
+// console.log("JWT", process.env.REACT_APP_JWT_KEY)
 
 class App extends Component {
 
@@ -30,17 +33,11 @@ class App extends Component {
         })
           .then(resp => resp.json())
           .then(user => {
-            this.setState({ user }, () => {
-              console.log(user);
-              // let exp = user.experiences.find(exp => !exp.complete)
-              // if(exp) {
-              //   let act = user.activities.find(act => act.id === exp.activity_id)
-              //   this.props.history.push("/experiences-home")
-              //   this.setState({currentExperience: exp, currentActivity: act})
-              // } else {
-                this.props.history.push("/home");
-              // }
-            });
+            // this.setState({ user }, () => {
+            //   console.log(user);
+            // });
+            this.props.createAuth(user)
+            this.props.history.push("/home");
           })
       : this.props.history.push("/signup");
     };
@@ -49,48 +46,50 @@ class App extends Component {
   // our backend API. It also saves a jwt token to the local storage and pushes the
   // user to "/activities-home"
   handleSignup = (userInfo) => {
-    fetch("http://localhost:3000/api/v1/users", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        "accepts": "application/json"
-      },
-      body: JSON.stringify({user: userInfo})
-    })
-      .then(resp => resp.json())
-      .then(userData => {
-        console.log(userData);
-        this.setState({ user: userData.user}, () => {
-          localStorage.setItem("token", userData.jwt);
-          this.props.history.push("/home");
-        });
-      });
+    console.log('BAD: inside handleSignup');
+    // fetch("http://localhost:3000/api/v1/users", {
+    //   method: "POST",
+    //   headers: {
+    //     "content-type": "application/json",
+    //     "accepts": "application/json"
+    //   },
+    //   body: JSON.stringify({user: userInfo})
+    // })
+    //   .then(resp => resp.json())
+    //   .then(userData => {
+    //     console.log(userData);
+    //     this.setState({ user: userData.user}, () => {
+    //       localStorage.setItem("token", userData.jwt);
+    //       this.props.history.push("/home");
+    //     });
+    //   });
   }
 
   // login handler sends over userInfo body
   handleLogin = (userInfo) => {
-  fetch("http://localhost:3000/api/v1/login", {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-      "accepts": "application/json"
-    },
-    body: JSON.stringify({user: userInfo})
-  })
-    .then(resp => resp.json())
-    .then(userData => {
-      console.log(userData);
-      if(userData.message) {
-        this.props.history.push("/login");
-      } else {
-        this.setState({ user: userData.user })
-        localStorage.setItem("token", userData.jwt)
-        this.props.history.push("/home")
-      }
-    });
+    console.log('BAD: inside handleLogin');
+  // fetch("http://localhost:3000/api/v1/login", {
+  //   method: "POST",
+  //   headers: {
+  //     "content-type": "application/json",
+  //     "accepts": "application/json"
+  //   },
+  //   body: JSON.stringify({user: userInfo})
+  // })
+  //   .then(resp => resp.json())
+  //   .then(userData => {
+  //     console.log(userData);
+  //     if(userData.message) {
+  //       this.props.history.push("/login");
+  //     } else {
+  //       this.setState({ user: userData.user })
+  //       localStorage.setItem("token", userData.jwt)
+  //       this.props.history.push("/home")
+  //     }
+  //   });
   };
 
-  logOut = () => {
+  handleLogout = () => {
     this.setState({ user: {} }, localStorage.clear())
     this.props.history.push("/home");
   }
@@ -99,12 +98,13 @@ class App extends Component {
     console.log(this.state);
     return (
       <div className="App">
-        <NavBar user={this.state.user} logOut={this.logOut} />
+        <NavBar user={this.state.user} handleLogout={this.handleLogout} />
         <Switch>
-          <Route exact path="/home" render={() => <Home />} />
-          <Route exact path="/login" render={() => <Login user={this.state.user} handleLogin={this.handleLogin} />} />
-          <Route exact path="/signup" render={() => <Signup user={this.state.user} handleSignup={this.handleSignup} />} />
-          <Route exact path="/logout" component={<Home />} />
+          <Route exact path="/profile" component={UserProfileContainer} />
+          <Route exact path="/home" render={() => <Home user={this.state.user} />} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/logout" component={Home} />
           <Route path="/" component={Error} />
         </Switch>
       </div>
@@ -112,7 +112,11 @@ class App extends Component {
   }
 }
 
-export default withRouter(App);
+const mapDispatchToProps = (dispatch) => ({
+  createAuth: (user) => dispatch(createAuth(user))
+})
+
+export default connect(null, mapDispatchToProps)(withRouter(App));
 
 
 

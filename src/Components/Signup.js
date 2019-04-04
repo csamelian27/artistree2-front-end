@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { createUser } from '../Actions/userActions'
 
 class Signup extends Component {
 
@@ -19,7 +21,8 @@ class Signup extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     console.log(e.target);
-    this.props.handleSignup(this.state)
+    this.props.createUser(this.state)
+    this.props.history.push('/home')
   }
 
   render(){
@@ -60,4 +63,45 @@ class Signup extends Component {
   }
 }
 
-export default Signup
+const mapDispatchToProps = (dispatch) => ({
+  createUser: (user) => dispatch(createUser(user))
+})
+
+export default connect(null, mapDispatchToProps)(Signup)
+
+
+
+
+// <div className="ui form">
+//   <div className="fields">
+//
+//     <div className="field">
+//       <label>Username</label>
+//       <input type="text" placeholder="Username"/>
+//     </div>
+//
+//     <div className="field">
+//       <label>Password</label>
+//       <input type="password"/>
+//     </div>
+//
+//   </div>
+//
+//   <div className="equal width fields">
+//     <div className="field">
+//       <label>First name</label>
+//       <input type="text" placeholder="First Name"/>
+//     </div>
+//
+//     <div className="field">
+//       <label>Middle name</label>
+//       <input type="text" placeholder="Middle Name"/>
+//     </div>
+//
+//     <div className="field">
+//       <label>Last name</label>
+//       <input type="text" placeholder="Last Name"/>
+//     </div>
+//
+//   </div>
+// </div>

@@ -4,12 +4,14 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom'
-import userReducer from './Reducers/userReducer'
-import { createStore } from 'redux'
+import reducer from './Reducers/reducer'
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import 'semantic-ui-css/semantic.min.css';
 
-const store = createStore(userReducer)
+
+const store = createStore(reducer, applyMiddleware(thunk))
 
 ReactDOM.render(<BrowserRouter><Provider store={store}><App /></Provider></BrowserRouter>, document.getElementById('root'));
 

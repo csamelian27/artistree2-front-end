@@ -1,21 +1,58 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import { Button, Dropdown, Image, Input, Menu } from 'semantic-ui-react'
+import { NavLink, Route, Switch, withRouter } from "react-router-dom";
+import { connect } from 'react-redux'
 
-class NavBar extends React.Component {
-  state = { activeItem: '' }
+const Nav = (props) => {
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  return (
+    <nav className="navbar navbar-default navbar-fixed-top">
+        <div className="container">
 
-  render(){
-    const { activeItem } = this.state
-    return (
-      <h1>Hi</h1>
-    )
-  }
+            <div className="navbar-header">
+
+                <NavLink to="/home">
+                <a className="navbar-brand">
+                    ArtistTree
+                </a>
+                </NavLink>
+                <NavLink to="/profile">
+                <a className="navbar-brand">
+                    Profile
+                </a>
+                </NavLink>
+                <NavLink to="/activities-home">
+                <a className="navbar-brand">
+                    Browse
+                </a>
+                </NavLink>
+            </div>
+              <NavLink to="/login">
+                {props.user && localStorage.token ? <button type="button" className="btn btn-light navbar-btn navbar-right" onClick={props.handleLogout} >Log Out</button> : <button type="button" className="btn btn-light navbar-btn navbar-right">Log in</button>}
+              </NavLink>
+              <NavLink to="/signup">
+              <button type="button" className="btn btn-light navbar-btn navbar-right">Sign up</button>
+              </NavLink>
+
+        </div>
+    </nav>
+  )
 }
 
-export default NavBar
+const mapStateToProps = (state) => {
+  return {user: state.user}
+}
+
+export default connect(mapStateToProps)(Nav);
+
+
+
+// <NavLink to="/profile">
+// <a className="navbar-brand">
+// View Profile
+// </a>
+// </NavLink>
+
 
 
 // <Menu inverted>
