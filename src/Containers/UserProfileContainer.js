@@ -20,9 +20,9 @@ class UserProfileContainer extends React.Component {
     return (
       <div id="profile">
         <h1>Your Profile</h1>
-        <h3>{this.props.user.user ? this.props.user.user.full_name: <h1>Name</h1>}</h3>
-        <button onClick={this.handleClickUpload}>{this.state.clicked ? 'Submit New Media' : 'Upload New Media'}</button>
-        {this.state.clicked ? <MediaUpload /> : <MediaListContainer user={this.props.user} />}
+        <h3>{this.props.user ? this.props.user.full_name : <h1>Name</h1>}</h3>
+        <button onClick={this.handleClickUpload}>{this.state.clicked ? 'Return to Profile' : 'Upload New Media'}</button>
+        {this.state.clicked ? <MediaUpload /> : <MediaListContainer />}
       </div>
     )
   }

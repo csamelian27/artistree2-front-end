@@ -9,6 +9,8 @@ const initialState = {
       return {user: action.payload}
     case('ADD_AUTH'):
       return {user: action.payload}
+    case('ADD_MEDIA'):
+      return {media_item: action.payload}
      default:
       return state
    }
