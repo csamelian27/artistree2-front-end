@@ -8,8 +8,8 @@ class Signup extends Component {
     full_name: "",
     email: "",
     password: "",
-    password_confirmation: "",
-    avatar: ""
+    password_confirmation: ""
+    // avatar: ""
   }
 
   handleChange = (e) => {
@@ -51,10 +51,6 @@ class Signup extends Component {
                   <input type="password" name="password_confirmation" placeholder="Confirm Password" className="form__input" value={this.state.password_confirmation} onChange={this.handleChange} />
               </div>
 
-              <div className="form__group">
-                  <input type="text" name="avatar" placeholder="Profile Picture" className="form__input" value={this.state.avatar} onChange={this.handleChange} />
-              </div>
-
               <button className="btn" type="submit">Register</button>
           </form>
         </div>
@@ -68,6 +64,14 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 export default connect(null, mapDispatchToProps)(Signup)
+
+
+
+// <div className="form__group">
+// <input type="text" name="avatar" placeholder="Profile Picture" className="form__input" value={this.state.avatar} onChange={this.handleChange} />
+// </div>
+
+
 
 
 
