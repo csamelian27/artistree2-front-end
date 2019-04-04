@@ -36,13 +36,16 @@ class MediaUpload extends React.Component {
     ]
 
     return (
-      <div id="media-upload">
+      <div id="upload">
+        <br></br>
         <h2>Upload Media</h2>
-
+        <img id="upload-pic" src="https://bmoca.org/media/exhibition_images/1773/small_IMG_8326_cew_large.jpg" />
+        <div id="media-upload">
           <Form>
             <Form.Group widths='equal'>
               <Form.Field
-                id='form-input-control-first-name'
+                id='form-input-control-title'
+                className="form-input"
                 control={Input}
                 label='Title of Work'
                 name="title"
@@ -50,7 +53,8 @@ class MediaUpload extends React.Component {
                 onChange={this.handleChange}
               />
               <Form.Field
-                id='form-input-control-last-name'
+                id='form-input-control-description'
+                className="form-input"
                 control={TextArea}
                 label='Description of Work'
                 name="description"
@@ -59,6 +63,7 @@ class MediaUpload extends React.Component {
               />
               <Form.Field
                 id="form-input-control-category"
+                className="form-input"
                 control={Select}
                 options={categoryOptions}
                 label='Category'
@@ -71,9 +76,10 @@ class MediaUpload extends React.Component {
                 }}
               />
             </Form.Group>
-            <button id='form-button-control-public' onClick={this.handleSubmitMedia}>Confirm</button>
+            <button id='form-button-control-confirm' onClick={this.handleSubmitMedia}>Confirm</button>
           </Form>
 
+        </div>
       </div>
     )
   }

@@ -14,25 +14,26 @@ class Nav extends React.Component {
     return (
       <nav className="navbar navbar-default navbar-fixed-top">
           <div className="container">
+            <div className="navbar-header">
+              <Menu id="nav-menu">
+                <Menu.Item as={NavLink} exact to="/home" name="home" active={activeItem === 'home'} onClick={this.handleItemClick} />
 
-              <div className="navbar-header">
-                <Menu>
-                  <Menu.Item as={NavLink} exact to="/home" name="home" active={activeItem === 'home'} onClick={this.handleItemClick} />
+                <Menu.Item as={NavLink} exact to="/profile" name="profile" active={activeItem === 'profile'} />
 
-                  <Menu.Item as={NavLink} exact to="/profile" name="profile" active={activeItem === 'profile'} />
+                <Menu.Item as={NavLink} exact to="/users-home" name="users" active={activeItem === 'users'} />
 
+                <Menu.Menu position='right'>
+                {this.props.user && localStorage.token ?
+                  <Menu.Item as={NavLink} exact to="/logout" name="logout" active={activeItem === 'logout'} onClick={this.props.handleLogout} /> :
 
-                  <Menu.Item as={NavLink} exact to="/users-home" name="users" active={activeItem === 'users'} />
-                  
-                  </Menu>
-              </div>
+                  <Menu.Item as={NavLink} exact to="/login" name="login" active={activeItem === 'login'} />
+                }
 
-                <NavLink to="/login">
-                  {this.props.user && localStorage.token ? <button type="button" className="btn btn-light navbar-btn navbar-right" onClick={this.props.handleLogout} >Log Out</button> : <button type="button" className="btn btn-light navbar-btn navbar-right">Log in</button>}
-                </NavLink>
-                <NavLink to="/signup">
-                <button type="button" className="btn btn-light navbar-btn navbar-right">Sign up</button>
-                </NavLink>
+                {this.props.user ? null :
+                  <Menu.Item as={NavLink} exact to="/signup" name="signup" active={activeItem === 'signup'} /> }
+                </Menu.Menu>
+              </Menu>
+            </div>
           </div>
       </nav>
     )
@@ -47,55 +48,24 @@ export default connect(mapStateToProps)(Nav);
 
 
 
+// {this.props.user && localStorage.token ? <button type="button" className="btn btn-light navbar-btn navbar-right" onClick={this.props.handleLogout} >Log Out</button> : <button type="button" className="btn btn-light navbar-btn navbar-right">Log in</button>}
 
-
-
-
-// <Menu inverted>
-//   <Menu.Item name='icon' onClick={() => console.log('icon')}>
-//     <Image src='' size='mini'/>
-//   </Menu.Item>
+// <Menu.Menu position='right'>
+//          <Menu.Item>
+//            <Input icon='search' placeholder='Search...' />
+//          </Menu.Item>
 //
-//
-//
-//   <Menu.Item
-//     as={NavLink} exact to="/"
-//     name=''
-//     active={activeItem === ''}
-//     onClick={this.handleItemClick} />
-//
-//   <Menu.Item
-//     as={NavLink} exact to="/"
-//     name=''
-//     active={activeItem === ''}
-//     onClick={this.handleItemClick} />
-//
-//   { Object.keys(this.props.user).length > 0 ?
-//     <Menu.Item
-//     as={NavLink} exact to="/"
-//     name=''
-//     active={activeItem === ''}
-//     onClick={this.handleItemClick} /> : null }
-//
-//
-//   <Menu.Menu position='right'>
-//     <Menu.Item>
-//       <Input icon='search' placeholder='Search...' />
-//     </Menu.Item>
-//
-//     {Object.keys(this.props.user).length > 0  ?
-//       (<Dropdown item text={this.props.user.username} color='teal' active={activeItem === 'user' } onClick={this.handleItemClick}>
-//       <Dropdown.Menu>
-//         <Dropdown.Item as={NavLink} exact to="/user">Profile</Dropdown.Item>
-//         <Dropdown.Item as={NavLink} exact to="/settings">Settings</Dropdown.Item>
-//         <Dropdown.Item as={Button} onClick={this.props.logOut}>Logout</Dropdown.Item>
-//       </Dropdown.Menu>
-//     </Dropdown>) :
-//     (<Menu.Item
-//       as={NavLink} exact to="/login"
-//       name='login'
-//       active={activeItem === 'login'}
-//       onClick={this.handleItemClick} />) }
-//   </Menu.Menu>
-//
-// </Menu>
+//          {Object.keys(this.props.user).length > 0  ?
+//            (<Dropdown item text={this.props.user.username} color='teal' active={activeItem === 'user' } onClick={this.handleItemClick}>
+//            <Dropdown.Menu>
+//              <Dropdown.Item as={NavLink} exact to="/user">Profile</Dropdown.Item>
+//              <Dropdown.Item as={NavLink} exact to="/settings">Settings</Dropdown.Item>
+//              <Dropdown.Item as={Button} onClick={this.props.logOut}>Logout</Dropdown.Item>
+//            </Dropdown.Menu>
+//          </Dropdown>) :
+//          (<Menu.Item
+//            as={NavLink} exact to="/login"
+//            name='login'
+//            active={activeItem === 'login'}
+//            onClick={this.handleItemClick} />) }
+//        </Menu.Menu>
