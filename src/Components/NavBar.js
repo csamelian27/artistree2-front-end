@@ -1,42 +1,42 @@
 import React from 'react';
-// import { Button, Dropdown, Image, Input, Menu } from 'semantic-ui-react'
+import { Button, Dropdown, Image, Input, Menu } from 'semantic-ui-react'
 import { NavLink, Route, Switch, withRouter } from "react-router-dom";
 import { connect } from 'react-redux'
 
-const Nav = (props) => {
+class Nav extends React.Component {
 
-  return (
-    <nav className="navbar navbar-default navbar-fixed-top">
-        <div className="container">
+  state = { activeItem: '' }
 
-            <div className="navbar-header">
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
-                <NavLink to="/home">
-                <a className="navbar-brand">
-                    ArtistTree
-                </a>
+  render() {
+    const { activeItem } = this.state
+    return (
+      <nav className="navbar navbar-default navbar-fixed-top">
+          <div className="container">
+
+              <div className="navbar-header">
+                <Menu>
+                  <Menu.Item as={NavLink} exact to="/home" name="home" active={activeItem === 'home'} onClick={this.handleItemClick} />
+
+                  <Menu.Item as={NavLink} exact to="/profile" name="profile" active={activeItem === 'profile'} />
+
+
+                  <Menu.Item as={NavLink} exact to="/users-home" name="users" active={activeItem === 'users'} />
+                  
+                  </Menu>
+              </div>
+
+                <NavLink to="/login">
+                  {this.props.user && localStorage.token ? <button type="button" className="btn btn-light navbar-btn navbar-right" onClick={this.props.handleLogout} >Log Out</button> : <button type="button" className="btn btn-light navbar-btn navbar-right">Log in</button>}
                 </NavLink>
-                <NavLink to="/profile">
-                <a className="navbar-brand">
-                    Profile
-                </a>
+                <NavLink to="/signup">
+                <button type="button" className="btn btn-light navbar-btn navbar-right">Sign up</button>
                 </NavLink>
-                <NavLink to="/activities-home">
-                <a className="navbar-brand">
-                    Browse
-                </a>
-                </NavLink>
-            </div>
-              <NavLink to="/login">
-                {props.user && localStorage.token ? <button type="button" className="btn btn-light navbar-btn navbar-right" onClick={props.handleLogout} >Log Out</button> : <button type="button" className="btn btn-light navbar-btn navbar-right">Log in</button>}
-              </NavLink>
-              <NavLink to="/signup">
-              <button type="button" className="btn btn-light navbar-btn navbar-right">Sign up</button>
-              </NavLink>
-
-        </div>
-    </nav>
-  )
+          </div>
+      </nav>
+    )
+  }
 }
 
 const mapStateToProps = (state) => {
@@ -47,11 +47,7 @@ export default connect(mapStateToProps)(Nav);
 
 
 
-// <NavLink to="/profile">
-// <a className="navbar-brand">
-// View Profile
-// </a>
-// </NavLink>
+
 
 
 
@@ -60,7 +56,7 @@ export default connect(mapStateToProps)(Nav);
 //     <Image src='' size='mini'/>
 //   </Menu.Item>
 //
-//   <Menu.Item as={NavLink} exact to="/home" name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
+//
 //
 //   <Menu.Item
 //     as={NavLink} exact to="/"

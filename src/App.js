@@ -10,6 +10,7 @@ import Login from './Components/Login'
 import Signup from './Components/Signup'
 import NavBar from './Components/NavBar'
 import UserProfileContainer from './Containers/UserProfileContainer'
+import MediaUpload from './Components/MediaUpload'
 
 // console.log(process.env.REACT_APP_API_KEY)
 // console.log("JWT", process.env.REACT_APP_JWT_KEY)
@@ -33,11 +34,9 @@ class App extends Component {
         })
           .then(resp => resp.json())
           .then(user => {
-            // this.setState({ user }, () => {
-            //   console.log(user);
-            // });
-            this.props.createAuth(user)
-            this.props.history.push("/home");
+            this.setState({ user }, () => {
+              this.props.history.push("/home");
+            });
           })
       : this.props.history.push("/signup");
     };
@@ -47,46 +46,46 @@ class App extends Component {
   // user to "/activities-home"
   handleSignup = (userInfo) => {
     console.log('BAD: inside handleSignup');
-    // fetch("http://localhost:3000/api/v1/users", {
-    //   method: "POST",
-    //   headers: {
-    //     "content-type": "application/json",
-    //     "accepts": "application/json"
-    //   },
-    //   body: JSON.stringify({user: userInfo})
-    // })
-    //   .then(resp => resp.json())
-    //   .then(userData => {
-    //     console.log(userData);
-    //     this.setState({ user: userData.user}, () => {
-    //       localStorage.setItem("token", userData.jwt);
-    //       this.props.history.push("/home");
-    //     });
-    //   });
+    fetch("http://localhost:3000/api/v1/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "accepts": "application/json"
+      },
+      body: JSON.stringify({user: userInfo})
+    })
+      .then(resp => resp.json())
+      .then(userData => {
+        console.log(userData);
+        this.setState({ user: userData.user}, () => {
+          localStorage.setItem("token", userData.jwt);
+          this.props.history.push("/home");
+        });
+      });
   }
 
   // login handler sends over userInfo body
   handleLogin = (userInfo) => {
     console.log('BAD: inside handleLogin');
-  // fetch("http://localhost:3000/api/v1/login", {
-  //   method: "POST",
-  //   headers: {
-  //     "content-type": "application/json",
-  //     "accepts": "application/json"
-  //   },
-  //   body: JSON.stringify({user: userInfo})
-  // })
-  //   .then(resp => resp.json())
-  //   .then(userData => {
-  //     console.log(userData);
-  //     if(userData.message) {
-  //       this.props.history.push("/login");
-  //     } else {
-  //       this.setState({ user: userData.user })
-  //       localStorage.setItem("token", userData.jwt)
-  //       this.props.history.push("/home")
-  //     }
-  //   });
+  fetch("http://localhost:3000/api/v1/login", {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      "accepts": "application/json"
+    },
+    body: JSON.stringify({user: userInfo})
+  })
+    .then(resp => resp.json())
+    .then(userData => {
+      console.log(userData);
+      if(userData.message) {
+        this.props.history.push("/login");
+      } else {
+        this.setState({ user: userData.user })
+        localStorage.setItem("token", userData.jwt)
+        this.props.history.push("/home")
+      }
+    });
   };
 
   handleLogout = () => {
@@ -100,10 +99,11 @@ class App extends Component {
       <div className="App">
         <NavBar user={this.state.user} handleLogout={this.handleLogout} />
         <Switch>
-          <Route exact path="/profile" component={UserProfileContainer} />
+          <Route exact path="/media_upload" render={() => <MediaUpload user={this.state.user} />} />
+          <Route exact path="/profile" render={() => <UserProfileContainer user={this.state.user} />} />
           <Route exact path="/home" render={() => <Home user={this.state.user} />} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/login" render={() => <Login user={this.state.user} handleLogin={this.handleLogin} />} />
+          <Route exact path="/signup" render={() => <Signup user={this.state.user} handleSignup={this.handleSignup} />} />
           <Route exact path="/logout" component={Home} />
           <Route path="/" component={Error} />
         </Switch>
@@ -112,11 +112,11 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  createAuth: (user) => dispatch(createAuth(user))
-})
+// const mapDispatchToProps = (dispatch) => ({
+//   createAuth: (user) => dispatch(createAuth(user))
+// })
 
-export default connect(null, mapDispatchToProps)(withRouter(App));
+export default withRouter(App);
 
 
 

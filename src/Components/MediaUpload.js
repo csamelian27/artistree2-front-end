@@ -19,7 +19,8 @@ class MediaUpload extends React.Component {
 
   handleSubmitMedia = (e) => {
     e.preventDefault()
-    this.props.createMedia(this.state, this.props.user.user.id)
+    this.props.createMedia(this.state, this.props.user.id)
+    // this.props.history.push('/profile')
   }
 
   render(){
@@ -78,15 +79,15 @@ class MediaUpload extends React.Component {
   }
 }
 
-const mapStateToProps = ({user}) => {
-  return {user}
-}
+// const mapStateToProps = ({user}) => {
+//   return {user}
+// }
 
 const mapDispatchToProps = (dispatch) => ({
   createMedia: (media, userId) => dispatch(createMedia(media, userId))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(MediaUpload)
+export default connect(null, mapDispatchToProps)(MediaUpload)
 
 
 

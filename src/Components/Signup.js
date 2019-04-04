@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { createUser } from '../Actions/userActions'
+// import { createUser } from '../Actions/userActions'
 
 class Signup extends Component {
 
@@ -8,8 +8,8 @@ class Signup extends Component {
     full_name: "",
     email: "",
     password: "",
-    password_confirmation: ""
-    // avatar: ""
+    password_confirmation: "",
+    avatar: ""
   }
 
   handleChange = (e) => {
@@ -21,11 +21,11 @@ class Signup extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     console.log(e.target);
-    this.props.createUser(this.state)
-    this.props.history.push('/home')
+    this.props.handleSignup(this.state)
   }
 
   render(){
+    console.log(this.state);
     return (
       <div id="signup">
         <div className="user">
@@ -51,6 +51,13 @@ class Signup extends Component {
                   <input type="password" name="password_confirmation" placeholder="Confirm Password" className="form__input" value={this.state.password_confirmation} onChange={this.handleChange} />
               </div>
 
+              <label for="avatar">Choose a profile picture:</label>
+              <br></br>
+              <input type="file" id="avatar" name="avatar" accept="image/*" onChange={this.handleChange} />
+
+
+              <br></br>
+              <br></br>
               <button className="btn" type="submit">Register</button>
           </form>
         </div>
@@ -59,11 +66,11 @@ class Signup extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  createUser: (user) => dispatch(createUser(user))
-})
+// const mapDispatchToProps = (dispatch) => ({
+//   createUser: (user) => dispatch(createUser(user))
+// })
 
-export default connect(null, mapDispatchToProps)(Signup)
+export default Signup
 
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { createAuth } from '../Actions/userActions'
+// import { createAuth } from '../Actions/userActions'
 
 class Login extends React.Component {
 
@@ -17,8 +17,7 @@ class Login extends React.Component {
 
    handleLogin = e => {
      e.preventDefault();
-     this.props.createAuth(this.state);
-     this.props.history.push('/home')
+     this.props.handleLogin(this.state);
    };
 
   render() {
@@ -35,11 +34,11 @@ class Login extends React.Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  createAuth: (user) => dispatch(createAuth(user))
-})
+// const mapDispatchToProps = (dispatch) => ({
+//   createAuth: (user) => dispatch(createAuth(user))
+// })
 
-export default connect(null, mapDispatchToProps)(Login)
+export default Login
 
 
 
