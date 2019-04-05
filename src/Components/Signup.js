@@ -8,13 +8,19 @@ class Signup extends Component {
     full_name: "",
     email: "",
     password: "",
-    password_confirmation: ""
-    // avatar: ""
+    password_confirmation: "",
+    avatar: null
   }
 
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
+    })
+  }
+
+  handleFile = (e) => {
+    this.setState({
+      avatar: e.target.files[0]
     })
   }
 
@@ -54,7 +60,7 @@ class Signup extends Component {
 
               <label name="avatar">Choose a profile picture:</label>
               <br></br>
-              <input type="file" id="avatar" name="avatar" accept="image/*" onChange={this.handleChange} />
+              <input type="file" id="avatar" name="avatar" accept="image/*" onChange={this.handleFile} />
 
 
               <br></br>

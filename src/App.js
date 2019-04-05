@@ -52,7 +52,7 @@ class App extends Component {
     formData.append('user[email]', email)
     formData.append('user[password]', password)
     formData.append('user[password_confirmation]', password_confirmation)
-    // formData.append('user[avatar]', avatar)
+    formData.append('user[avatar]', avatar)
     console.log('FORM DATA: ', formData);
 
     fetch("http://localhost:3000/api/v1/users", {

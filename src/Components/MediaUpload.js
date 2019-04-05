@@ -1,6 +1,7 @@
 import React from 'react'
 import { Form, Input, TextArea, Select } from 'semantic-ui-react'
 // Button ^^ from semantic-ui-react
+import { withRouter } from "react-router-dom";
 import { connect } from 'react-redux'
 import { createMedia } from '../Actions/mediaItemActions'
 
@@ -10,19 +11,16 @@ class MediaUpload extends React.Component {
     title: "",
     description: "",
     category: "",
-    files: []
+    files: null
+  }
+
+  handleFile = (e) => {
+    this.setState({
+      files: e.target.files[0]
+    })
   }
 
   handleChange = (e) => {
-    if(e.target.name === 'files') {
-      const media = e.target.value
-      // let split = media.split('.jpg')
-      // let media1 = split[1]
-      // console.log(media1);
-      this.setState({
-        files: [...this.state.files, media]
-      })
-    }
     this.setState({
       [e.target.name]: e.target.value
     })
@@ -31,7 +29,7 @@ class MediaUpload extends React.Component {
   handleSubmitMedia = (e) => {
     e.preventDefault()
     this.props.createMedia(this.state, this.props.user.id)
-    // this.props.history.push('/profile')
+    this.props.history.push('/profile')
   }
 
   render(){
@@ -87,7 +85,7 @@ class MediaUpload extends React.Component {
                 }}
               />
             </Form.Group>
-            <input type="file" id="files" name="files" accept="*" onChange={this.handleChange} />
+            <input type="file" id="files" name="files" accept="*" onChange={this.handleFile} />
             <button id='form-button-control-confirm' onClick={this.handleSubmitMedia}>Confirm</button>
           </Form>
 
@@ -105,7 +103,7 @@ const mapDispatchToProps = (dispatch) => ({
   createMedia: (media, userId) => dispatch(createMedia(media, userId))
 })
 
-export default connect(null, mapDispatchToProps)(MediaUpload)
+export default connect(null, mapDispatchToProps)(withRouter(MediaUpload))
 
 
 
