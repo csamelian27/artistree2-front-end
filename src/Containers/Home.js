@@ -23,7 +23,7 @@ class Home extends React.Component {
           <source src='rain.mp4' type="video/mp4" />
         </video>
 
-      <div class="content">
+      <div className="content">
         <h3>Created by</h3>
         <h5>Cassidy Samelian</h5>
       </div>

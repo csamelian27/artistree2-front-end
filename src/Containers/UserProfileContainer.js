@@ -1,8 +1,7 @@
 import React from 'react'
 import MediaListContainer from './MediaListContainer'
-import MediaUpload from '../Components/MediaUpload'
-import { connect } from 'react-redux'
-import { Route, Switch, withRouter } from "react-router-dom";
+// import { connect } from 'react-redux'
+import { withRouter } from "react-router-dom";
 
 class UserProfileContainer extends React.Component {
 

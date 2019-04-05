@@ -1,6 +1,7 @@
 import React from 'react';
-import { Button, Dropdown, Image, Input, Menu } from 'semantic-ui-react'
-import { NavLink, Route, Switch, withRouter } from "react-router-dom";
+import { Menu } from 'semantic-ui-react'
+import { NavLink } from "react-router-dom";
+// import { Route, Switch, withRouter } from "react-router-dom";
 import { connect } from 'react-redux'
 
 class Nav extends React.Component {
@@ -29,8 +30,8 @@ class Nav extends React.Component {
                   <Menu.Item as={NavLink} exact to="/login" name="login" active={activeItem === 'login'} />
                 }
 
-                {this.props.user ? null :
-                  <Menu.Item as={NavLink} exact to="/signup" name="signup" active={activeItem === 'signup'} /> }
+                <Menu.Item as={NavLink} exact to="/signup" name="signup" active={activeItem === 'signup'} />
+
                 </Menu.Menu>
               </Menu>
             </div>
@@ -46,6 +47,10 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps)(Nav);
 
+
+
+
+// import { Button, Dropdown, Image, Input, Menu } from 'semantic-ui-react'
 
 
 // {this.props.user && localStorage.token ? <button type="button" className="btn btn-light navbar-btn navbar-right" onClick={this.props.handleLogout} >Log Out</button> : <button type="button" className="btn btn-light navbar-btn navbar-right">Log in</button>}

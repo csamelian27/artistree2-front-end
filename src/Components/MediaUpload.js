@@ -1,5 +1,6 @@
 import React from 'react'
-import { Form, Input, TextArea, Button, Select } from 'semantic-ui-react'
+import { Form, Input, TextArea, Select } from 'semantic-ui-react'
+// Button ^^ from semantic-ui-react
 import { connect } from 'react-redux'
 import { createMedia } from '../Actions/mediaItemActions'
 
@@ -8,10 +9,20 @@ class MediaUpload extends React.Component {
   state = {
     title: "",
     description: "",
-    category: ""
+    category: "",
+    files: []
   }
 
   handleChange = (e) => {
+    if(e.target.name === 'files') {
+      const media = e.target.value
+      // let split = media.split('.jpg')
+      // let media1 = split[1]
+      // console.log(media1);
+      this.setState({
+        files: [...this.state.files, media]
+      })
+    }
     this.setState({
       [e.target.name]: e.target.value
     })
@@ -39,7 +50,7 @@ class MediaUpload extends React.Component {
       <div id="upload">
         <br></br>
         <h2>Upload Media</h2>
-        <img id="upload-pic" src="https://bmoca.org/media/exhibition_images/1773/small_IMG_8326_cew_large.jpg" />
+        <img id="upload-pic" src="https://bmoca.org/media/exhibition_images/1773/small_IMG_8326_cew_large.jpg" alt="media-upload-pic" />
         <div id="media-upload">
           <Form>
             <Form.Group widths='equal'>
@@ -76,6 +87,7 @@ class MediaUpload extends React.Component {
                 }}
               />
             </Form.Group>
+            <input type="file" id="files" name="files" accept="*" onChange={this.handleChange} />
             <button id='form-button-control-confirm' onClick={this.handleSubmitMedia}>Confirm</button>
           </Form>
 

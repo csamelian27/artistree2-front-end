@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 // import { createUser } from '../Actions/userActions'
 
 class Signup extends Component {
@@ -8,8 +8,8 @@ class Signup extends Component {
     full_name: "",
     email: "",
     password: "",
-    password_confirmation: "",
-    avatar: ""
+    password_confirmation: ""
+    // avatar: ""
   }
 
   handleChange = (e) => {
@@ -21,6 +21,7 @@ class Signup extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     console.log(e.target);
+    debugger
     this.props.handleSignup(this.state)
   }
 
@@ -51,7 +52,7 @@ class Signup extends Component {
                   <input type="password" name="password_confirmation" placeholder="Confirm Password" className="form__input" value={this.state.password_confirmation} onChange={this.handleChange} />
               </div>
 
-              <label for="avatar">Choose a profile picture:</label>
+              <label name="avatar">Choose a profile picture:</label>
               <br></br>
               <input type="file" id="avatar" name="avatar" accept="image/*" onChange={this.handleChange} />
 

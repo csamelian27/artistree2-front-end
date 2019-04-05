@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, Switch, withRouter } from "react-router-dom";
-import { createAuth } from './Actions/userActions'
-import { connect } from 'react-redux'
+// import { createAuth } from './Actions/userActions'
+// import { connect } from 'react-redux'
 
 import Error from './Containers/Error'
 import Home from './Containers/Home'
@@ -46,13 +46,18 @@ class App extends Component {
   // user to "/activities-home"
   handleSignup = (userInfo) => {
     console.log('BAD: inside handleSignup');
+    const formData = new FormData()
+    const { full_name, email, password, password_confirmation, avatar } = userInfo
+    formData.append('user[full_name]', full_name)
+    formData.append('user[email]', email)
+    formData.append('user[password]', password)
+    formData.append('user[password_confirmation]', password_confirmation)
+    // formData.append('user[avatar]', avatar)
+    console.log('FORM DATA: ', formData);
+
     fetch("http://localhost:3000/api/v1/users", {
       method: "POST",
-      headers: {
-        "content-type": "application/json",
-        "accepts": "application/json"
-      },
-      body: JSON.stringify({user: userInfo})
+      body: formData
     })
       .then(resp => resp.json())
       .then(userData => {
