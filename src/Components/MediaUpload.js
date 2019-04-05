@@ -11,12 +11,12 @@ class MediaUpload extends React.Component {
     title: "",
     description: "",
     category: "",
-    files: null
+    file: null
   }
 
   handleFile = (e) => {
     this.setState({
-      files: e.target.files[0]
+      file: e.target.files[0]
     })
   }
 
@@ -85,7 +85,7 @@ class MediaUpload extends React.Component {
                 }}
               />
             </Form.Group>
-            <input type="file" id="files" name="files" accept="*" onChange={this.handleFile} />
+            <input type="file" id="file" name="file" accept="*" onChange={this.handleFile} />
             <button id='form-button-control-confirm' onClick={this.handleSubmitMedia}>Confirm</button>
           </Form>
 

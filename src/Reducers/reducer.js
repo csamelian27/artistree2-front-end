@@ -13,7 +13,10 @@ const initialState = {
     case('ADD_MEDIA'):
       return {media_item: action.payload}
     case('SHOW_MEDIA'):
-      return {media: [...state.media, action.payload.media_items]}
+      console.log('inside show media reducer');
+      console.log(action.payload);
+      console.log(state.media);
+      return {media: action.payload}
      default:
       return state
    }

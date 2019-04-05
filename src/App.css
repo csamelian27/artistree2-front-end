@@ -32,6 +32,15 @@
   }
 }
 
+#avatar-img {
+  height: 20vw;
+  width: auto;
+}
+
+#media-img {
+  height: 30vw;
+  width: auto;
+}
 
 /* START MediaUpload CSS */
 

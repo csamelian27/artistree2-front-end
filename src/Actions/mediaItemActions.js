@@ -7,12 +7,12 @@ export const createMedia = (mediaItem, userId) => {
   return dispatch => {
     let token = localStorage.token
     const formData = new FormData()
-    const { title, description, category, files } = mediaItem
+    const { title, description, category, file } = mediaItem
 
     formData.append('media_item[title]', title)
     formData.append('media_item[description]', description)
     formData.append('media_item[category]', category)
-    formData.append('media_item[files]', files)
+    formData.append('media_item[file]', file)
     formData.append('media_item[user_id]', userId)
 
     return fetch("http://localhost:3000/api/v1/media_items", {
@@ -38,12 +38,11 @@ export const getMedia = (userId) => {
       headers: {
         "Authorization": `Bearer ${token}`
       }
-    })
-      .then(r => r.json())
+    }).then(resp => resp.json())
       .then(user => {
         console.log(user);
         console.log(user.media_items);
-        dispatch(showMedia(user))
+        dispatch(showMedia(user.media_items))
       })
   }
 }

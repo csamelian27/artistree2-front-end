@@ -9,14 +9,16 @@ class MediaListContainer extends React.Component {
     this.props.getMedia(this.props.user.id)
   }
 
-  render() {
-    const userMedia = this.props.media[1]
-    console.log(this.props.media);
+  renderCards = () => {
+    if(this.props.media){
+    return this.props.media.map((mediaObj, index) => <MediaCard key={index} media={mediaObj} />)}
+  }
 
+  render() {
     return (
       <div id="media-list">
         <h1>Media List</h1>
-        {userMedia ? userMedia.map((mediaObj, index) => <MediaCard key={index} media={mediaObj} />) : <h1>Upload some media</h1>}
+        {this.renderCards()}
       </div>
     )
   }
