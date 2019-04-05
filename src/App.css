@@ -42,6 +42,10 @@
   width: auto;
 }
 
+#site-title {
+  font-size: 2.55vw;
+}
+
 /* START MediaUpload CSS */
 
 #profile {
@@ -128,7 +132,7 @@
 #nav-menu {
   background-color: rgb(165	197	209	);
   opacity: 0.9;
-  height: 3vw;
+  height: 4vw;
   font-size: 1.35vw;
 }
 

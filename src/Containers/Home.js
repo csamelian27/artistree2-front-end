@@ -27,14 +27,16 @@ class Home extends React.Component {
         <h3>Created by</h3>
         <h5>Cassidy Samelian</h5>
       </div>
-
-      <Container className='welcome'> <Header as='h2'>WELCOME TO ARTISTREE</Header></Container>
       </div>
     )
   }
 }
 
 export default Home
+
+
+
+// <Container className='welcome'> <Header as='h2'>WELCOME TO ARTISTREE</Header></Container>
 
 
   // <button id="myBtn" onclick={this.handleClickBtn}>Pause</button>

@@ -85,7 +85,7 @@ class MediaUpload extends React.Component {
                 }}
               />
             </Form.Group>
-            <input type="file" id="file" name="file" accept="*" onChange={this.handleFile} />
+            <input type="file" id="file" name="file" accept="image/*,audio/*,video/*,.pdf,.jpg,.doc " onChange={this.handleFile} />
             <button id='form-button-control-confirm' onClick={this.handleSubmitMedia}>Confirm</button>
           </Form>
 

@@ -12,6 +12,20 @@ class Nav extends React.Component {
 
   render() {
     const { activeItem } = this.state
+    let loginOptions = null;
+    if(localStorage.token) {
+      loginOptions =
+      <Menu.Menu position='right'>
+        <Menu.Item as={NavLink} exact to="/logout" name="logout" active={activeItem === 'logout'} onClick={this.props.handleLogout} />
+      </Menu.Menu>
+    } else {
+      loginOptions =
+      <Menu.Menu position='right'>
+        <Menu.Item as={NavLink} exact to="/login" name="login" active={activeItem === 'login'} />
+
+        <Menu.Item as={NavLink} exact to="/signup" name="signup" active={activeItem === 'signup'} />
+      </Menu.Menu>
+    }
     return (
       <nav className="navbar navbar-default navbar-fixed-top">
           <div className="container">
@@ -24,15 +38,11 @@ class Nav extends React.Component {
                 <Menu.Item as={NavLink} exact to="/users-home" name="users" active={activeItem === 'users'} />
 
                 <Menu.Menu position='right'>
-                {this.props.user && localStorage.token ?
-                  <Menu.Item as={NavLink} exact to="/logout" name="logout" active={activeItem === 'logout'} onClick={this.props.handleLogout} /> :
-
-                  <Menu.Item as={NavLink} exact to="/login" name="login" active={activeItem === 'login'} />
-                }
-
-                <Menu.Item as={NavLink} exact to="/signup" name="signup" active={activeItem === 'signup'} />
-
+                  <Menu.Item header id="site-title">Welcome To ArtisTree!</Menu.Item>
                 </Menu.Menu>
+
+                {loginOptions}
+
               </Menu>
             </div>
           </div>
