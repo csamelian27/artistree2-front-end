@@ -1,4 +1,5 @@
 const addMedia = (mediaItem) => ({type: 'ADD_MEDIA', payload: mediaItem})
+const showMedia = (media) => ({type: 'SHOW_MEDIA', payload: media})
 
 export const createMedia = (mediaItem, userId) => {
   console.log('User ID', userId);
@@ -26,5 +27,23 @@ export const createMedia = (mediaItem, userId) => {
         console.log(mediaItemData);
         dispatch(addMedia(mediaItemData))
       });
+  }
+}
+
+export const getMedia = (userId) => {
+  return dispatch => {
+    let token = localStorage.token
+    return fetch(`http://localhost:3000/api/v1/users/${userId}`, {
+      method: 'GET',
+      headers: {
+        "Authorization": `Bearer ${token}`
+      }
+    })
+      .then(r => r.json())
+      .then(user => {
+        console.log(user);
+        console.log(user.media_items);
+        dispatch(showMedia(user))
+      })
   }
 }

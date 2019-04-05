@@ -1,5 +1,6 @@
 const initialState = {
-  user: {}
+  user: {},
+  media: []
 }
 
  export default function reducer(state = initialState, action) {
@@ -11,6 +12,8 @@ const initialState = {
     //   return {user: action.payload}
     case('ADD_MEDIA'):
       return {media_item: action.payload}
+    case('SHOW_MEDIA'):
+      return {media: [...state.media, action.payload.media_items]}
      default:
       return state
    }
