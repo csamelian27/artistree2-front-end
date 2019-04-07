@@ -35,9 +35,9 @@ class UserProfileContainer extends React.Component {
 
         <Button primary onClick={this.handleClickMediaUpload}>{this.state.clickedMediaUpload ? null : 'Upload New Media'}</Button>
 
-        {this.state.clickedResumeUpload ? this.props.history.push('/resume_upload') : <MediaListContainer user={this.props.user} />}
+        {this.state.clickedResumeUpload ? this.props.history.push('/resume_upload') : <ResumeContainer user={this.props.user} />}
 
-        {this.state.clickedMediaUpload ? this.props.history.push('/media_upload') : <ResumeContainer user={this.props.user} />}
+        {this.state.clickedMediaUpload ? this.props.history.push('/media_upload') : <MediaListContainer user={this.props.user} />}
       </div>
     )
   }

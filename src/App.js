@@ -65,7 +65,7 @@ class App extends Component {
         console.log(userData);
         this.setState({ user: userData.user}, () => {
           localStorage.setItem("token", userData.jwt);
-          this.props.history.push("/home");
+          this.props.history.push("/profile");
         });
       });
   }

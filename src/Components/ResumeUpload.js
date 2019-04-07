@@ -1,13 +1,64 @@
 import React from 'react'
+import { Form, Input, TextArea, Select, Button, Label } from 'semantic-ui-react'
+import { withRouter } from "react-router-dom";
+import { connect } from 'react-redux'
+import { createResume } from '.../Actions/resumeActions'
 
-const ResumeUpload = () => {
+class ResumeUpload extends React.Component {
 
-  return(
-    <div id="resume-upload">
-      <h1>Resume Upload</h1>
-    </div>
-  )
+  state = {
+    resumeFileType: ""
+  }
 
+  handleResume = (e) => {
+    this.setState({
+      resumeFileType: e.target.value
+    })
+  }
+
+  handleSubmitResume = (e) => {
+    e.preventDefault()
+    this.props.createResume(this.state, this.props.user.id)
+    this.props.history.push('/profile')
+  }
+
+  render(){
+    const resumeOptions = [
+      { key: 'PDF', text: 'PDF', value: 'PDF'},
+      { key: 'jpeg/jpg', text: 'jpeg/jpg', value: 'jpeg/jpg'},
+      { key: 'doc', text: 'doc', value: 'doc'}
+    ]
+
+    return(
+      <div id="resume-upload">
+        <h1>Resume Upload</h1>
+        <Form>
+          <Form.Group widths="equal">
+            <strong><Label horizontal for="resume" id="resume" className="form-input">Resume:
+              <input type="file" id="resume" name="resume" accept=".pdf,.jpg,.doc" onChange={this.handleFile} />
+            </Label></strong>
+
+            <Form.Field
+              id="form-input-control-resume"
+              className="form-input"
+              control={Select}
+              options={resumeOptions}
+              label='Resume file type'
+              name="resumeFileType"
+              placeholder='Select Resume file type'
+              onChange={(e) => {
+                e.target.value = e.target.innerText
+                e.target.name = "resumeFileType"
+                this.handleResume(e)
+              }}
+            />
+          </Form.Group>
+
+          <Button secondary id='form-button-control-confirm btn btn-dark' onClick={this.handleSubmitResume}>Confirm</Button>
+      </Form>
+      </div>
+    )
+  }
 }
 
-export default ResumeUpload
+export default connect(null, {createResume})(withRouter(ResumeUpload))

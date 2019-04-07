@@ -27,12 +27,6 @@ class MediaUpload extends React.Component {
     })
   }
 
-  handleResume = (e) => {
-    this.setState({
-      resumeFileType: e.target.value
-    })
-  }
-
   handleMediaType = (e) => {
     this.setState({
       mediaFileType: e.target.value
@@ -55,12 +49,6 @@ class MediaUpload extends React.Component {
       { key: 'music', text: 'Music', value: 'music' },
       { key: 'art', text: 'Art', value: 'art' },
       { key: 'poetry', text: 'Poetry', value: 'poetry' },
-    ]
-
-    const resumeOptions = [
-      { key: 'PDF', text: 'PDF', value: 'PDF'},
-      { key: 'jpeg/jpg', text: 'jpeg/jpg', value: 'jpeg/jpg'},
-      { key: 'doc', text: 'doc', value: 'doc'}
     ]
 
     const mediaOptions = [
@@ -109,26 +97,6 @@ class MediaUpload extends React.Component {
                   e.target.value = e.target.innerText
                   e.target.name = "category"
                   this.handleChange(e)
-                }}
-              />
-            </Form.Group>
-            <Form.Group widths="equal">
-              <strong><Label horizontal for="resume" id="resume" className="form-input">Resume:
-                <input type="file" id="resume" name="resume" accept=".pdf,.jpg,.doc" onChange={this.handleFile} />
-              </Label></strong>
-
-              <Form.Field
-                id="form-input-control-resume"
-                className="form-input"
-                control={Select}
-                options={resumeOptions}
-                label='Resume file type'
-                name="resumeFileType"
-                placeholder='Select Resume file type'
-                onChange={(e) => {
-                  e.target.value = e.target.innerText
-                  e.target.name = "resumeFileType"
-                  this.handleResume(e)
                 }}
               />
             </Form.Group>
