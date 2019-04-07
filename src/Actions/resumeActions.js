@@ -1,4 +1,22 @@
+const showResume = (resume) => ({type: 'SHOW_RESUME', payload: resume})
 const addResume = (resume) => ({type: 'ADD_RESUME', payload: resume})
+
+export const getResume = (userId) => {
+  return dispatch => {
+    let token = localStorage.token
+    return fetch(`http://localhost:3000/api/v1/resume/${userId}`, {
+      method: 'GET',
+      headers: {
+        "Authorization": `Bearer ${token}`
+      }
+    })
+      .then(resp => resp.json())
+      .then(resume => {
+        console.log(resume);
+        dispatch(showResume(resume))
+      })
+  }
+}
 
 export const createResume = (resumeInfo, userId) => {
   console.log('User ID', userId);
@@ -8,8 +26,8 @@ export const createResume = (resumeInfo, userId) => {
     const formData = new FormData()
     const { resume } = resumeInfo
 
-    formData.append('user[resume]', resume),
-    formData.append('user[user_id]', userId)
+    formData.append('resume[resume]', resume)
+    formData.append('resume[user_id]', userId)
 
     return fetch('http://localhost:3000/api/v1/resumes', {
       method: 'POST',
@@ -21,6 +39,7 @@ export const createResume = (resumeInfo, userId) => {
       .then(resp => resp.json())
       .then(resume => {
         console.log(resume);
+        dispatch(addResume(resume))
       })
   }
 }

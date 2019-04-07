@@ -2,19 +2,26 @@ import React from 'react'
 import { Form, Input, TextArea, Select, Button, Label } from 'semantic-ui-react'
 import { withRouter } from "react-router-dom";
 import { connect } from 'react-redux'
-import { createResume } from '.../Actions/resumeActions'
+import { createResume } from '../Actions/resumeActions'
 
 class ResumeUpload extends React.Component {
 
   state = {
-    resumeFileType: ""
+    resume: ""
+    // resumeFileType: ""
   }
 
-  handleResume = (e) => {
+  handleFile = (e) => {
     this.setState({
-      resumeFileType: e.target.value
+      resume: e.target.files[0]
     })
   }
+
+  // handleResumeFileType = (e) => {
+  //   this.setState({
+  //     resumeFileType: e.target.value
+  //   })
+  // }
 
   handleSubmitResume = (e) => {
     e.preventDefault()
@@ -38,20 +45,6 @@ class ResumeUpload extends React.Component {
               <input type="file" id="resume" name="resume" accept=".pdf,.jpg,.doc" onChange={this.handleFile} />
             </Label></strong>
 
-            <Form.Field
-              id="form-input-control-resume"
-              className="form-input"
-              control={Select}
-              options={resumeOptions}
-              label='Resume file type'
-              name="resumeFileType"
-              placeholder='Select Resume file type'
-              onChange={(e) => {
-                e.target.value = e.target.innerText
-                e.target.name = "resumeFileType"
-                this.handleResume(e)
-              }}
-            />
           </Form.Group>
 
           <Button secondary id='form-button-control-confirm btn btn-dark' onClick={this.handleSubmitResume}>Confirm</Button>
@@ -61,4 +54,20 @@ class ResumeUpload extends React.Component {
   }
 }
 
-export default connect(null, {createResume})(withRouter(ResumeUpload))
+export default connect(null, { createResume })(withRouter(ResumeUpload))
+
+
+// <Form.Field
+//   id="form-input-control-resume"
+//   className="form-input"
+//   control={Select}
+//   options={resumeOptions}
+//   label='Resume file type'
+//   name="resume"
+//   placeholder='Select Resume file type'
+//   onChange={(e) => {
+//     e.target.value = e.target.innerText
+//     e.target.name = "resume"
+//     this.handleResumeFileType(e)
+//   }}
+// />
