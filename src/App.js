@@ -11,6 +11,7 @@ import Signup from './Components/Signup'
 import NavBar from './Components/NavBar'
 import UserProfileContainer from './Containers/UserProfileContainer'
 import MediaUpload from './Components/MediaUpload'
+import ResumeUpload from './Components/ResumeUpload'
 
 // console.log(process.env.REACT_APP_API_KEY)
 // console.log("JWT", process.env.REACT_APP_JWT_KEY)
@@ -105,6 +106,7 @@ class App extends Component {
         <NavBar user={this.state.user} handleLogout={this.handleLogout} />
         <Switch>
           <Route exact path="/media_upload" render={() => <MediaUpload user={this.state.user} />} />
+          <Route exact path="/resume_upload" render={() => <ResumeUpload user={this.state.user} />} />
           <Route exact path="/profile" render={() => <UserProfileContainer user={this.state.user} />} />
           <Route exact path="/home" render={() => <Home user={this.state.user} />} />
           <Route exact path="/login" render={() => <Login user={this.state.user} handleLogin={this.handleLogin} />} />

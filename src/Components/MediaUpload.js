@@ -1,6 +1,5 @@
 import React from 'react'
-import { Form, Input, TextArea, Select } from 'semantic-ui-react'
-// Button ^^ from semantic-ui-react
+import { Form, Input, TextArea, Select, Button, Label } from 'semantic-ui-react'
 import { withRouter } from "react-router-dom";
 import { connect } from 'react-redux'
 import { createMedia } from '../Actions/mediaItemActions'
@@ -11,7 +10,9 @@ class MediaUpload extends React.Component {
     title: "",
     description: "",
     category: "",
-    file: null
+    file: null,
+    resumeFileType: "",
+    mediaFileType: ""
   }
 
   handleFile = (e) => {
@@ -23,6 +24,18 @@ class MediaUpload extends React.Component {
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
+    })
+  }
+
+  handleResume = (e) => {
+    this.setState({
+      resumeFileType: e.target.value
+    })
+  }
+
+  handleMediaType = (e) => {
+    this.setState({
+      mediaFileType: e.target.value
     })
   }
 
@@ -42,6 +55,20 @@ class MediaUpload extends React.Component {
       { key: 'music', text: 'Music', value: 'music' },
       { key: 'art', text: 'Art', value: 'art' },
       { key: 'poetry', text: 'Poetry', value: 'poetry' },
+    ]
+
+    const resumeOptions = [
+      { key: 'PDF', text: 'PDF', value: 'PDF'},
+      { key: 'jpeg/jpg', text: 'jpeg/jpg', value: 'jpeg/jpg'},
+      { key: 'doc', text: 'doc', value: 'doc'}
+    ]
+
+    const mediaOptions = [
+      { key: 'PDF', text: 'PDF', value: 'PDF'},
+      { key: 'jpeg/jpg', text: 'jpeg/jpg', value: 'jpeg/jpg'},
+      { key: 'doc', text: '.doc', value: 'doc'},
+      { key: 'mp3', text: '.mp3', value: 'mp3'},
+      { key: 'mp4', text: '.mp4', value: 'mp4'}
     ]
 
     return (
@@ -85,8 +112,49 @@ class MediaUpload extends React.Component {
                 }}
               />
             </Form.Group>
-            <input type="file" id="file" name="file" accept="image/*,audio/*,video/*,.pdf,.jpg,.doc " onChange={this.handleFile} />
-            <button id='form-button-control-confirm' onClick={this.handleSubmitMedia}>Confirm</button>
+            <Form.Group widths="equal">
+              <strong><Label horizontal for="resume" id="resume" className="form-input">Resume:
+                <input type="file" id="resume" name="resume" accept=".pdf,.jpg,.doc" onChange={this.handleFile} />
+              </Label></strong>
+
+              <Form.Field
+                id="form-input-control-resume"
+                className="form-input"
+                control={Select}
+                options={resumeOptions}
+                label='Resume file type'
+                name="resumeFileType"
+                placeholder='Select Resume file type'
+                onChange={(e) => {
+                  e.target.value = e.target.innerText
+                  e.target.name = "resumeFileType"
+                  this.handleResume(e)
+                }}
+              />
+            </Form.Group>
+
+            <Form.Group widths="equal">
+              <strong><Label for="media" id="media" className="form-input">Media:
+                <input type="file" id="media" name="media" accept="image/*,audio/*,video/*,.pdf,.jpg,.doc " onChange={this.handleFile} />
+              </Label></strong>
+
+              <Form.Field
+                id="form-input-control-media"
+                className="form-input"
+                control={Select}
+                options={mediaOptions}
+                label='Media file type'
+                name="mediaFileType"
+                placeholder='Select Media file type'
+                onChange={(e) => {
+                  e.target.value = e.target.innerText
+                  e.target.name = "mediaFileType"
+                  this.handleMediaType(e)
+                }}
+              />
+            </Form.Group>
+
+              <Button secondary id='form-button-control-confirm btn btn-dark' onClick={this.handleSubmitMedia}>Confirm</Button>
           </Form>
 
         </div>

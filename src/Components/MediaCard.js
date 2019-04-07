@@ -6,7 +6,7 @@ const MediaCard = (props) => {
     <div id="media-card">
       <h2>Category: {props.media.category}</h2>
       <img id="media-img" src={props.media && props.media.file ? props.media.file.file_url : <h3>fucked up</h3>} />
-      <embed src={props.media.title === 'pdf' ? props.media.file.file_url : null} width="500" height="375" type="application/pdf" />
+      {props.media.title === 'pdf' ? <embed src={props.media.file.file_url} width="500" height="700" type="application/pdf" /> : null}
     </div>
   )
 }

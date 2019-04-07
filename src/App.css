@@ -33,8 +33,10 @@
 }
 
 #avatar-img {
-  height: 20vw;
-  width: auto;
+  height: 12vw;
+  width: 12vw;
+  vertical-align: middle;
+  border-radius: 50%;
 }
 
 #media-img {
@@ -62,14 +64,19 @@
 /* START MEDIA-UPLOAD CSS */
 
 .form-input {
-  font-size: 1.25vw;
+  font-size: 1.75vw;
+}
+
+#resume {
+  margin-right: .75vw;
 }
 
 #media-upload {
   position: absolute;
   top: 10vw;
-  left: 20vw;
-  right: 20vw;
+  left: 15vw;
+  right: 15vw;
+  margin-top: 5vw;
 }
 
 #upload-pic {
