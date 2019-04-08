@@ -11,19 +11,20 @@ const initialState = {
      //  return {user: action.payload}
     // case('ADD_AUTH'):
     //   return {user: action.payload}
+    case('SHOW_RESUME'):
+      console.log(action.payload);
+      return {...state, resume: action.payload}
     case('ADD_MEDIA'):
-      return {media_item: action.payload}
+      return {...state, media_item: action.payload}
     case('SHOW_MEDIA'):
       console.log('inside show media reducer');
       console.log(action.payload);
       console.log(state.media);
-      return {media: action.payload}
+      return {...state, media: action.payload}
     case('ADD_RESUME'):
       console.log('inside add resume reducer');
       console.log(action.payload);
-      return {resume: action.payload}
-    case('SHOW_RESUME'):
-      return {resume: action.payload}
+      return {...state, resume: action.payload}
      default:
       return state
    }

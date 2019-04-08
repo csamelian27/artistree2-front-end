@@ -67,6 +67,10 @@
   font-size: 1.75vw;
 }
 
+#resume-container {
+  margin-top: 2vw;
+}
+
 #resume {
   margin-right: .75vw;
 }

@@ -1,4 +1,6 @@
 import React from 'react'
+import { Grid, Image, Label, Segment } from 'semantic-ui-react'
+
 import { connect } from 'react-redux'
 import { getResume } from '../Actions/resumeActions'
 
@@ -9,10 +11,10 @@ class ResumeContainer extends React.Component {
   }
 
   componentDidMount = () => {
-    if(this.props.user.resumes.length > 0) {
-      this.props.getResume(this.props.user.id)
+    if(this.props.user.resume) {
+      this.props.getResume(this.props.user.resume.id)
       this.setState({
-        resume: this.props.user.resumes
+        resume: this.props.user.resume
       })
     }
   }
@@ -21,8 +23,16 @@ class ResumeContainer extends React.Component {
     console.log(this.props);
     return(
       <div id="resume-container">
-        <h1>Resume Container</h1>
-        {this.props.resume ? <embed src={this.props.resume.resume_url} width="500" height="700" type="application/pdf" /> : null}
+        <Grid columns={1}>
+          <Grid.Row>
+            <Grid.Column>
+              <Segment padded>
+                <Label attached='top'>{this.props.user.full_name}'s Resume</Label>
+                {this.props.resume.resume ? <embed src={this.props.resume.resume.resume_url} width="500" height="700" type="application/pdf" /> : null}
+              </Segment>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
       </div>
     )
   }

@@ -1,10 +1,10 @@
 const showResume = (resume) => ({type: 'SHOW_RESUME', payload: resume})
 const addResume = (resume) => ({type: 'ADD_RESUME', payload: resume})
 
-export const getResume = (userId) => {
+export const getResume = (resumeId) => {
   return dispatch => {
     let token = localStorage.token
-    return fetch(`http://localhost:3000/api/v1/resume/${userId}`, {
+    return fetch(`http://localhost:3000/api/v1/resumes/${resumeId}`, {
       method: 'GET',
       headers: {
         "Authorization": `Bearer ${token}`
