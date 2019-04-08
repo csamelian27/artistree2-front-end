@@ -26,6 +26,7 @@ class ResumeUpload extends React.Component {
   handleSubmitResume = (e) => {
     e.preventDefault()
     this.props.createResume(this.state, this.props.user.id)
+    this.props.handleClickResumeUpload()
     this.props.history.push('/profile')
   }
 

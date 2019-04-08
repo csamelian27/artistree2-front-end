@@ -4,7 +4,7 @@ import { Grid, Image, Label, Segment, Button } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { getResume } from '../Actions/resumeActions'
 
-class ResumeContainer extends React.Component {
+class ResumeShow extends React.Component {
 
   state = {
     resume: {},
@@ -51,4 +51,4 @@ const mapStateToProps = (state) => {
   return {resume: state.resume}
 }
 
-export default connect(mapStateToProps, { getResume })(ResumeContainer)
+export default connect(mapStateToProps, { getResume })(ResumeShow)

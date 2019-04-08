@@ -34,9 +34,9 @@
 
 #avatar-img {
   height: 12vw;
-  width: 12vw;
-  vertical-align: middle;
-  border-radius: 50%;
+  width: auto;
+  /* vertical-align: middle;
+  border-radius: 50%; */
 }
 
 #media-img {
