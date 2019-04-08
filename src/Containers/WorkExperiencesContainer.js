@@ -18,9 +18,10 @@ class WorkExperiencesContainer extends React.Component {
   render() {
     return(
       <div id="work-experiences-container">
-        <h1>Work Experiences Container</h1>
-        {this.state.clickedWorkExpUpload ? null : <Button primary onClick={this.handleClickWorkExpUpload}>Upload New Work Experience</Button>}
-        {this.state.clickedWorkExpUpload ? <WorkExperienceUpload user={this.props.user} handleClickWorkExpUpload={this.handleClickWorkExpUpload} /> : <WorkExperienceCard user={this.props.user} />}
+        <Grid.Column>
+          {this.state.clickedWorkExpUpload ? null : <Button primary onClick={this.handleClickWorkExpUpload}>Upload New Work Experience</Button>}
+          {this.state.clickedWorkExpUpload ? <WorkExperienceUpload user={this.props.user} handleClickWorkExpUpload={this.handleClickWorkExpUpload} /> : <WorkExperienceCard user={this.props.user} />}
+        </Grid.Column>
       </div>
     )
   }

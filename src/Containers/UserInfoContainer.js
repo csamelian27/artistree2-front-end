@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid } from 'semantic-ui-react'
+import { Grid, Header } from 'semantic-ui-react'
 
 import WorkExperiencesContainer from './WorkExperiencesContainer'
 import ResumeContainer from './ResumeContainer'
@@ -7,17 +7,13 @@ import ResumeContainer from './ResumeContainer'
 const UserInfoContainer = (props) => {
 
   return(
-    <div id="user-info-container">
-        <h1>User Info Container</h1>
-      <Grid.Row columns={2}>
-        <Grid.Column>
-          <WorkExperiencesContainer user={props.user} />
-        </Grid.Column>
-        <Grid.Column>
-          <ResumeContainer user={props.user} />
-        </Grid.Column>
+    <Grid fluid>
+      <Header as='h2' icon textAlign='center'>User Info Container</Header>
+      <Grid.Row fluid columns={2}>
+        <WorkExperiencesContainer user={props.user} />
+        <ResumeContainer user={props.user} />
       </Grid.Row>
-    </div>
+    </Grid>
   )
 }
 

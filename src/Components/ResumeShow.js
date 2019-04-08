@@ -7,8 +7,7 @@ import { getResume } from '../Actions/resumeActions'
 class ResumeShow extends React.Component {
 
   state = {
-    resume: {},
-    clickedResumeUpload: false
+    resume: {}
   }
 
   componentDidMount = () => {
@@ -20,27 +19,18 @@ class ResumeShow extends React.Component {
     }
   }
 
-  handleClickResumeUpload = () => {
-    this.setState({
-      clickedResumeUpload: !this.state.clickedResumeUpload
-    })
-  }
-
   render() {
     console.log(this.props);
     return(
       <div id="resume-container">
-        <Grid columns={1}>
-          <Grid.Row>
-            <Grid.Column>
-              <Segment padded>
-                <Label attached='top'>{this.props.user.full_name}'s Resume</Label>
+        <Segment padded>
+          <Label id="label" attached='top'>{this.props.user.full_name}'s Resume</Label>
 
-                {this.props.resume.resume ? <embed src={this.props.resume.resume.resume_url} width="500" height="700" type="application/pdf" /> : null}
-              </Segment>
-            </Grid.Column>
+          <Grid.Row>
+            {this.props.resume.resume ? <embed id="resume-embed" src={this.props.resume.resume.resume_url} width="495" height="705" type="application/pdf" /> : null}
           </Grid.Row>
-        </Grid>
+
+        </Segment>
       </div>
     )
   }

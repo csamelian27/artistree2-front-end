@@ -4,7 +4,7 @@ const addWorkExp = (workExp) => ({type: 'ADD_WORK_EXP', payload: workExp})
 export const getWorkExp = (workExpId) => {
   return dispatch => {
     let token = localStorage.token
-    return fetch(`http://localhost:3000/api/v1/workExps/${workExpId}`, {
+    return fetch(`http://localhost:3000/api/v1/work_experiences/${workExpId}`, {
       method: 'GET',
       headers: {
         "Authorization": `Bearer ${token}`

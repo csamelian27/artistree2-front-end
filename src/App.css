@@ -75,6 +75,23 @@
   margin-right: .75vw;
 }
 
+#resume-embed {
+  position: relative;
+  padding: 1vw 1vw 1vw 1vw;
+}
+
+#label {
+  width: 550px;
+  height: 800px;
+  margin-top: -2vw;
+  z-index: -1;
+}
+
+#resume-col {
+  margin-left: 2vw;
+  margin-top: -2vw;
+}
+
 #media-upload {
   position: absolute;
   top: 10vw;
