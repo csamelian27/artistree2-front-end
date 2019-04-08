@@ -20,7 +20,7 @@ class Home extends React.Component {
     return (
       <div id="home">
         <video autoPlay muted loop id="myVideo">
-          <source src='rain.mp4' type="video/mp4" />
+          <source src='home.mp4' type="video/mp4" />
         </video>
 
       <div className="content">

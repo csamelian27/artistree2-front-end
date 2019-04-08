@@ -27,7 +27,10 @@ class Signup extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     console.log(e.target);
-    this.props.handleSignup(this.state)
+    const { full_name, email, password, password_confirmation } = this.state
+    if( full_name !== "" && email !== "" && password !== "" && password_confirmation !== "" ) {
+      this.props.handleSignup(this.state)
+    }
   }
 
   render(){
@@ -57,7 +60,7 @@ class Signup extends Component {
                   <input type="password" name="password_confirmation" placeholder="Confirm Password" className="form__input" value={this.state.password_confirmation} onChange={this.handleChange} />
               </div>
 
-              <label name="avatar">Choose a profile picture:</label>
+              <label name="avatar">Choose a profile picture <strong>(jpeg/jpg only)</strong>:</label>
               <br></br>
               <input type="file" id="avatar" name="avatar" accept="image/*" onChange={this.handleFile} />
 

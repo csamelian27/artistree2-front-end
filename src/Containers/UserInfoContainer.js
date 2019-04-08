@@ -7,7 +7,7 @@ import ResumeContainer from './ResumeContainer'
 const UserInfoContainer = (props) => {
 
   return(
-    <Grid fluid>
+    <Grid id="user-info" centered fluid>
       <Header as='h2' icon textAlign='center'>User Info Container</Header>
       <Grid.Row fluid columns={2}>
         <WorkExperiencesContainer user={props.user} />

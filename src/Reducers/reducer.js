@@ -2,7 +2,7 @@ const initialState = {
   user: {},
   media: [],
   resume: {},
-  workExperiences: []
+  workExps: []
 }
 
  export default function reducer(state = initialState, action) {
@@ -15,11 +15,9 @@ const initialState = {
     case('SHOW_RESUME'):
       console.log(action.payload);
       return {...state, resume: action.payload}
-    case('SHOW_WORK_EXP'):
+    case('SHOW_WORK_EXPS'):
       console.log(action.payload);
-      return {...state, workExperiences: [action.payload, ...state.workExperiences]}
-    case('ADD_MEDIA'):
-      return {...state, media_item: action.payload}
+      return {...state, workExps: action.payload}
     case('SHOW_MEDIA'):
       console.log('inside show media reducer');
       console.log(action.payload);
@@ -32,7 +30,9 @@ const initialState = {
     case('ADD_WORK_EXP'):
       console.log('inside add WORK EXP reducer');
       console.log(action.payload);
-      return {...state, workExperiences: [action.payload, ...state.workExperiences]}
+      return {...state, workExperiences: action.payload}
+    case('ADD_MEDIA'):
+      return {...state, media_item: action.payload}
      default:
       return state
    }

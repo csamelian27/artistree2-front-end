@@ -1,25 +1,21 @@
 import React from 'react'
 import { Grid, Card, Segment, Label, Table, Header, Rating } from 'semantic-ui-react'
 import { connect } from 'react-redux'
+import { getWorkExps } from '../Actions/workExpActions'
 
-import { getWorkExp } from '../Actions/workExpActions'
+import WorkExperienceInfo from './WorkExperienceInfo'
 
-class WorkExperienceCard extends React.Component {
-
-  state = {
-    workExperiences: []
-  }
+class WorkExperienceHeaders extends React.Component {
 
   componentDidMount = () => {
     if(this.props.user.work_experiences) {
-      console.log(this.props.user.work_experiences);
-      this.props.user.work_experiences.map(workExp => {
-        this.props.getWorkExp(workExp.id)
-      })
-      this.setState({
-        workExperiences: this.props.workExperiences
-      })
+      this.props.getWorkExps(this.props.user.id)
     }
+  }
+
+  renderCards = () => {
+    if(this.props.workExps){
+    return this.props.workExps.map((workExpObj, index) => <WorkExperienceInfo key={index} workExp={workExpObj} user={this.props.user} />)}
   }
 
   render() {
@@ -35,7 +31,7 @@ class WorkExperienceCard extends React.Component {
               <Table celled padded>
                 <Table.Header>
                   <Table.Row>
-                    <Table.HeaderCell singleLine>Business Name</Table.HeaderCell>
+                    <Table.HeaderCell>Business Name</Table.HeaderCell>
                     <Table.HeaderCell>Contact Name</Table.HeaderCell>
                     <Table.HeaderCell>Contact No.</Table.HeaderCell>
                     <Table.HeaderCell>From - To</Table.HeaderCell>
@@ -44,15 +40,7 @@ class WorkExperienceCard extends React.Component {
                 </Table.Header>
 
                 <Table.Body>
-                  <Table.Row>
-                    <Table.Cell singleLine>Name</Table.Cell>
-                    <Table.Cell singleLine>Contact Name</Table.Cell>
-                    <Table.Cell singleLine>Contact No.</Table.Cell>
-
-                    <Table.Cell>
-                      Description
-                    </Table.Cell>
-                  </Table.Row>
+                  {this.renderCards()}
                 </Table.Body>
               </Table>
             </Grid.Row>
@@ -63,9 +51,8 @@ class WorkExperienceCard extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  console.log(state);
-  return {workExperiences: state.workExperiences}
+const mapStateToProps = ({workExps}) => {
+  return {workExps}
 }
 
-export default connect(mapStateToProps, { getWorkExp })(WorkExperienceCard)
+export default connect(mapStateToProps, { getWorkExps })(WorkExperienceHeaders)

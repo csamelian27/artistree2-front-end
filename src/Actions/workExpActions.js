@@ -1,19 +1,19 @@
-const showWorkExp = (workExp) => ({type: 'SHOW_WORK_EXP', payload: workExp})
+const showWorkExps = (workExps) => ({type: 'SHOW_WORK_EXPS', payload: workExps})
 const addWorkExp = (workExp) => ({type: 'ADD_WORK_EXP', payload: workExp})
 
-export const getWorkExp = (workExpId) => {
+export const getWorkExps = (userId) => {
   return dispatch => {
     let token = localStorage.token
-    return fetch(`http://localhost:3000/api/v1/work_experiences/${workExpId}`, {
+    return fetch(`http://localhost:3000/api/v1/users/${userId}`, {
       method: 'GET',
       headers: {
         "Authorization": `Bearer ${token}`
       }
     })
       .then(resp => resp.json())
-      .then(workExp => {
-        console.log(workExp);
-        dispatch(showWorkExp(workExp))
+      .then(user => {
+        console.log(user.work_experiences);
+        dispatch(showWorkExps(user.work_experiences))
       })
   }
 }

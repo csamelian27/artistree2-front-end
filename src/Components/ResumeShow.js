@@ -1,21 +1,14 @@
 import React from 'react'
-import { Grid, Image, Label, Segment, Button } from 'semantic-ui-react'
+import { Grid, Image, Label, Segment, Button, Header } from 'semantic-ui-react'
 
 import { connect } from 'react-redux'
 import { getResume } from '../Actions/resumeActions'
 
 class ResumeShow extends React.Component {
 
-  state = {
-    resume: {}
-  }
-
   componentDidMount = () => {
     if(this.props.user.resume) {
-      this.props.getResume(this.props.user.resume.id)
-      this.setState({
-        resume: this.props.user.resume
-      })
+      this.props.getResume(this.props.user.id)
     }
   }
 
@@ -23,7 +16,7 @@ class ResumeShow extends React.Component {
     console.log(this.props);
     return(
       <div id="resume-container">
-        <Segment padded>
+        <Segment centered>
           <Label id="label" attached='top'>{this.props.user.full_name}'s Resume</Label>
 
           <Grid.Row>

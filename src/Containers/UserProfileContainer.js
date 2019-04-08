@@ -11,13 +11,13 @@ class UserProfileContainer extends React.Component {
   render(){
     return (
       <div id="profile">
+      <img id="profile-bg-pic" src="https://mymodernmet.com/wp/wp-content/uploads/archive/crXl0cLM7z4SZa3p3rUI_1082141960.jpeg" alt="bg-pic" />
         <Grid fluid>
           <Grid.Row columns={1}>
             <Grid.Column>
-              <h1>{this.props.user.full_name}'s profile</h1>
+              <h1>{this.props.user.full_name}</h1><br></br>
 
               <Image avatar id="avatar-img" src={this.props.user.avatar ? this.props.user.avatar.avatar_url : null} alt="Avatar" />
-              <h3>{this.props.user ? this.props.user.full_name : <h1>Name</h1>}</h3>
 
               </Grid.Column>
             </Grid.Row>

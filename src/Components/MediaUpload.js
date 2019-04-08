@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Input, TextArea, Select, Button, Label, Grid } from 'semantic-ui-react'
+import { Form, Input, TextArea, Select, Button, Label, Grid, Message } from 'semantic-ui-react'
 import { withRouter } from "react-router-dom";
 import { connect } from 'react-redux'
 import { createMedia } from '../Actions/mediaItemActions'
@@ -11,7 +11,6 @@ class MediaUpload extends React.Component {
     description: "",
     category: "",
     file: null,
-    resumeFileType: "",
     mediaFileType: ""
   }
 
@@ -35,8 +34,11 @@ class MediaUpload extends React.Component {
 
   handleSubmitMedia = (e) => {
     e.preventDefault()
-    this.props.createMedia(this.state, this.props.user.id)
-    this.props.history.push('/profile')
+    const { title, description, category, file } = this.state
+    if( title !== "" && description !== "" && category !== "" && file ) {
+      this.props.createMedia(this.state, this.props.user.id)
+      this.props.history.push('/profile')
+    }
   }
 
   render(){

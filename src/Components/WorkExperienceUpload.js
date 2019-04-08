@@ -25,9 +25,12 @@ class WorkExperienceUpload extends React.Component {
 
  handleSubmitWorkExperience = (e) => {
    e.preventDefault()
-   this.props.createWorkExp(this.state, this.props.user.id)
-   this.props.handleClickWorkExpUpload()
-   this.props.history.push('/profile')
+   const { business_name, contact_person, monthsRange, description } = this.state
+   if( business_name !== "" && contact_person !== "" && monthsRange !== "" && description !== '' ) {
+     this.props.createWorkExp(this.state, this.props.user.id)
+     this.props.handleClickWorkExpUpload()
+     this.props.history.push('/profile')
+   }
  }
 
   render() {
@@ -36,24 +39,23 @@ class WorkExperienceUpload extends React.Component {
       <div id="work-experience-upload">
         <h1>Work Experience Upload</h1>
           <Form>
-          <Form.Group widths='equal'>
-            <Form.Field control={Input} name="business_name" label='Business Name' placeholder='Business Name' onChange={this.handleChange} />
-            <Form.Field control={Input} name="contact_person" label='Contact Person' placeholder='Contact Person' onChange={this.handleChange} />
-            <Form.Field control={Input} name="contact_number" label='Contact Number' placeholder='Contact Number' onChange={this.handleChange} />
-          </Form.Group>
+            <Form.Group widths='equal'>
+              <Form.Field control={Input} name="business_name" label='Business Name' placeholder='Business Name' onChange={this.handleChange} />
+              <Form.Field control={Input} name="contact_person" label='Contact Person' placeholder='Contact Person' onChange={this.handleChange} />
+              <Form.Field control={Input} name="contact_number" label='Contact Number' placeholder='Contact Number' onChange={this.handleChange} />
+            </Form.Group>
 
-          <MonthRangeInput
-            name="monthsRange"
-            placeholder="From - To"
-            value={this.state.monthsRange}
-            closable
-            iconPosition="left"
-            onChange={this.handleChange}
-          />
+            <MonthRangeInput
+              name="monthsRange"
+              placeholder="From - To"
+              value={this.state.monthsRange}
+              closable
+              iconPosition="left"
+              onChange={this.handleChange}
+            />
 
-          <Form.Field control={TextArea} name="description" label='Description of Responsibilities' placeholder='Tell us more about the work you did.' onChange={this.handleChange} />
-          <Form.Field secondary control={Button} onClick={this.handleSubmitWorkExperience}>Confirm</Form.Field>
-
+            <Form.Field control={TextArea} name="description" label='Description of Responsibilities' placeholder='Tell us more about the work you did.' onChange={this.handleChange} />
+            <Form.Field secondary control={Button} onClick={this.handleSubmitWorkExperience}>Confirm</Form.Field>
         </Form>
       </div>
     )
