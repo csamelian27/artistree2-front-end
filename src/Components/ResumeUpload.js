@@ -48,7 +48,7 @@ class ResumeUpload extends React.Component {
 
           </Form.Group>
 
-          <Button secondary id='form-button-control-confirm btn btn-dark' onClick={this.handleSubmitResume}>Confirm</Button>
+          <Button secondary id='form-button-control-confirm' onClick={this.handleSubmitResume}>Confirm</Button>
       </Form>
       </div>
     )

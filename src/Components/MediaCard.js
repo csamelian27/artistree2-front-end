@@ -1,12 +1,17 @@
 import React from 'react'
+import { Grid } from 'semantic-ui-react'
 
 const MediaCard = (props) => {
   console.log(props.media);
   return (
     <div id="media-card">
       <h2>Category: {props.media.category}</h2>
-      <img id="media-img" src={props.media && props.media.file ? props.media.file.file_url : <h3>fucked up</h3>} />
-      {props.media.title === 'pdf' ? <embed src={props.media.file.file_url} width="500" height="700" type="application/pdf" /> : null}
+
+      <Grid.Column>
+        <img id="media-img" src={props.media && props.media.file ? props.media.file.file_url : <h3>fucked up</h3>} />
+        
+        {props.media.title === 'pdf' ? <embed src={props.media.file.file_url} width="500" height="700" type="application/pdf" /> : null}
+      </Grid.Column>
     </div>
   )
 }

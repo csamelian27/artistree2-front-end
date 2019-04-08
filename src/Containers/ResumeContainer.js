@@ -21,7 +21,7 @@ class ResumeContainer extends React.Component {
     console.log(this.props);
     return(
       <div id="resume-container">
-        <Button primary onClick={this.handleClickResumeUpload}>{this.state.clickedMediaUpload ? null : 'Upload New Resume'}</Button>
+        {this.state.clickedResumeUpload ? null : <Button primary onClick={this.handleClickResumeUpload}>Upload New Resume</Button>}
         {this.state.clickedResumeUpload ? <ResumeUpload user={this.props.user} handleClickResumeUpload={this.handleClickResumeUpload} /> : <ResumeShow user={this.props.user} />}
       </div>
     )

@@ -2,6 +2,7 @@ import React from 'react'
 import MediaCard from '../Components/MediaCard'
 import { connect } from 'react-redux'
 import { getMedia } from '../Actions/mediaItemActions'
+import { Grid } from 'semantic-ui-react'
 
 class MediaListContainer extends React.Component {
 
