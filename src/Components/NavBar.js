@@ -1,6 +1,6 @@
 import React from 'react';
-import { Menu } from 'semantic-ui-react'
 import { NavLink } from "react-router-dom";
+import { Menu, Button, Select, Input } from 'semantic-ui-react'
 // import { Route, Switch, withRouter } from "react-router-dom";
 import { connect } from 'react-redux'
 
@@ -26,6 +26,13 @@ class Nav extends React.Component {
         <Menu.Item as={NavLink} exact to="/signup" name="signup" active={activeItem === 'signup'} />
       </Menu.Menu>
     }
+
+        const options = [
+        { key: 'all', text: 'All', value: 'all' },
+        { key: 'articles', text: 'Articles', value: 'articles' },
+        { key: 'products', text: 'Products', value: 'products' },
+        ]
+
     return (
       <nav className="navbar navbar-default navbar-fixed-top">
           <div className="container">
@@ -36,6 +43,14 @@ class Nav extends React.Component {
                 <Menu.Item as={NavLink} exact to="/profile" name="profile" active={activeItem === 'profile'} />
 
                 <Menu.Item as={NavLink} exact to="/users-home" name="users" active={activeItem === 'users'} />
+
+                <Menu.Menu>
+                  <Input type='text' placeholder='Search...' action>
+                    <input />
+                    <Select compact options={options} defaultValue='articles' />
+                    <Button type='submit'>Search</Button>
+                  </Input>
+                </Menu.Menu>
 
                 <Menu.Menu position='right'>
                   <Menu.Item header id="site-title">Welcome To ArtisTree!</Menu.Item>

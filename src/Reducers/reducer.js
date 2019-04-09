@@ -12,6 +12,7 @@ const initialState = {
      //  return {user: action.payload}
     // case('ADD_AUTH'):
     //   return {user: action.payload}
+
     case('SHOW_RESUME'):
       console.log(action.payload);
       return {...state, resume: action.payload}
@@ -23,6 +24,7 @@ const initialState = {
       console.log(action.payload);
       console.log(state.media);
       return {...state, media: action.payload}
+
     case('ADD_RESUME'):
       console.log('inside add resume reducer');
       console.log(action.payload);
@@ -30,9 +32,10 @@ const initialState = {
     case('ADD_WORK_EXP'):
       console.log('inside add WORK EXP reducer');
       console.log(action.payload);
-      return {...state, workExperiences: action.payload}
+      return {...state, workExps: [...state.workExps, action.payload]}
     case('ADD_MEDIA'):
-      return {...state, media_item: action.payload}
+      return {...state, media: [...state.media, action.payload]}
+
      default:
       return state
    }

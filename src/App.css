@@ -63,7 +63,7 @@
 
 #site-title {
   font-size: 1.85vw;
-  margin-left: -8vw;
+  margin-left: -28vw;
 }
 
 #media-desc {
@@ -113,7 +113,7 @@
   margin-right: .75vw;
 }
 
-#resume-embed {
+.resume-embed {
   position: relative;
   padding: 1vw 1vw 1vw 1vw;
 }

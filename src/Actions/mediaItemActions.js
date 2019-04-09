@@ -7,12 +7,13 @@ export const createMedia = (mediaItem, userId) => {
   return dispatch => {
     let token = localStorage.token
     const formData = new FormData()
-    const { title, description, category, file } = mediaItem
+    const { title, description, category, file, mediaFileType } = mediaItem
 
     formData.append('media_item[title]', title)
     formData.append('media_item[description]', description)
     formData.append('media_item[category]', category)
     formData.append('media_item[file]', file)
+    formData.append('media_item[file_type]', mediaFileType)
     formData.append('media_item[user_id]', userId)
 
     return fetch("http://localhost:3000/api/v1/media_items", {

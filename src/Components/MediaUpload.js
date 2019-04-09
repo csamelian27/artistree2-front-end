@@ -26,12 +26,6 @@ class MediaUpload extends React.Component {
     })
   }
 
-  handleMediaType = (e) => {
-    this.setState({
-      mediaFileType: e.target.value
-    })
-  }
-
   handleSubmitMedia = (e) => {
     e.preventDefault()
     const { title, description, category, file } = this.state
@@ -54,11 +48,10 @@ class MediaUpload extends React.Component {
     ]
 
     const mediaOptions = [
-      { key: 'PDF', text: 'PDF', value: 'PDF'},
-      { key: 'jpeg/jpg', text: 'jpeg/jpg', value: 'jpeg/jpg'},
-      { key: 'doc', text: '.doc', value: 'doc'},
-      { key: 'mp3', text: '.mp3', value: 'mp3'},
-      { key: 'mp4', text: '.mp4', value: 'mp4'}
+      { key: 'Video', text: 'Video', value: 'Video'},
+      { key: 'Photo', text: 'Photo', value: 'Photo'},
+      { key: 'Document', text: 'Document', value: 'Document'},
+      { key: 'Audio', text: 'Audio', value: 'Audio'}
     ]
 
     return (
@@ -119,7 +112,7 @@ class MediaUpload extends React.Component {
                 onChange={(e) => {
                   e.target.value = e.target.innerText
                   e.target.name = "mediaFileType"
-                  this.handleMediaType(e)
+                  this.handleChange(e)
                 }}
               />
             </Form.Group>

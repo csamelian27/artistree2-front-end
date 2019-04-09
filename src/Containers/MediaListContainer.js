@@ -21,6 +21,16 @@ class MediaListContainer extends React.Component {
     this.props.getMedia(this.props.user.id)
   }
 
+  componentDidUpdate = (prevProps) => {
+    console.log(this.props);
+    console.log(prevProps);
+    // if(this.props.resume.resume_url !== prevProps.user.resume.resume_url) {
+    //   this.props.getResume(this.props.user.id)
+    // } else {
+    //   return
+    // }
+  }
+
   renderCards = () => {
     if(this.props.media){
     return this.props.media.map((mediaObj, index) => <MediaCard key={index} media={mediaObj} />)}
