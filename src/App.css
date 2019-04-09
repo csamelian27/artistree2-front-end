@@ -51,7 +51,7 @@
 
 .media-item {
   width: 20vw;
-  height: auto;
+  max-height: 40vh;
   padding: 0vw 1vw 0vw 1vw;
 }
 
@@ -62,7 +62,8 @@
 }
 
 #site-title {
-  font-size: 2.55vw;
+  font-size: 1.85vw;
+  margin-left: -8vw;
 }
 
 #media-desc {
@@ -76,8 +77,8 @@
 
 #profile {
   position: absolute;
-  left: 15vw;
-  right: 15vw;
+  left: 13vw;
+  right: 13vw;
 }
 
 #profile-bg-pic {
@@ -199,8 +200,8 @@
 #nav-menu {
   background-color: lightgrey;
   opacity: 0.9;
-  height: 4vw;
-  font-size: 1.35vw;
+  height: 2vw;
+  font-size: 1vw;
 }
 
 /* END NAV-MENU CSS */

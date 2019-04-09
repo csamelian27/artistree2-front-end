@@ -15,7 +15,7 @@ class UserProfileContainer extends React.Component {
         <Grid fluid>
           <Grid.Row columns={1}>
             <Grid.Column>
-              <h1>{this.props.user.full_name}</h1><br></br>
+              <br></br><h1>{this.props.user.full_name}</h1><br></br>
 
               <Image avatar id="avatar-img" src={this.props.user.avatar ? this.props.user.avatar.avatar_url : null} alt="Avatar" />
 
