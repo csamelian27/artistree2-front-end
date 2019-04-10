@@ -7,16 +7,6 @@ import ResumeUpload from '../Components/ResumeUpload'
 
 class ResumeContainer extends React.Component {
 
-  state = {
-    clickedResumeUpload: false
-  }
-
-  handleClickResumeUpload = () => {
-    this.setState({
-      clickedResumeUpload: !this.state.clickedResumeUpload
-    })
-  }
-
   render() {
     console.log(this.props);
     return(
@@ -27,6 +17,11 @@ class ResumeContainer extends React.Component {
                on='click'
                position='bottom center'
          />
+         <Popup
+                trigger={<Button icon='flask' primary>Upload New Resume</Button>} content={<ResumeUpload user={this.props.user} />}
+                on='click'
+                position='bottom center'
+          />
         </Grid.Column>
       </div>
     )
@@ -35,6 +30,17 @@ class ResumeContainer extends React.Component {
 
 export default withRouter(ResumeContainer)
 
+
+
+// state = {
+//   clickedResumeUpload: false
+// }
+
+// handleClickResumeUpload = () => {
+//   this.setState({
+//     clickedResumeUpload: !this.state.clickedResumeUpload
+//   })
+// }
 
 // <Grid.Column id="resume-col">
 // {this.state.clickedResumeUpload ? null : <Button primary onClick={this.handleClickResumeUpload}>Upload New Resume</Button>}

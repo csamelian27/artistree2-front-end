@@ -28,7 +28,6 @@ class ResumeUpload extends React.Component {
     const { resume } = this.state
     if( resume !== "" ) {
       this.props.createResume(this.state, this.props.user.id)
-      this.props.handleClickResumeUpload()
       this.props.history.push('/profile')
     }
   }

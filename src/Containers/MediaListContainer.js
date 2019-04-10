@@ -56,4 +56,4 @@ const mapStateToProps = ({media}) => {
   return {media}
 }
 
-export default connect(mapStateToProps, {getMedia})(MediaListContainer)
+export default connect(mapStateToProps, {getMedia})(withRouter(MediaListContainer))
