@@ -49,7 +49,7 @@ class MediaUpload extends React.Component {
 
     const mediaOptions = [
       { key: 'Video', text: 'Video', value: 'Video'},
-      { key: 'Photo', text: 'Photo', value: 'Photo'},
+      { key: 'Image', text: 'Image', value: 'Image'},
       { key: 'Document', text: 'Document', value: 'Document'},
       { key: 'Audio', text: 'Audio', value: 'Audio'}
     ]

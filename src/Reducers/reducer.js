@@ -2,7 +2,9 @@ const initialState = {
   user: {},
   media: [],
   resume: {},
-  workExps: []
+  workExps: [],
+  allUsers: [],
+  clickedUser: {}
 }
 
  export default function reducer(state = initialState, action) {
@@ -13,6 +15,12 @@ const initialState = {
     // case('ADD_AUTH'):
     //   return {user: action.payload}
 
+    case('SHOW_ALL_USERS'):
+    console.log(action.payload);
+      return {...state, allUsers: action.payload}
+    case('SHOW_ONE_USER'):
+    console.log(action.payload);
+      return {...state, clickedUser: action.payload}
     case('SHOW_RESUME'):
       console.log(action.payload);
       return {...state, resume: action.payload}

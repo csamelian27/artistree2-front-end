@@ -28,7 +28,6 @@ class WorkExperienceUpload extends React.Component {
    const { business_name, contact_person, monthsRange, description } = this.state
    if( business_name !== "" && contact_person !== "" && monthsRange !== "" && description !== '' ) {
      this.props.createWorkExp(this.state, this.props.user.id)
-     this.props.handleClickWorkExpUpload()
      this.props.history.push('/profile')
    }
  }

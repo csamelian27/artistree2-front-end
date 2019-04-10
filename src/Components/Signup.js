@@ -41,6 +41,7 @@ class Signup extends Component {
           <header className="user__header">
               <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
               <h1 className="user__title">Welcome to ArtisTree!</h1>
+              <p><strong>All Fields Required</strong></p>
           </header>
 
           <form className="form" onSubmit={this.handleSubmit}>

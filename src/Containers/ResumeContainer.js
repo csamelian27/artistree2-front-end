@@ -1,6 +1,6 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import { Button, Grid } from 'semantic-ui-react'
+import { Button, Grid, Popup } from 'semantic-ui-react'
 
 import ResumeShow from '../Components/ResumeShow'
 import ResumeUpload from '../Components/ResumeUpload'
@@ -22,8 +22,11 @@ class ResumeContainer extends React.Component {
     return(
       <div id="resume-container">
         <Grid.Column id="resume-col">
-          {this.state.clickedResumeUpload ? null : <Button primary onClick={this.handleClickResumeUpload}>Upload New Resume</Button>}
-          {this.state.clickedResumeUpload ? <ResumeUpload user={this.props.user} handleClickResumeUpload={this.handleClickResumeUpload} /> : <ResumeShow user={this.props.user} />}
+        <Popup
+               trigger={<Button icon='flask' primary>View Resume</Button>} content={<ResumeShow user={this.props.user} />}
+               on='click'
+               position='bottom center'
+         />
         </Grid.Column>
       </div>
     )
@@ -31,3 +34,9 @@ class ResumeContainer extends React.Component {
 }
 
 export default withRouter(ResumeContainer)
+
+
+// <Grid.Column id="resume-col">
+// {this.state.clickedResumeUpload ? null : <Button primary onClick={this.handleClickResumeUpload}>Upload New Resume</Button>}
+// {this.state.clickedResumeUpload ? <ResumeUpload user={this.props.user} handleClickResumeUpload={this.handleClickResumeUpload} /> : <ResumeShow user={this.props.user} />}
+// </Grid.Column>

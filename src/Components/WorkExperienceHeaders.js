@@ -1,11 +1,17 @@
 import React from 'react'
-import { Grid, Card, Segment, Label, Table, Header, Rating } from 'semantic-ui-react'
+import { Grid, Card, Segment, Label, Table, Header, Rating, Button, Popup, Modal, Input } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { getWorkExps } from '../Actions/workExpActions'
 
 import WorkExperienceInfo from './WorkExperienceInfo'
+import WorkExperienceUpload from './WorkExperienceUpload'
 
 class WorkExperienceHeaders extends React.Component {
+
+  state = { open: false };
+  handleRef = component => (this.ref = component);
+  open = () => this.setState({ open: true }, () => this.ref.focus());
+  close = () => this.setState({ open: false });
 
   componentDidMount = () => {
     if(this.props.user.work_experiences) {
@@ -56,3 +62,20 @@ const mapStateToProps = ({workExps}) => {
 }
 
 export default connect(mapStateToProps, { getWorkExps })(WorkExperienceHeaders)
+
+
+// <Popup
+//        trigger={<Button size='mini' position='top center' primary>Upload New Work Experience</Button>} content={<WorkExperienceUpload user={this.props.user} />}
+//        on='click'
+//        position='bottom center'
+//  />
+
+
+// <Modal
+//   trigger={<Button size='mini' position='top center' primary>Upload New Work Experience</Button>}
+//   header='Reminder!'
+//   on='click'
+//   position='bottom center'
+//   content={<WorkExperienceUpload user={this.props.user} />}
+//   actions={['Snooze', { key: 'done', content: 'Done', positive: true }]}
+// />

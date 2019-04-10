@@ -39,6 +39,11 @@
   border-radius: 50%; */
 }
 
+#user-card {
+  padding: 1vw 1vw 1vw 1vw;
+  margin-left: 2vw;
+}
+
 /* #media-img {
   height: 20vw;
   width: auto;

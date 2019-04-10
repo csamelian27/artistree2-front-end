@@ -1,3 +1,42 @@
+const showAllUsers = (users) => ({type: 'SHOW_ALL_USERS', payload: users})
+const showOneUser = (user) => ({type: 'SHOW_ONE_USER', payload: user})
+
+export const getAllUsers = () => {
+  return dispatch => {
+    let token = localStorage.token
+    return fetch('http://localhost:3000/api/v1/users', {
+      method: 'GET',
+      headers: {
+        "Authorization": `Bearer ${token}`
+      }
+    })
+      .then(resp => resp.json())
+      .then(users => {
+        console.log(users);
+        dispatch(showAllUsers(users))
+      })
+  }
+}
+
+export const getOneUser = (userId) => {
+  return dispatch => {
+    let token = localStorage.token
+    return fetch(`http://localhost:3000/api/v1/users/${userId}`, {
+      method: 'GET',
+      headers: {
+        "Authorization": `Bearer ${token}`
+      }
+    })
+      .then(resp => resp.json())
+      .then(user => {
+        console.log(user);
+        dispatch(showOneUser(user))
+      })
+  }
+}
+
+
+
 // const addUser = (user) => ({type: 'ADD_USER', payload: user})
 // const addAuth = (user) => ({type: 'ADD_AUTH', payload: user})
 //

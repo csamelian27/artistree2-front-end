@@ -32,8 +32,9 @@ class MediaListContainer extends React.Component {
   }
 
   renderCards = () => {
-    if(this.props.media){
-    return this.props.media.map((mediaObj, index) => <MediaCard key={index} media={mediaObj} />)}
+    if(this.props.media) {
+      return this.props.media.map((mediaObj, index) => <MediaCard key={index} media={mediaObj} />)
+    }
   }
 
   render() {
@@ -55,4 +56,4 @@ const mapStateToProps = ({media}) => {
   return {media}
 }
 
-export default connect(mapStateToProps, {getMedia})(withRouter(MediaListContainer))
+export default connect(mapStateToProps, {getMedia})(MediaListContainer)

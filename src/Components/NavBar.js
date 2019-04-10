@@ -42,7 +42,7 @@ class Nav extends React.Component {
 
                 <Menu.Item as={NavLink} exact to="/profile" name="profile" active={activeItem === 'profile'} />
 
-                <Menu.Item as={NavLink} exact to="/users-home" name="users" active={activeItem === 'users'} />
+                <Menu.Item as={NavLink} exact to="/browse-users" name="All Users" active={activeItem === 'All Users'} />
 
                 <Menu.Menu>
                   <Input type='text' placeholder='Search...' action>

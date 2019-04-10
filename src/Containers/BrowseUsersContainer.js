@@ -3,26 +3,18 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Header, Card, Grid } from 'semantic-ui-react'
 import { getAllUsers } from '../Actions/userActions'
-import UserCard from '../Components/UserCard'
+import MediaFeedContainer from './MediaFeedContainer'
+import AllUsersContainer from './AllUsersContainer'
 
-class AllUsersContainer extends React.Component {
-
-  componentDidMount = () => {
-    this.props.getAllUsers()
-  }
-
-  renderCards = () => {
-    if(this.props.allUsers){
-      return this.props.allUsers.map((userObj, index) => <UserCard key={index} user={userObj} />)
-    }
-  }
+class BrowseUsersContainer extends React.Component {
 
   render() {
     console.log(this.props);
     return (
-        <Card.Group itemsPerRow={4}>
-          {this.renderCards()}
-        </Card.Group>
+      <div id="browse-users">
+        <Header as='h1'>Browse Users</Header>
+        <AllUsersContainer />
+      </div>
     )
   }
 }
@@ -31,7 +23,7 @@ const mapStateToProps = ({allUsers}) => {
   return {allUsers}
 }
 
-export default connect(mapStateToProps, {getAllUsers})(withRouter(AllUsersContainer))
+export default connect(mapStateToProps, {getAllUsers})(withRouter(BrowseUsersContainer))
 
 
 
