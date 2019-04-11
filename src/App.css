@@ -47,12 +47,16 @@
 /* #media-img {
   height: 20vw;
   width: auto;
+} */
+
+#feed-container {
+  margin-left: 5vw;
+  margin-top: 2vw;
 }
 
 #media-vid {
-  height: 20vw;
-  width: auto;
-} */
+  margin-top: 3.5vw;
+}
 
 .media-item {
   width: 20vw;
@@ -68,7 +72,7 @@
 
 #site-title {
   font-size: 1.85vw;
-  margin-left: -28vw;
+  margin-left: 5vw;
 }
 
 #media-desc {
@@ -143,6 +147,18 @@
   margin-top: 5vw;
 }
 
+#browse-bg-pic {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  z-index: -1;
+  opacity: 0.7;
+}
+
 #upload-pic {
   position: fixed;
   top: 0;
@@ -173,7 +189,7 @@
 }
 
 /* Add some content at the bottom of the video/page */
-.content {
+#content {
   position: fixed;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);

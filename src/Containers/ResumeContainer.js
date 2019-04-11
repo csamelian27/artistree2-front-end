@@ -12,11 +12,11 @@ class ResumeContainer extends React.Component {
     return(
       <div id="resume-container">
         <Grid.Column id="resume-col">
-        <Popup
-               trigger={<Button icon='flask' primary>View Resume</Button>} content={<ResumeShow user={this.props.user} />}
-               on='click'
-               position='bottom center'
-         />
+          <Popup
+                 trigger={<Button icon='flask' primary>View Resume</Button>} content={<ResumeShow user={this.props.user} />}
+                 on='click'
+                 position='bottom center'
+           />
          <Popup
                 trigger={<Button icon='flask' primary>Upload New Resume</Button>} content={<ResumeUpload user={this.props.user} />}
                 on='click'

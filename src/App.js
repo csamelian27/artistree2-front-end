@@ -108,7 +108,7 @@ class App extends Component {
       <div className="App">
         <NavBar user={this.state.user} handleLogout={this.handleLogout} />
         <Switch>
-          <Route exact path="/users/:name" component={BrowseUsersContainer} />
+          <Route exact path="/users/:name" component={UserShow} />
           <Route exact path="/browse-users" component={BrowseUsersContainer} />
           <Route exact path="/work_exp_upload" render={() => <WorkExperienceUpload user={this.state.user} />} />
           <Route exact path="/media_upload" render={() => <MediaUpload user={this.state.user} />} />

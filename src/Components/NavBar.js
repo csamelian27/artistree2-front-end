@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
-import { Menu, Button, Select, Input } from 'semantic-ui-react'
+import { Menu, Button, Select, Input, Dropdown } from 'semantic-ui-react'
 // import { Route, Switch, withRouter } from "react-router-dom";
 import { connect } from 'react-redux'
 
@@ -12,19 +12,58 @@ class Nav extends React.Component {
 
   render() {
     const { activeItem } = this.state
+    let userName
+    if(this.props.user) {userName = this.props.user.full_name}
+
     let loginOptions = null;
     if(localStorage.token) {
-      loginOptions =
-      <Menu.Menu position='right'>
-        <Menu.Item as={NavLink} exact to="/logout" name="logout" active={activeItem === 'logout'} onClick={this.props.handleLogout} />
-      </Menu.Menu>
-    } else {
-      loginOptions =
-      <Menu.Menu position='right'>
-        <Menu.Item as={NavLink} exact to="/login" name="login" active={activeItem === 'login'} />
+        loginOptions = (
+          <Menu.Menu position='right'>
+            <Menu.Item>
+                <Input icon="search" placeholder="Search..." />
+              </Menu.Item>
 
-        <Menu.Item as={NavLink} exact to="/signup" name="signup" active={activeItem === 'signup'} />
-      </Menu.Menu>
+            <Dropdown
+                item
+                text={userName !== "undefined" ? userName : null}
+                active={(activeItem === "user").toString()}
+                onClick={this.handleItemClick}
+              >
+                <Dropdown.Menu>
+                  <Dropdown.Item as={NavLink} exact to="/settings">
+                    Settings
+                  </Dropdown.Item>
+                  <Dropdown.Item as={Button} exact to="/logout" onClick={this.props.handleLogout}>
+                    Logout
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+          </Menu.Menu>
+        )
+    } else {
+      loginOptions = (
+        <Menu.Menu position='right'>
+          <Menu.Item>
+            <Input icon="search" placeholder="Search..." />
+          </Menu.Item>
+          <Menu.Item
+            as={NavLink}
+            exact
+            to="/signup"
+            name="signup"
+            active={activeItem === "signup"}
+            onClick={this.handleItemClick}
+          />
+          <Menu.Item
+            as={NavLink}
+            exact
+            to="/login"
+            name="login"
+            active={activeItem === "login"}
+            onClick={this.handleItemClick}
+          />
+        </Menu.Menu>
+      )
     }
 
         const options = [
@@ -34,9 +73,6 @@ class Nav extends React.Component {
         ]
 
     return (
-      <nav className="navbar navbar-default navbar-fixed-top">
-          <div className="container">
-            <div className="navbar-header">
               <Menu id="nav-menu">
                 <Menu.Item as={NavLink} exact to="/home" name="home" active={activeItem === 'home'} onClick={this.handleItemClick} />
 
@@ -44,24 +80,13 @@ class Nav extends React.Component {
 
                 <Menu.Item as={NavLink} exact to="/browse-users" name="All Users" active={activeItem === 'All Users'} />
 
-                <Menu.Menu>
-                  <Input type='text' placeholder='Search...' action>
-                    <input />
-                    <Select compact options={options} defaultValue='articles' />
-                    <Button type='submit'>Search</Button>
-                  </Input>
-                </Menu.Menu>
-
                 <Menu.Menu position='right'>
-                  <Menu.Item header id="site-title">Welcome To ArtisTree!</Menu.Item>
+                  <Menu.Item header as='h1' id="site-title">Welcome To ArtisTree!</Menu.Item>
                 </Menu.Menu>
 
                 {loginOptions}
 
               </Menu>
-            </div>
-          </div>
-      </nav>
     )
   }
 }
@@ -74,28 +99,12 @@ export default connect(mapStateToProps)(Nav);
 
 
 
+// <Dropdown.Item as={NavLink} exact to="/profile">
+//   Profile
+// </Dropdown.Item>
+
 
 // import { Button, Dropdown, Image, Input, Menu } from 'semantic-ui-react'
 
 
 // {this.props.user && localStorage.token ? <button type="button" className="btn btn-light navbar-btn navbar-right" onClick={this.props.handleLogout} >Log Out</button> : <button type="button" className="btn btn-light navbar-btn navbar-right">Log in</button>}
-
-// <Menu.Menu position='right'>
-//          <Menu.Item>
-//            <Input icon='search' placeholder='Search...' />
-//          </Menu.Item>
-//
-//          {Object.keys(this.props.user).length > 0  ?
-//            (<Dropdown item text={this.props.user.username} color='teal' active={activeItem === 'user' } onClick={this.handleItemClick}>
-//            <Dropdown.Menu>
-//              <Dropdown.Item as={NavLink} exact to="/user">Profile</Dropdown.Item>
-//              <Dropdown.Item as={NavLink} exact to="/settings">Settings</Dropdown.Item>
-//              <Dropdown.Item as={Button} onClick={this.props.logOut}>Logout</Dropdown.Item>
-//            </Dropdown.Menu>
-//          </Dropdown>) :
-//          (<Menu.Item
-//            as={NavLink} exact to="/login"
-//            name='login'
-//            active={activeItem === 'login'}
-//            onClick={this.handleItemClick} />) }
-//        </Menu.Menu>

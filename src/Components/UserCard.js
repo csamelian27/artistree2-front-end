@@ -1,11 +1,10 @@
 import React from 'react'
-import { Card, Icon } from 'semantic-ui-react'
+import { Card, Icon, Image } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { getOneUser } from '../Actions/userActions'
 
 const UserCard = (props) => {
-
   const extra = (
     <a>
       <Icon name='archive' />
@@ -15,7 +14,8 @@ const UserCard = (props) => {
 
   const handleClickUser = () => {
     props.getOneUser(props.user.id)
-    props.history.push(`/users/${props.clickedUser.name}`)
+    console.log(props.clickedUser);
+    props.history.push(`/users/${props.clickedUser.full_name}`)
   }
 
   console.log(props);
@@ -29,6 +29,7 @@ const UserCard = (props) => {
       extra={extra}
       onClick={handleClickUser}
     />
+
   )
 }
 

@@ -26,7 +26,7 @@ class ResumeUpload extends React.Component {
   handleSubmitResume = (e) => {
     e.preventDefault()
     const { resume } = this.state
-    if( resume !== "" ) {
+    if( resume !== "") {
       this.props.createResume(this.state, this.props.user.id)
       this.props.history.push('/profile')
     }
@@ -44,7 +44,7 @@ class ResumeUpload extends React.Component {
         <h1>Resume Upload</h1>
         <Form>
           <Form.Group widths="equal">
-            <strong><Label horizontal for="resume" id="resume" className="form-input">Resume:
+            <strong><Label horizontal for="resume" id="resume" className="form-input">Resume (PDF only):
               <input type="file" id="resume" name="resume" accept=".pdf,.jpg,.doc" onChange={this.handleFile} />
             </Label></strong>
 

@@ -2,13 +2,13 @@ import React from 'react'
 import { Grid, Image, Label, Segment, Button, Header } from 'semantic-ui-react'
 
 import { connect } from 'react-redux'
-import { getResume } from '../Actions/resumeActions'
+import { getUserResumes } from '../Actions/resumeActions'
 
 class ResumeShow extends React.Component {
 
   componentDidMount = () => {
-    if(this.props.user.resume) {
-      this.props.getResume(this.props.user.id)
+    if(this.props.user.resumes) {
+      this.props.getUserResumes(this.props.user.id)
     }
   }
 
@@ -27,10 +27,10 @@ class ResumeShow extends React.Component {
     return(
       <div id="resume-container">
         <Segment centered>
-          <Label id="label" attached='top'>{this.props.resume.resume ? this.props.user.full_name + 's Resume' : 'UPLOAD A RESUME - see template below'}</Label>
+          <Label id="label" attached='top'>{this.props.resumes.length ? this.props.user.full_name + 's Resume' : 'UPLOAD A RESUME - see template below'}</Label>
 
           <Grid.Row>
-            <embed className="resume-embed" src={this.props.resume.resume ? this.props.resume.resume.resume_url : null} width="495" height="705" type="application/pdf" />
+            <embed className="resume-embed" src={this.props.resumes.length ? this.props.resumes[this.props.resumes.length-1].resume.resume_url : null} width="495" height="705" type="application/pdf" />
           </Grid.Row>
         </Segment>
       </div>
@@ -38,11 +38,11 @@ class ResumeShow extends React.Component {
   }
 }
 
-const mapStateToProps = ({resume}) => {
-  return {resume}
+const mapStateToProps = ({resumes}) => {
+  return {resumes}
 }
 
-export default connect(mapStateToProps, { getResume })(ResumeShow)
+export default connect(mapStateToProps, { getUserResumes })(ResumeShow)
 
 
 

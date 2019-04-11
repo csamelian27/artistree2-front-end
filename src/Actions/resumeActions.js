@@ -1,7 +1,7 @@
-const showResume = (resume) => ({type: 'SHOW_RESUME', payload: resume})
+const showUserResumes = (resumes) => ({type: 'SHOW_USER_RESUMES', payload: resumes})
 const addResume = (resume) => ({type: 'ADD_RESUME', payload: resume})
 
-export const getResume = (userId) => {
+export const getUserResumes = (userId) => {
   return dispatch => {
     let token = localStorage.token
     return fetch(`http://localhost:3000/api/v1/users/${userId}`, {
@@ -12,8 +12,8 @@ export const getResume = (userId) => {
     })
       .then(resp => resp.json())
       .then(user => {
-        console.log(user.resume);
-        dispatch(showResume(user.resume))
+        console.log(user.resumes);
+        dispatch(showUserResumes(user.resumes))
       })
   }
 }

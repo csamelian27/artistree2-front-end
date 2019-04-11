@@ -2,6 +2,7 @@ const initialState = {
   user: {},
   media: [],
   resume: {},
+  resumes: [],
   workExps: [],
   allUsers: [],
   clickedUser: {}
@@ -21,9 +22,9 @@ const initialState = {
     case('SHOW_ONE_USER'):
     console.log(action.payload);
       return {...state, clickedUser: action.payload}
-    case('SHOW_RESUME'):
+    case('SHOW_USER_RESUMES'):
       console.log(action.payload);
-      return {...state, resume: action.payload}
+      return {...state, resumes: action.payload}
     case('SHOW_WORK_EXPS'):
       console.log(action.payload);
       return {...state, workExps: action.payload}
