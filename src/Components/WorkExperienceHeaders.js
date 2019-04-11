@@ -48,7 +48,9 @@ class WorkExperienceHeaders extends React.Component {
                 <Table.Body>
                   {this.renderCards()}
                 </Table.Body>
+
               </Table>
+              <Button secondary onClick={this.props.handleClose}>Close</Button>
             </Grid.Row>
           </Segment>
 

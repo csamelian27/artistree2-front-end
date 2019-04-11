@@ -33,6 +33,7 @@ class ResumeShow extends React.Component {
             <embed className="resume-embed" src={this.props.resumes.length ? this.props.resumes[this.props.resumes.length-1].resume.resume_url : null} width="495" height="705" type="application/pdf" />
           </Grid.Row>
         </Segment>
+        <Button secondary onClick={this.props.handleClose}>Close</Button>
       </div>
     )
   }

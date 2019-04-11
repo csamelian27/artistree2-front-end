@@ -6,23 +6,48 @@ import WorkExperienceUpload from '../Components/WorkExperienceUpload'
 
 class WorkExperiencesContainer extends React.Component {
 
+  state = {
+    clicked: false,
+    isOpen: false
+  }
 
+  handleClickBtn = () => {
+    this.setState({
+      clicked: !this.state.clicked,
+      isOpen: true
+    })
+  }
+
+  handleSubmit = () => {
+    this.setState({
+      clicked: !this.state.clicked
+    })
+  }
+
+  handleClose = () => {
+    this.setState({
+      isOpen: false,
+      clicked: false
+    })
+  }
 
   render() {
     console.log(this.props);
     return(
       <div id="work-experiences-container">
         <Grid.Column>
-         <Popup
-                trigger={<Button icon='flask' primary>View Work Experiences</Button>} content={<WorkExperienceHeaders user={this.props.user} />}
-                on='click'
+         { !this.state.clicked ? <Popup
+                trigger={<Button onClick={this.handleClickBtn} primary>View Work Experiences</Button>} content={<WorkExperienceUpload user={this.props.user} handleClickBtn={this.handleClickBtn} handleSubmit={this.handleSubmit} handleClose={this.handleClose} />}
+                on="click"
+                open={this.state.isOpen}
                 position='bottom center'
-          />
-         <Popup
-                trigger={<Button icon='flask' primary>Upload New Work Experience</Button>} content={<WorkExperienceUpload user={this.props.user} />}
+          /> : null }
+         { !this.state.clicked ? null : <Popup
+                trigger={<Button onClick={this.handleClickBtn} primary>Upload New Work Experience</Button>} content={<WorkExperienceHeaders user={this.props.user} handleClose={this.handleClose} />}
                 on='click'
+                open={this.state.isOpen}
                 position='bottom center'
-          />
+          /> }
         </Grid.Column>
       </div>
     )

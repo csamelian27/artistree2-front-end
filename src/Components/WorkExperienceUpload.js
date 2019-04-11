@@ -29,6 +29,8 @@ class WorkExperienceUpload extends React.Component {
    if( business_name !== "" && contact_person !== "" && monthsRange !== "" && description !== '' ) {
      this.props.createWorkExp(this.state, this.props.user.id)
      this.props.history.push('/profile')
+     this.props.handleClickBtn()
+     this.props.handleSubmit()
    }
  }
 
@@ -54,7 +56,9 @@ class WorkExperienceUpload extends React.Component {
             />
 
             <Form.Field control={TextArea} name="description" label='Description of Responsibilities' placeholder='Tell us more about the work you did.' onChange={this.handleChange} />
-            <Form.Field secondary control={Button} onClick={this.handleSubmitWorkExperience}>Confirm</Form.Field>
+
+            <Button secondary onClick={this.handleSubmitWorkExperience}>Confirm</Button>
+            <Button secondary onClick={this.props.handleClose}>Close</Button>
         </Form>
       </div>
     )

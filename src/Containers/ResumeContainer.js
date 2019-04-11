@@ -7,21 +7,49 @@ import ResumeUpload from '../Components/ResumeUpload'
 
 class ResumeContainer extends React.Component {
 
+  state = {
+    clicked: false,
+    isOpen: false
+  }
+
+  handleClickBtn = () => {
+    this.setState({
+      clicked: !this.state.clicked,
+      isOpen: true
+    })
+  }
+
+  handleSubmit = () => {
+    this.setState({
+      clicked: !this.state.clicked
+    })
+  }
+
+  handleClose = () => {
+    this.setState({
+      isOpen: false,
+      clicked: false
+    })
+  }
+
   render() {
     console.log(this.props);
     return(
       <div id="resume-container">
         <Grid.Column id="resume-col">
-          <Popup
-                 trigger={<Button icon='flask' primary>View Resume</Button>} content={<ResumeShow user={this.props.user} />}
+          { !this.state.clicked ? <Popup
+                 trigger={<Button onClick={this.handleClickBtn} primary>View Resume</Button>} content={<ResumeUpload user={this.props.user} handleSubmit={this.handleSubmit} handleClickBtn={this.handleClickBtn} handleClose={this.handleClose} />}
                  on='click'
+                 open={this.state.isOpen}
                  position='bottom center'
-           />
-         <Popup
-                trigger={<Button icon='flask' primary>Upload New Resume</Button>} content={<ResumeUpload user={this.props.user} />}
+           /> : null }
+         { !this.state.clicked ? null : <Popup
+                trigger={<Button onClick={this.handleClickBtn} primary>Upload New Resume</Button>} content={<ResumeShow user={this.props.user} handleClose={this.handleClose} />}
                 on='click'
+                open={this.state.isOpen}
                 position='bottom center'
           />
+        }
         </Grid.Column>
       </div>
     )

@@ -29,6 +29,8 @@ class ResumeUpload extends React.Component {
     if( resume !== "") {
       this.props.createResume(this.state, this.props.user.id)
       this.props.history.push('/profile')
+      this.props.handleClickBtn()
+      this.props.handleSubmit()
     }
   }
 
@@ -51,6 +53,7 @@ class ResumeUpload extends React.Component {
           </Form.Group>
 
           <Button secondary id='form-button-control-confirm' onClick={this.handleSubmitResume}>Confirm</Button>
+          <Button secondary onClick={this.props.handleClose}>Close</Button>
       </Form>
       </div>
     )
