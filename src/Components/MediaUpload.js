@@ -50,7 +50,7 @@ class MediaUpload extends React.Component {
     const mediaOptions = [
       { key: 'Video', text: 'Video', value: 'Video'},
       { key: 'Image', text: 'Image', value: 'Image'},
-      { key: 'Document', text: 'Document', value: 'Document'},
+      { key: 'Document', text: 'Document (PDF)', value: 'Document'},
       { key: 'Audio', text: 'Audio', value: 'Audio'}
     ]
 
@@ -117,7 +117,8 @@ class MediaUpload extends React.Component {
               />
             </Form.Group>
 
-              <Button secondary id='form-button-control-confirm btn btn-dark' onClick={this.handleSubmitMedia}>Confirm</Button>
+              <Button secondary onClick={this.handleSubmitMedia}>Confirm</Button>
+              <Button secondary onClick={this.props.history.goBack}>Back</Button>
           </Form>
 
         </div>

@@ -38,16 +38,16 @@ class ResumeContainer extends React.Component {
       <div id="resume-container">
         <Grid.Column id="resume-col">
           { !this.state.clicked ? <Popup
-                 trigger={<Button onClick={this.handleClickBtn} primary>View Resume</Button>} content={<ResumeUpload user={this.props.user} handleSubmit={this.handleSubmit} handleClickBtn={this.handleClickBtn} handleClose={this.handleClose} />}
+                 trigger={<Button id="btn" onClick={this.handleClickBtn}>View Resume</Button>} content={<ResumeUpload user={this.props.user} handleSubmit={this.handleSubmit} handleClickBtn={this.handleClickBtn} handleClose={this.handleClose} />}
                  on='click'
                  open={this.state.isOpen}
-                 position='bottom center'
+                 position='left center'
            /> : null }
          { !this.state.clicked ? null : <Popup
-                trigger={<Button onClick={this.handleClickBtn} primary>Upload New Resume</Button>} content={<ResumeShow user={this.props.user} handleClose={this.handleClose} />}
+                trigger={<Button id="btn-upload" onClick={this.handleClickBtn}>Upload New Resume</Button>} content={<ResumeShow user={this.props.user} handleClose={this.handleClose} />}
                 on='click'
                 open={this.state.isOpen}
-                position='bottom center'
+                position='left center'
           />
         }
         </Grid.Column>

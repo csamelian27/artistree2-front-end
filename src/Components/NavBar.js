@@ -30,8 +30,8 @@ class Nav extends React.Component {
                 onClick={this.handleItemClick}
               >
                 <Dropdown.Menu>
-                  <Dropdown.Item as={NavLink} exact to="/settings">
-                    Settings
+                  <Dropdown.Item as={NavLink} exact to="/profile">
+                    Profile
                   </Dropdown.Item>
                   <Dropdown.Item as={Button} exact to="/logout" onClick={this.props.handleLogout}>
                     Logout
@@ -76,9 +76,9 @@ class Nav extends React.Component {
               <Menu id="nav-menu">
                 <Menu.Item as={NavLink} exact to="/home" name="home" active={activeItem === 'home'} onClick={this.handleItemClick} />
 
-                <Menu.Item as={NavLink} exact to="/profile" name="profile" active={activeItem === 'profile'} />
-
                 <Menu.Item as={NavLink} exact to="/browse-users" name="All Users" active={activeItem === 'All Users'} />
+
+                <Menu.Item as={NavLink} exact to="/collaborations" name="Collaborations" active={activeItem === 'Collaborations'} />
 
                 <Menu.Menu position='right'>
                   <Menu.Item header as='h1' id="site-title">Welcome To ArtisTree!</Menu.Item>

@@ -1,5 +1,6 @@
 const addMedia = (mediaItem) => ({type: 'ADD_MEDIA', payload: mediaItem})
 const showMedia = (media) => ({type: 'SHOW_MEDIA', payload: media})
+export const setClickedMedia = (media) => ({type: 'SET_CLICKED_MEDIA', payload: media})
 
 export const createMedia = (mediaItem, userId) => {
   console.log('User ID', userId);

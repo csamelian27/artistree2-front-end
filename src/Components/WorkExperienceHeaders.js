@@ -33,6 +33,7 @@ class WorkExperienceHeaders extends React.Component {
           <Segment padded>
             <Label attached='top'>{this.props.user.full_name}'s Work Exp</Label>
 
+            <Button secondary onClick={this.props.handleClose}>Close</Button>
             <Grid.Row>
               <Table celled padded>
                 <Table.Header>
@@ -50,7 +51,6 @@ class WorkExperienceHeaders extends React.Component {
                 </Table.Body>
 
               </Table>
-              <Button secondary onClick={this.props.handleClose}>Close</Button>
             </Grid.Row>
           </Segment>
 

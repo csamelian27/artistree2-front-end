@@ -5,7 +5,8 @@ const initialState = {
   resumes: [],
   workExps: [],
   allUsers: [],
-  clickedUser: {}
+  clickedUser: {},
+  clickedMedia: {}
 }
 
  export default function reducer(state = initialState, action) {
@@ -44,6 +45,9 @@ const initialState = {
       return {...state, workExps: [...state.workExps, action.payload]}
     case('ADD_MEDIA'):
       return {...state, media: [...state.media, action.payload]}
+
+    case('SET_CLICKED_MEDIA'):
+      return {...state, clickedMedia: action.payload}
 
      default:
       return state

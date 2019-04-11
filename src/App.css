@@ -35,8 +35,7 @@
 #avatar-img {
   height: 12vw;
   width: auto;
-  /* vertical-align: middle;
-  border-radius: 50%; */
+  margin-top: -1vh;
 }
 
 #user-card {
@@ -44,10 +43,24 @@
   margin-left: 2vw;
 }
 
-/* #media-img {
-  height: 20vw;
-  width: auto;
-} */
+#prof-name {
+  margin-top: -1.5vh;
+  font-size: 3.5vw;
+  color: rgb(89, 87, 103);
+}
+
+#media-btn {
+  margin-top: -2vh;
+  background-color: rgb(229	119	126);
+}
+
+#btn {
+  background-color: rgb(112	128	201	);
+}
+
+#btn-upload {
+  background-color: rgb(191	159	193	);
+}
 
 #feed-container {
   margin-left: 5vw;
@@ -56,6 +69,10 @@
 
 #media-vid {
   margin-top: 3.5vw;
+}
+
+#detail {
+  max-height: 60vh;
 }
 
 .media-item {

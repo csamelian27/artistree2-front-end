@@ -40,9 +40,8 @@ class MediaListContainer extends React.Component {
   render() {
     return (
       <Grid fluid>
-        <Header as='h2' icon textAlign='center'>Media List</Header>
         <Grid.Row centered columns={1}>
-          <Button primary onClick={this.handleClickMediaUpload}>Upload New Media</Button>
+          <Button id="media-btn" onClick={this.handleClickMediaUpload}>Upload New Media</Button>
         </Grid.Row>
         <Grid.Row centered>
           {this.state.clickedMediaUpload ? this.props.history.push('/media_upload') : this.renderCards()}

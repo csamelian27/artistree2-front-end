@@ -15,9 +15,9 @@ import ResumeUpload from './Components/ResumeUpload'
 import WorkExperienceUpload from './Components/WorkExperienceUpload'
 import BrowseUsersContainer from './Containers/BrowseUsersContainer'
 import UserShow from './Components/UserShow'
-
-// console.log(process.env.REACT_APP_API_KEY)
-// console.log("JWT", process.env.REACT_APP_JWT_KEY)
+import MediaDetail from './Components/MediaDetail'
+import MediaEdit from './Components/MediaEdit'
+import CollabContainer from './Containers/CollabContainer'
 
 class App extends Component {
 
@@ -108,7 +108,10 @@ class App extends Component {
       <div className="App">
         <NavBar user={this.state.user} handleLogout={this.handleLogout} />
         <Switch>
+          <Route exact path="/collaborations" render={() => <CollabContainer user={this.state.user} />} />
           <Route exact path="/users/:name" component={UserShow} />
+          <Route exact path="/media/:id" render={() => <MediaDetail user={this.state.user} />} />
+          <Route exact path="/media-edit/:id" render={() => <MediaEdit user={this.state.user} />} />
           <Route exact path="/browse-users" component={BrowseUsersContainer} />
           <Route exact path="/work_exp_upload" render={() => <WorkExperienceUpload user={this.state.user} />} />
           <Route exact path="/media_upload" render={() => <MediaUpload user={this.state.user} />} />
