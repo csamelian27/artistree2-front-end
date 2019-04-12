@@ -72,3 +72,19 @@ export const patchMedia = (mediaInfo, mediaId) => {
       })
   }
 }
+
+export const deleteMedia = (mediaId) => {
+  return dispatch => {
+    let token = localStorage.token
+    return fetch(`http://localhost:3000/api/v1/media_items/${mediaId}`, {
+      method: 'DELETE',
+      headers: {
+        "Authorization": `Bearer ${token}`
+      }
+    })
+      .then(resp => resp.json())
+      .then(media => {
+        console.log(media);
+      })
+  }
+}

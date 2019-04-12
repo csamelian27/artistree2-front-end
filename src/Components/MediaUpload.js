@@ -117,8 +117,8 @@ class MediaUpload extends React.Component {
               />
             </Form.Group>
 
-              <Button secondary onClick={this.handleSubmitMedia}>Confirm</Button>
               <Button secondary onClick={this.props.history.goBack}>Back</Button>
+              <Button secondary onClick={this.handleSubmitMedia}>Confirm</Button>
           </Form>
 
         </div>

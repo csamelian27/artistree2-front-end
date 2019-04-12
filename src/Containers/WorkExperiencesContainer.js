@@ -1,5 +1,6 @@
 import React from 'react'
 import { Grid, Button, Popup } from 'semantic-ui-react'
+import { connect } from 'react-redux'
 
 import WorkExperienceHeaders from '../Components/WorkExperienceHeaders'
 import WorkExperienceUpload from '../Components/WorkExperienceUpload'
@@ -54,7 +55,11 @@ class WorkExperiencesContainer extends React.Component {
   }
 }
 
-export default WorkExperiencesContainer
+const mapStateToProps = ({clickedUser, loggedInUser}) => {
+  return {clickedUser, loggedInUser}
+}
+
+export default connect(mapStateToProps)(WorkExperiencesContainer)
 
 // state = {
 //   clickedWorkExpUpload: false

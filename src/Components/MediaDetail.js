@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { Button, Header, Modal, Image, Form, Input, TextArea, Select, Label } from 'semantic-ui-react'
-import { patchMedia } from '../Actions/mediaItemActions'
+import { patchMedia, deleteMedia } from '../Actions/mediaItemActions'
 
 class MediaDetail extends React.Component {
 
@@ -40,6 +40,13 @@ class MediaDetail extends React.Component {
   }
 
   handleDeleteMedia = () => {
+    let resp = window.confirm('Are you sure you would like to delete this media?')
+    if(resp === true) {
+      this.props.deleteMedia(this.props.clickedMedia.id)
+      this.props.history.push('/profile')
+    } else {
+      console.log('boobs');
+    }
     this.close()
   }
 
@@ -151,4 +158,4 @@ const mapStateToProps = ({clickedMedia}) => {
   return {clickedMedia}
 }
 
-export default connect(mapStateToProps, {patchMedia})(withRouter(MediaDetail))
+export default withRouter(connect(mapStateToProps, {patchMedia, deleteMedia})(MediaDetail))
