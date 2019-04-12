@@ -20,7 +20,7 @@ class BrowseUsersContainer extends React.Component {
           </Grid.Column>
           <Grid.Column width={11}>
             <Header as='h1'>Browse Users</Header>
-            <AllUsersContainer />
+            <AllUsersContainer loggedInUser={this.props.loggedInUser} />
           </Grid.Column>
         </Grid.Row>
       </Grid>

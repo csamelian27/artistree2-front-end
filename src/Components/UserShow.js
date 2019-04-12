@@ -1,11 +1,17 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 const UserShow = (props) => {
+  console.log(props);
   return(
     <div id="user-show">
-      <h1>User Show</h1>
+      {props.loggedInUser.id === props.clickedUser.id}
     </div>
   )
 }
 
-export default UserShow
+const mapStateToProps = ({ clickedUser }) => {
+  return {clickedUser}
+}
+
+export default connect(mapStateToProps)(UserShow)

@@ -1,37 +1,154 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { Button, Header } from 'semantic-ui-react'
+import { Button, Header, Modal, Image, Form, Input, TextArea, Select, Label } from 'semantic-ui-react'
+import { patchMedia } from '../Actions/mediaItemActions'
 
-const MediaDetail = (props) => {
-  console.log(props);
+class MediaDetail extends React.Component {
 
-  const handleEditMedia = () => {
-    props.history.push(`/media-edit/${props.clickedMedia.id}`)
+  state = {
+    clickedEdit: false,
+    open: false,
+    title: this.props.clickedMedia.title,
+    description: this.props.clickedMedia.description,
+    category: this.props.clickedMedia.category
   }
 
-  return(
-    <div>
-      <Button secondary onClick={props.history.goBack}>Back</Button>
+  show = dimmer => () => this.setState({ dimmer, open: true })
+  close = () => this.setState({ open: false })
 
-      {props.user.id === props.clickedMedia.user_id ? <Button secondary onClick={handleEditMedia}>Edit</Button> : null}
+  handleEditMedia = () => {
+    this.setState({
+      clickedEdit: !this.state.clickedEdit,
+      open: true
+    })
+    this.show('blurring')
+  }
 
-      <Header>{props.clickedMedia.title}</Header>
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
 
-      {props.clickedMedia.file_type === 'Video' ? <video id="detail" controls autoPlay loop> <source src={props.clickedMedia.file.file_url} /></video> : null}
+  handlePatchMedia = (e) => {
+    e.preventDefault()
+    const { title, description, category } = this.state
+    this.props.patchMedia(this.state, this.props.clickedMedia.id)
+    // this.props.history.push('/profile')
+    this.close()
+  }
 
-      {props.clickedMedia.file_type === 'Image' ? <img id="detail" src={props.clickedMedia.file.file_url} /> : null}
+  handleDeleteMedia = () => {
+    this.close()
+  }
 
-      {props.clickedMedia.file_type === 'Document' ? <embed id="detail" src={props.clickedMedia.file.file_url} type="application/pdf" /> : null}
+  render(){
+    console.log(this.state);
+    console.log(this.props);
 
-      <div>{props.clickedMedia.description}</div>
+    const { open, dimmer } = this.state
+    const categoryOptions = [
+      { key: 'dance', text: 'Dance', value: 'dance' },
+      { key: 'film', text: 'Film', value: 'film' },
+      { key: 'music', text: 'Music', value: 'music' },
+      { key: 'art', text: 'Art', value: 'art' },
+      { key: 'poetry', text: 'Poetry', value: 'poetry' },
+    ]
 
-    </div>
-  )
+    const mediaOptions = [
+      { key: 'Video', text: 'Video', value: 'Video'},
+      { key: 'Image', text: 'Image', value: 'Image'},
+      { key: 'Document', text: 'Document (PDF)', value: 'Document'},
+      { key: 'Audio', text: 'Audio', value: 'Audio'}
+    ]
+    return(
+      <div>
+        <Button secondary onClick={this.props.history.goBack}>Back</Button>
+
+        {this.props.user.id === this.props.clickedMedia.user_id ? <Button secondary onClick={this.handleEditMedia}>Edit</Button> : null}
+
+        <Header>{this.props.clickedMedia.title}</Header>
+
+        {this.props.clickedMedia.file_type === 'Video' ? <video id="detail" controls autoPlay loop> <source src={this.props.clickedMedia.file.file_url} /></video> : null}
+
+        {this.props.clickedMedia.file_type === 'Image' ? <img id="detail" src={this.props.clickedMedia.file.file_url} /> : null}
+
+        {this.props.clickedMedia.file_type === 'Document' ? <embed id="detail" src={this.props.clickedMedia.file.file_url} type="application/pdf" /> : null}
+
+        <div>{this.props.clickedMedia.description}</div>
+
+        {this.state.clickedEdit ?
+          <Modal dimmer={dimmer} open={open} onClose={this.close}>
+            <Modal.Header>Edit Media<Button id='back-btn' size='mini' secondary onClick={this.props.history.goBack} position='right'>Back</Button></Modal.Header>
+            <Modal.Content>
+              <Modal.Description>
+                <Header>Change Media Details</Header>
+                <Form>
+                  <Form.Group widths='equal'>
+                    <Form.Field
+                      id='form-input-control-title'
+                      className="form-input"
+                      value={this.state.title}
+                      control={Input}
+                      label='Title of Work'
+                      name="title"
+                      placeholder='Title'
+                      onChange={this.handleChange}
+                    />
+                    <Form.Field
+                      id='form-input-control-description'
+                      className="form-input"
+                      value={this.state.description}
+                      control={TextArea}
+                      label='Description of Work'
+                      name="description"
+                      onChange={this.handleChange}
+                    />
+                    <Form.Field
+                      id="form-input-control-category"
+                      className="form-input"
+                      value={this.state.category}
+                      control={Select}
+                      options={categoryOptions}
+                      label='Category'
+                      name="category"
+                      onChange={(e) => {
+                        e.target.value = e.target.innerText
+                        e.target.name = "category"
+                        this.handleChange(e)
+                      }}
+                    />
+                  </Form.Group>
+                </Form>
+              </Modal.Description>
+            </Modal.Content>
+            <Modal.Actions>
+              <Button
+                color='green'
+                icon='check'
+                labelPosition='right'
+                content='Confirm'
+                onClick={this.handlePatchMedia}>
+              </Button>
+
+              <Button
+                color='red'
+                icon='trash'
+                labelPosition='right'
+                content="Delete"
+                onClick={this.handleDeleteMedia}
+              />
+            </Modal.Actions>
+          </Modal> : null
+        }
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = ({clickedMedia}) => {
   return {clickedMedia}
 }
 
-export default connect(mapStateToProps)(withRouter(MediaDetail))
+export default connect(mapStateToProps, {patchMedia})(withRouter(MediaDetail))

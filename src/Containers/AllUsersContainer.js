@@ -13,7 +13,9 @@ class AllUsersContainer extends React.Component {
 
   renderCards = () => {
     if(this.props.allUsers){
-      return this.props.allUsers.map((userObj, index) => <UserCard key={index} user={userObj} />)
+      let cards =  this.props.allUsers.map((userObj, index) => <UserCard key={index} userObj={userObj} loggedInUser={this.props.loggedInUser} />)
+      let filtered = cards.filter(card => card.props.loggedInUser.id !== card.props.userObj.id)
+      return filtered
     }
   }
 

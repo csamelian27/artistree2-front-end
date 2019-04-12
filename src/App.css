@@ -166,14 +166,36 @@
 
 #browse-bg-pic {
   position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  min-width: 100vw;
+  min-width: 110vw;
   min-height: 100vh;
   z-index: -1;
   opacity: 0.7;
+}
+
+.form-signin input {
+  background: url('https://media2.giphy.com/media/GW7eKwEzQilP2/giphy.gif?cid=790b76115cafb92c5535476e6b55c654');
+  height: 27vh;
+  width: 26vw;
+  font-size: 2vw;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  margin-bottom: 0.25vh;
+}
+
+#back-btn {
+  margin-left: 64vw;
+}
+
+#login-btn {
+  width: 26vw;
+  height: 4vh;
+  border-radius: 5px;
+}
+
+.form-signin input::placeholder {
+  color: white;
+  text-align: center;
 }
 
 #upload-pic {

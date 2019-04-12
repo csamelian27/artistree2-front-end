@@ -8,22 +8,23 @@ const UserCard = (props) => {
   const extra = (
     <a>
       <Icon name='archive' />
-      {props.user.media_items.length} Media Items
+      {props.userObj.media_items.length} Media Items
     </a>
   )
 
   const handleClickUser = () => {
-    props.getOneUser(props.user.id)
+    props.getOneUser(props.userObj.id)
     console.log(props.clickedUser);
-    props.history.push(`/users/${props.clickedUser.full_name}`)
+    const formattedName = props.userObj.full_name.replace(' ', '-')
+    props.history.push(`/users/${formattedName}`)
   }
 
   console.log(props);
   return (
     <Card
       id="user-card"
-      image={props.user.avatar ? props.user.avatar.avatar_url : null}
-      header={props.user.full_name ? props.user.full_name : null}
+      image={props.userObj.avatar ? props.userObj.avatar.avatar_url : null}
+      header={props.userObj.full_name ? props.userObj.full_name : null}
       meta='Art Type'
       description='Artist Bio'
       extra={extra}

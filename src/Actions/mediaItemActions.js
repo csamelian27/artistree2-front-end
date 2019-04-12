@@ -48,3 +48,27 @@ export const getMedia = (userId) => {
       })
   }
 }
+
+export const patchMedia = (mediaInfo, mediaId) => {
+  return dispatch => {
+    let token = localStorage.token
+    const formData = new FormData()
+    const { title, description, category, file, mediaFileType } = mediaInfo
+
+    formData.append('media_item[title]', title)
+    formData.append('media_item[description]', description)
+    formData.append('media_item[category]', category)
+
+    return fetch(`http://localhost:3000/api/v1/media_items/${mediaId}`, {
+      method: 'PATCH',
+      headers: {
+        "Authorization": `Bearer ${token}`
+      },
+      body: formData
+    })
+      .then(resp => resp.json())
+      .then(mediaItem => {
+        console.log(mediaItem);
+      })
+  }
+}

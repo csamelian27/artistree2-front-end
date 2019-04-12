@@ -25,9 +25,9 @@ class Login extends React.Component {
       <div className="login wrapper">
            <form className="form-signin" onSubmit={this.handleLogin}>
              <h1 className="form-signin-heading">Log In</h1>
-             <input className="form-control" type="email" name="email" placeholder="email" value={this.state.email} onChange={this.changeHandler} />
-             <input className="form-control" type="password" name="password" placeholder="password" value={this.state.password} onChange={this.changeHandler} />
-             <button className="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
+             <input className="form-control" type="email" name="email" placeholder="email" value={this.state.email} onChange={this.changeHandler} /><br></br>
+             <input className="form-control" type="password" name="password" placeholder="password" value={this.state.password} onChange={this.changeHandler} /><br></br>
+             <button id="login-btn" type="submit">Log In</button>
            </form>
          </div>
     )
