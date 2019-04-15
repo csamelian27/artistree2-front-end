@@ -5,7 +5,6 @@ class WorkExperienceInfo extends React.Component {
 
   render() {
     console.log(this.props);
-    console.log(this.state);
     const { business_name, contact_person, contact_number, months_range, description } = this.props.workExp
     return(
       <Table.Row>

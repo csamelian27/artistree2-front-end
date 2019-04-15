@@ -6,7 +6,8 @@ const initialState = {
   workExps: [],
   allUsers: [],
   clickedUser: {},
-  clickedMedia: {}
+  clickedMedia: {},
+  allMedia: []
 }
 
  export default function reducer(state = initialState, action) {
@@ -32,8 +33,10 @@ const initialState = {
     case('SHOW_MEDIA'):
       console.log('inside show media reducer');
       console.log(action.payload);
-      console.log(state.media);
       return {...state, media: action.payload}
+    case('SHOW_ALL_MEDIA'):
+      console.log(action.payload);
+      return {...state, allMedia: action.payload}
 
     case('ADD_RESUME'):
       console.log('inside add resume reducer');

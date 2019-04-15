@@ -38,6 +38,7 @@ class MediaListContainer extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <Grid fluid>
         <Grid.Row centered columns={1}>
@@ -51,8 +52,8 @@ class MediaListContainer extends React.Component {
   }
 }
 
-const mapStateToProps = ({media}) => {
-  return {media}
+const mapStateToProps = ({media, clickedUser}) => {
+  return {media, clickedUser}
 }
 
 export default connect(mapStateToProps, {getMedia})(withRouter(MediaListContainer))

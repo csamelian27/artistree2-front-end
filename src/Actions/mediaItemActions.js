@@ -1,6 +1,7 @@
 const addMedia = (mediaItem) => ({type: 'ADD_MEDIA', payload: mediaItem})
 const showMedia = (media) => ({type: 'SHOW_MEDIA', payload: media})
 export const setClickedMedia = (media) => ({type: 'SET_CLICKED_MEDIA', payload: media})
+const showAllMedia = (media) => ({type: 'SHOW_ALL_MEDIA', payload: media})
 
 export const createMedia = (mediaItem, userId) => {
   console.log('User ID', userId);
@@ -29,6 +30,23 @@ export const createMedia = (mediaItem, userId) => {
         console.log(mediaItemData);
         dispatch(addMedia(mediaItemData))
       });
+  }
+}
+
+export const getAllMedia = () => {
+  return dispatch => {
+    let token = localStorage.token
+    return fetch('http://localhost:3000/api/v1/media_items', {
+      method: 'GET',
+      headers: {
+        "Authorization": `Bearer ${token}`
+      }
+    })
+      .then(resp => resp.json())
+      .then(mediaItems => {
+        console.log(mediaItems);
+        dispatch(showAllMedia(mediaItems))
+      })
   }
 }
 

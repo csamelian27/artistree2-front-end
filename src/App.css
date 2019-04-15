@@ -183,6 +183,16 @@
   margin-bottom: 0.25vh;
 }
 
+#feed-vid {
+  max-height: 2vh;
+  max-width: auto;
+}
+
+#feed-doc {
+  max-width: 2.5vw;
+  max-height: 5vh;
+}
+
 #back-btn {
   margin-left: 64vw;
 }

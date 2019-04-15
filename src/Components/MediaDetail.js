@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { Button, Header, Modal, Image, Form, Input, TextArea, Select, Label } from 'semantic-ui-react'
-import { patchMedia, deleteMedia } from '../Actions/mediaItemActions'
+import { getMedia, patchMedia, deleteMedia } from '../Actions/mediaItemActions'
 
 class MediaDetail extends React.Component {
 
@@ -12,6 +12,12 @@ class MediaDetail extends React.Component {
     title: this.props.clickedMedia.title,
     description: this.props.clickedMedia.description,
     category: this.props.clickedMedia.category
+  }
+
+  componentDidUpdate = (prevProps) => {
+    if(this.props.clickedMedia !== prevProps.clickedMedia) {
+      this.props.getMedia(this.props.user.id)
+    }
   }
 
   show = dimmer => () => this.setState({ dimmer, open: true })
@@ -158,4 +164,4 @@ const mapStateToProps = ({clickedMedia}) => {
   return {clickedMedia}
 }
 
-export default withRouter(connect(mapStateToProps, {patchMedia, deleteMedia})(MediaDetail))
+export default withRouter(connect(mapStateToProps, {getMedia, patchMedia, deleteMedia})(MediaDetail))

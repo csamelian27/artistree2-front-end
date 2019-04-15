@@ -44,7 +44,7 @@ class WorkExperiencesContainer extends React.Component {
                 position='right center'
           /> : null }
          { !this.state.clicked ? null : <Popup
-                trigger={<Button id='btn' onClick={this.handleClickBtn}>Upload New Work Experience</Button>} content={<WorkExperienceHeaders user={this.props.user} handleClose={this.handleClose} />}
+                trigger={<Button id='btn-upload' onClick={this.handleClickBtn}>Upload New Work Experience</Button>} content={<WorkExperienceHeaders user={this.props.user} handleClose={this.handleClose} />}
                 on='click'
                 open={this.state.isOpen}
                 position='right center'
