@@ -11,6 +11,7 @@ class Nav extends React.Component {
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   render() {
+    console.log(this.props);
     const { activeItem } = this.state
     let userName
     if(this.props.user) {userName = this.props.user.full_name}
@@ -25,15 +26,16 @@ class Nav extends React.Component {
 
             <Dropdown
                 item
-                text={userName !== "undefined" ? userName : null}
+                className='dropdown'
+                text={this.props.loggedInUser.user ? this.props.loggedInUser.user.full_name : this.props.loggedInUser.full_name}
                 active={(activeItem === "user").toString()}
                 onClick={this.handleItemClick}
               >
-                <Dropdown.Menu>
-                  <Dropdown.Item as={NavLink} exact to="/profile">
+                <Dropdown.Menu className='dropdown'>
+                  <Dropdown.Item className='dropdown' as={NavLink} exact to="/profile">
                     Profile
                   </Dropdown.Item>
-                  <Dropdown.Item as={Button} exact to="/logout" onClick={this.props.handleLogout}>
+                  <Dropdown.Item className='dropdown' as={Button} exact to="/logout" onClick={this.props.handleLogout}>
                     Logout
                   </Dropdown.Item>
                 </Dropdown.Menu>
@@ -91,8 +93,8 @@ class Nav extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {user: state.user}
+const mapStateToProps = ({ loggedInUser }) => {
+  return {loggedInUser}
 }
 
 export default connect(mapStateToProps)(Nav);

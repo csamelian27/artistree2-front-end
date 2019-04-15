@@ -1,5 +1,6 @@
 const showAllUsers = (users) => ({type: 'SHOW_ALL_USERS', payload: users})
 const showOneUser = (user) => ({type: 'SHOW_ONE_USER', payload: user})
+export const logInUser = (user) => ({type: 'LOG_IN_USER', payload: user})
 
 export const getAllUsers = () => {
   return dispatch => {

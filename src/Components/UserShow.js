@@ -1,34 +1,78 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import UserProfileContainer from '../Containers/UserProfileContainer'
-import UserInfoContainer from '../Containers/UserInfoContainer'
-import MediaListContainer from '../Containers/MediaListContainer'
-import { Grid, Header, Image } from 'semantic-ui-react'
+import { withRouter } from 'react-router-dom'
 
-const UserShow = ({ clickedUser }) => {
-  console.log(clickedUser);
-  return(
-    <div id="user-show">
-      <img id="profile-bg-pic" src="https://mymodernmet.com/wp/wp-content/uploads/archive/crXl0cLM7z4SZa3p3rUI_1082141960.jpeg" alt="bg-pic" />
-      <Grid fluid>
-        <Grid.Row columns={1}>
-          <Grid.Column>
-            <br></br><Header as='h1' id='prof-name'>{clickedUser.full_name}</Header><br></br>
+class UserShow extends React.Component {
 
-            <Image avatar id="avatar-img" src={clickedUser.avatar ? clickedUser.avatar.avatar_url : '/avatar_default.svg'} alt="Avatar" />
+  state = {
+    open: false
+  }
 
-            </Grid.Column>
-          </Grid.Row>
+  handleClick = (e) => {
+    if(e.target.className.includes('resume')) {
+      console.log('resume');
+      this.props.history.push('/users/resume')
+    } else if(e.target.className.includes('workExp')) {
+      console.log('workExp');
+      this.props.history.push('/users/workExps')
+    } else if(e.target.className.includes('media')) {
+      console.log('media');
+      this.props.history.push('/users/media')
+    }
+  }
 
-          </Grid>
-        <UserInfoContainer user={clickedUser} />
-        <MediaListContainer user={clickedUser} />
-    </div>
-  )
+  render(){
+    console.log(this.props);
+    const { open } = this.state
+    return(
+      <div>
+        <section className="strips">
+          <article className="strips__strip">
+            <div className="strip__content resume-click" onClick={this.handleClick}>
+              <h1 className="strip__title" data-name="Lorem">Resume</h1>
+              <div className="strip__inner-text">
+                <h2>Ettrics</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia sapiente deserunt consectetur, quod reiciendis corrupti quo ea aliquid! Repellendus numquam quo, voluptate. Suscipit soluta omnis quibusdam facilis, illo voluptates odit!</p>
+                <p>
+                  <a href="https://twitter.com/ettrics" target="_blank"><i className="fa fa-twitter"></i></a>
+                </p>
+              </div>
+
+            </div>
+          </article>
+          <article className="strips__strip">
+            <div className="strip__content workExp-click" onClick={this.handleClick}>
+              <h1 className="strip__title" data-name="Ipsum">Work Experiences</h1>
+              <div className="strip__inner-text">
+                <h2>Ettrics</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia sapiente deserunt consectetur, quod reiciendis corrupti quo ea aliquid! Repellendus numquam quo, voluptate. Suscipit soluta omnis quibusdam facilis, illo voluptates odit!</p>
+                <p>
+                  <a href="https://twitter.com/ettrics" target="_blank"><i className="fa fa-twitter"></i></a>
+                </p>
+              </div>
+            </div>
+          </article>
+          <article className="strips__strip">
+            <div className="strip__content media-click" onClick={this.handleClick}>
+              <h1 className="strip__title" data-name="Dolor">Media Samples</h1>
+              <div className="strip__inner-text">
+                <h2>Ettrics</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia sapiente deserunt consectetur, quod reiciendis corrupti quo ea aliquid! Repellendus numquam quo, voluptate. Suscipit soluta omnis quibusdam facilis, illo voluptates odit!</p>
+                <p>
+                  <a href="https://twitter.com/ettrics" target="_blank"><i className="fa fa-twitter"></i></a>
+                </p>
+              </div>
+            </div>
+          </article>
+          <i className="fa fa-close strip__close"></i>
+        </section>
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = ({ clickedUser }) => {
   return {clickedUser}
 }
 
-export default connect(mapStateToProps)(UserShow)
+export default withRouter(connect(mapStateToProps)(UserShow))

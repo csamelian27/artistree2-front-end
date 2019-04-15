@@ -1,5 +1,4 @@
 const initialState = {
-  user: {},
   media: [],
   resume: {},
   resumes: [],
@@ -7,6 +6,7 @@ const initialState = {
   allUsers: [],
   clickedUser: {},
   clickedMedia: {},
+  loggedInUser: {},
   allMedia: []
 }
 
@@ -18,11 +18,13 @@ const initialState = {
     // case('ADD_AUTH'):
     //   return {user: action.payload}
 
+    case('LOG_IN_USER'):
+      return {...state, loggedInUser: action.payload}
     case('SHOW_ALL_USERS'):
-    console.log(action.payload);
+      console.log(action.payload);
       return {...state, allUsers: action.payload}
     case('SHOW_ONE_USER'):
-    console.log(action.payload);
+      console.log(action.payload);
       return {...state, clickedUser: action.payload}
     case('SHOW_USER_RESUMES'):
       console.log(action.payload);

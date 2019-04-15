@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, Switch, withRouter } from "react-router-dom";
+import { AnimatedRoute } from 'react-router-transition'
+import { logInUser } from './Actions/userActions'
 // import { createAuth } from './Actions/userActions'
-// import { connect } from 'react-redux'
+import { connect } from 'react-redux'
 
 import Error from './Containers/Error'
 import Home from './Containers/Home'
@@ -17,6 +19,9 @@ import BrowseUsersContainer from './Containers/BrowseUsersContainer'
 import UserShow from './Components/UserShow'
 import MediaDetail from './Components/MediaDetail'
 import CollabContainer from './Containers/CollabContainer'
+import Resume from './Components/Resume'
+import WorkExps from './Components/WorkExps'
+import Media from './Components/Media'
 
 class App extends Component {
 
@@ -40,6 +45,7 @@ class App extends Component {
             this.setState({ user }, () => {
               this.props.history.push("/home");
             });
+            this.props.logInUser(user)
           })
       : this.props.history.push("/signup");
     };
@@ -69,6 +75,7 @@ class App extends Component {
           localStorage.setItem("token", userData.jwt);
           this.props.history.push("/profile");
         });
+        this.props.logInUser(userData)
       });
   }
 
@@ -93,6 +100,7 @@ class App extends Component {
         localStorage.setItem("token", userData.jwt)
         this.props.history.push("/home")
       }
+      this.props.logInUser(userData)
     });
   };
 
@@ -107,6 +115,17 @@ class App extends Component {
       <div className="App">
         <NavBar user={this.state.user} handleLogout={this.handleLogout} />
         <Switch>
+          <AnimatedRoute exact path='/users/resume' component={Resume} atEnter={{ offset: -100 }} atLeave={{ offset: -100 }} atActive={{ offset: 0 }} mapStyles={(styles) => ({
+            transform: `translateX(${styles.offset}%)`,
+          })} />
+          <AnimatedRoute exact path='/users/workExps' component={WorkExps} atEnter={{ offset: -100 }} atLeave={{ offset: -100 }} atActive={{ offset: 0 }} mapStyles={(styles) => ({
+            transform: `translateX(${styles.offset}%)`,
+          })} />
+          <AnimatedRoute exact path='/users/media' component={Media} atEnter={{ offset: -100 }} atLeave={{ offset: -100 }} atActive={{ offset: 0 }} mapStyles={(styles) => ({
+            transform: `translateX(${styles.offset}%)`,
+          })} />
+
+
           <Route exact path="/collaborations" render={() => <CollabContainer user={this.state.user} />} />
           <Route exact path="/users/:name" render={() => <UserShow loggedInUser={this.state.user} />} />
           <Route exact path="/media/:id" render={() => <MediaDetail user={this.state.user} />} />
@@ -130,7 +149,7 @@ class App extends Component {
 //   createAuth: (user) => dispatch(createAuth(user))
 // })
 
-export default withRouter(App);
+export default withRouter(connect(null, { logInUser })(App));
 
 
 

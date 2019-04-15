@@ -1,19 +1,27 @@
 import React from 'react'
 import { Feed } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+import { setClickedMedia } from '../Actions/mediaItemActions'
 
 const MediaFeedCard = (props) => {
   console.log(props);
 
   const handleFileTypes = () => {
     if(props.media.file_type === 'Image') {
-      return <img src={props.media.file.file_url} alt="media-feed" />
+      return <img onClick={handleClickMedia} src={props.media.file.file_url} alt="media-feed" />
     } else if (props.media.file_type === 'Video') {
-      return <video id='feed-vid' autoPlay muted loop>
+      return <video onClick={handleClickMedia} id='feed-vid' autoPlay muted loop>
         <source src={props.media.file.file_url} />
       </video>
     } else if (props.media.file_type === 'Document') {
       return <embed id="feed-doc" src={props.media.file.file_url} type="application/pdf" />
     }
+  }
+
+  const handleClickMedia = () => {
+    props.setClickedMedia(props.media)
+    props.history.push(`/media/${props.media.id}`)
   }
 
   return (
@@ -29,7 +37,7 @@ const MediaFeedCard = (props) => {
   )
 }
 
-export default MediaFeedCard
+export default withRouter(connect(null, { setClickedMedia })(MediaFeedCard))
 
 // media:
 // category: "Film"
