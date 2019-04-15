@@ -23,16 +23,16 @@ class Nav extends React.Component {
 
             <Dropdown
                 item
-                className='dropdown'
+                id='dropdown'
                 text={this.props.loggedInUser.user ? this.props.loggedInUser.user.full_name : this.props.loggedInUser.full_name}
                 active={(activeItem === "user").toString()}
                 onClick={this.handleItemClick}
               >
-                <Dropdown.Menu className='dropdown'>
-                  <Dropdown.Item className='dropdown' as={NavLink} exact to="/profile">
+                <Dropdown.Menu id='dropdown'>
+                  <Dropdown.Item id='dropdown' as={NavLink} exact to="/profile">
                     Profile
                   </Dropdown.Item>
-                  <Dropdown.Item className='dropdown' as={Button} exact to="/logout" onClick={this.props.handleLogout}>
+                  <Dropdown.Item id='dropdown' as={NavLink} exact to="/logout" onClick={this.props.handleLogout}>
                     Logout
                   </Dropdown.Item>
                 </Dropdown.Menu>

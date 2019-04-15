@@ -9,7 +9,7 @@ const MediaFeedCard = (props) => {
 
   const handleFileTypes = () => {
     if(props.media.file_type === 'Image') {
-      return <img onClick={handleClickMedia} src={props.media.file.file_url} alt="media-feed" />
+      return <img onClick={handleClickMedia} id='feed-img' src={props.media.file.file_url} alt="media-feed" />
     } else if (props.media.file_type === 'Video') {
       return <video onClick={handleClickMedia} id='feed-vid' autoPlay muted loop>
         <source src={props.media.file.file_url} />
@@ -28,9 +28,9 @@ const MediaFeedCard = (props) => {
     <Feed.Event>
       <Feed.Label image={handleFileTypes} />
       <Feed.Content>
-        <Feed.Date content='1 day ago' />
+        <Feed.Date id='feed-info' content='1 day ago' />
         <Feed.Summary>
-          {props.media.user.full_name} added a new {props.media.file_type}
+          <div id='feed-info'>{props.media.user.full_name} added a new {props.media.file_type}</div>
         </Feed.Summary>
       </Feed.Content>
     </Feed.Event>

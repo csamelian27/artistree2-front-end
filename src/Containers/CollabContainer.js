@@ -22,46 +22,7 @@ class CollabContainer extends React.Component {
     // const { open } = this.state
     return (
       <div>
-        <section className="strips">
-          <article className="strips__strip">
-            <div className="strip__content resume-click" onClick={this.handleClick}>
-              <h1 className="strip__title" data-name="Lorem">Resume</h1>
-              <div className="strip__inner-text">
-                <h2>Ettrics</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia sapiente deserunt consectetur, quod reiciendis corrupti quo ea aliquid! Repellendus numquam quo, voluptate. Suscipit soluta omnis quibusdam facilis, illo voluptates odit!</p>
-                <p>
-                  <a href="https://twitter.com/ettrics" target="_blank" rel='noopener noreferrer'><i className="fa fa-twitter"></i></a>
-                </p>
-              </div>
-
-            </div>
-          </article>
-          <article className="strips__strip">
-            <div className="strip__content workExp-click" onClick={this.handleClick}>
-              <h1 className="strip__title" data-name="Ipsum">Work Experiences</h1>
-              <div className="strip__inner-text">
-                <h2>Ettrics</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia sapiente deserunt consectetur, quod reiciendis corrupti quo ea aliquid! Repellendus numquam quo, voluptate. Suscipit soluta omnis quibusdam facilis, illo voluptates odit!</p>
-                <p>
-                  <a href="https://twitter.com/ettrics" target="_blank" rel='noopener noreferrer'><i className="fa fa-twitter"></i></a>
-                </p>
-              </div>
-            </div>
-          </article>
-          <article className="strips__strip">
-            <div className="strip__content media-click" onClick={this.handleClick}>
-              <h1 className="strip__title" data-name="Dolor">Media Samples</h1>
-              <div className="strip__inner-text">
-                <h2>Ettrics</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia sapiente deserunt consectetur, quod reiciendis corrupti quo ea aliquid! Repellendus numquam quo, voluptate. Suscipit soluta omnis quibusdam facilis, illo voluptates odit!</p>
-                <p>
-                  <a href="https://twitter.com/ettrics" target="_blank" rel='noopener noreferrer'><i className="fa fa-twitter"></i></a>
-                </p>
-              </div>
-            </div>
-          </article>
-          <i className="fa fa-close strip__close"></i>
-        </section>
+        
       </div>
     )
   }

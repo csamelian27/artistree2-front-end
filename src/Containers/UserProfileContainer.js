@@ -1,7 +1,7 @@
 import React from 'react'
 import MediaListContainer from './MediaListContainer'
 import UserInfoContainer from './UserInfoContainer'
-import { Image, Grid, Header } from 'semantic-ui-react'
+import { Image, Grid, Header, Container } from 'semantic-ui-react'
 // import { connect } from 'react-redux'
 import { withRouter } from "react-router-dom";
 
@@ -17,6 +17,10 @@ class UserProfileContainer extends React.Component {
               <br></br><Header as='h1' id='prof-name'>{this.props.user.full_name}</Header><br></br>
 
               <Image avatar id="avatar-img" src={this.props.user.avatar ? this.props.user.avatar.avatar_url : '/avatar_default.svg'} alt="Avatar" />
+              <Container>
+                {this.props.user.artist_type}<br></br>
+                {this.props.user.bio}
+              </Container>
 
               </Grid.Column>
             </Grid.Row>

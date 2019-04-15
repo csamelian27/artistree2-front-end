@@ -38,12 +38,12 @@
   width: 100vw;
 }
 
-.dropdown {
+#dropdown {
   z-index: 999;
 }
 
 #browse-header {
-  z-index: -999;
+  z-index: -998;
 }
 
 #media-pg {
@@ -91,11 +91,6 @@
 
 #btn-upload {
   background-color: rgb(191	159	193	);
-}
-
-#feed-container {
-  margin-left: 5vw;
-  margin-top: 2vw;
 }
 
 #media-vid {
@@ -199,7 +194,7 @@
   position: fixed;
   min-width: 110vw;
   min-height: 100vh;
-  z-index: -1;
+  z-index: -999;
   opacity: 0.7;
 }
 
@@ -214,9 +209,24 @@
   margin-bottom: 0.25vh;
 }
 
+#feed-container {
+  margin-left: 5vw;
+  margin-top: 2vw;
+  width: 27vw;
+}
+
+#feed-info {
+  margin-left: 5vw;
+}
+
 #feed-vid {
-  max-height: 2vh;
+  max-height: 6vh;
   max-width: auto;
+}
+
+#feed-img {
+  min-height: 6vh;
+  min-width: 6vw;
 }
 
 #feed-doc {

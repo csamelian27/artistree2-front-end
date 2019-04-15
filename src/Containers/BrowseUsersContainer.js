@@ -14,11 +14,11 @@ class BrowseUsersContainer extends React.Component {
       <Grid>
       <img id="browse-bg-pic" src="https://static.parade.com/wp-content/uploads/2014/03/Is-Marilyn-a-Good-Artist-ftr.jpg" alt="media-upload-pic" />
         <Grid.Row>
-          <Grid.Column width={5}>
+          <Grid.Column width={6}>
             <Header as='h3'>Live Media Upload Feed</Header>
             <MediaFeedContainer />
           </Grid.Column>
-          <Grid.Column width={11}>
+          <Grid.Column width={10}>
             <Header as='h1' id='browse-header'>Browse Users</Header>
             <AllUsersContainer loggedInUser={this.props.loggedInUser} />
           </Grid.Column>

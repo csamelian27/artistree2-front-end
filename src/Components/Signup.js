@@ -9,6 +9,8 @@ class Signup extends Component {
     email: "",
     password: "",
     password_confirmation: "",
+    artist_type: "",
+    bio: "",
     avatar: null
   }
 
@@ -27,8 +29,8 @@ class Signup extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     console.log(e.target);
-    const { full_name, email, password, password_confirmation } = this.state
-    if( full_name !== "" && email !== "" && password !== "" && password_confirmation !== "" ) {
+    const { full_name, email, password, password_confirmation, artist_type, bio } = this.state
+    if( full_name !== "" && email !== "" && password !== "" && password_confirmation !== "" && artist_type !== "" && bio !== "" ) {
       this.props.handleSignup(this.state)
     }
   }
@@ -59,6 +61,14 @@ class Signup extends Component {
 
               <div className="form__group">
                   <input type="password" name="password_confirmation" placeholder="Confirm Password" className="form__input" value={this.state.password_confirmation} onChange={this.handleChange} />
+              </div>
+
+              <div className="form__group">
+                  <input type="text" name="artist_type" placeholder="What type of Artist are you?" className="form__input" value={this.state.artist_type} onChange={this.handleChange} />
+              </div>
+
+              <div className="form__group">
+                  <textarea rows='3' columns='7' name="bio" placeholder="Artist Bio" className="form__input" value={this.state.bio} onChange={this.handleChange} />
               </div>
 
               <label name="avatar">Choose a profile picture <strong>(jpeg/jpg only)</strong>:</label>

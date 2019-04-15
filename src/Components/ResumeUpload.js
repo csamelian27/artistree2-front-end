@@ -30,7 +30,7 @@ class ResumeUpload extends React.Component {
       this.props.createResume(this.state, this.props.user.id)
       this.props.history.push('/profile')
       this.props.handleClickBtn()
-      this.props.handleSubmit()
+      this.props.handleClose()
     }
   }
 

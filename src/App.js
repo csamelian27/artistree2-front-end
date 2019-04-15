@@ -56,11 +56,13 @@ class App extends Component {
   handleSignup = (userInfo) => {
     console.log('BAD: inside handleSignup');
     const formData = new FormData()
-    const { full_name, email, password, password_confirmation, avatar } = userInfo
+    const { full_name, email, password, password_confirmation, avatar, artist_type, bio } = userInfo
     formData.append('user[full_name]', full_name)
     formData.append('user[email]', email)
     formData.append('user[password]', password)
     formData.append('user[password_confirmation]', password_confirmation)
+    formData.append('user[artist_type]', artist_type)
+    formData.append('user[bio]', bio)
     formData.append('user[avatar]', avatar)
     console.log('FORM DATA: ', formData);
 
