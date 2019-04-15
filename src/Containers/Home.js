@@ -1,5 +1,4 @@
 import React from 'react'
-import { Container, Header } from 'semantic-ui-react'
 
 class Home extends React.Component {
 

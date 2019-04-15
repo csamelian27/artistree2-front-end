@@ -1,7 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Header, Card, Grid } from 'semantic-ui-react'
+import { Header, Grid } from 'semantic-ui-react'
 import { getAllUsers } from '../Actions/userActions'
 import MediaFeedContainer from './MediaFeedContainer'
 import AllUsersContainer from './AllUsersContainer'
@@ -19,7 +19,7 @@ class BrowseUsersContainer extends React.Component {
             <MediaFeedContainer />
           </Grid.Column>
           <Grid.Column width={11}>
-            <Header as='h1'>Browse Users</Header>
+            <Header as='h1' id='browse-header'>Browse Users</Header>
             <AllUsersContainer loggedInUser={this.props.loggedInUser} />
           </Grid.Column>
         </Grid.Row>

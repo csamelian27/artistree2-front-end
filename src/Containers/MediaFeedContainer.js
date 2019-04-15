@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Feed, Grid } from 'semantic-ui-react'
+import { Card, Feed } from 'semantic-ui-react'
 import MediaFeedCard from '../Components/MediaFeedCard'
 import { getAllMedia } from '../Actions/mediaItemActions'
 import { connect } from 'react-redux'
@@ -24,7 +24,7 @@ class MediaFeedContainer extends React.Component {
           </Card.Content>
           <Card.Content>
             <Feed>
-              {this.props.allMedia.length > 0 ? this.renderCards() : null}
+              {this.props.allMedia.length > 0 ? this.renderCards() : 'No Media Uploaded Recently'}
             </Feed>
           </Card.Content>
         </Card>

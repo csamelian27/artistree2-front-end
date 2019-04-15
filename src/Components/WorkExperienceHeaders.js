@@ -1,10 +1,8 @@
 import React from 'react'
-import { Grid, Card, Segment, Label, Table, Header, Rating, Button, Popup, Modal, Input } from 'semantic-ui-react'
+import { Grid, Segment, Label, Table, Button } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { getWorkExps } from '../Actions/workExpActions'
-
 import WorkExperienceInfo from './WorkExperienceInfo'
-import WorkExperienceUpload from './WorkExperienceUpload'
 
 class WorkExperienceHeaders extends React.Component {
 

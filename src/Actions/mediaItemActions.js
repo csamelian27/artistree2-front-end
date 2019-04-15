@@ -71,7 +71,7 @@ export const patchMedia = (mediaInfo, mediaId) => {
   return dispatch => {
     let token = localStorage.token
     const formData = new FormData()
-    const { title, description, category, file, mediaFileType } = mediaInfo
+    const { title, description, category } = mediaInfo
 
     formData.append('media_item[title]', title)
     formData.append('media_item[description]', description)

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Image, Label, Segment, Button, Header } from 'semantic-ui-react'
+import { Grid, Label, Segment, Button } from 'semantic-ui-react'
 
 import { connect } from 'react-redux'
 import { getUserResumes } from '../Actions/resumeActions'

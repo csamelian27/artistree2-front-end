@@ -16,19 +16,18 @@ class Media extends React.Component {
   renderCards = () => {
     const { media } = this.props
     if(media) {
-      return media.map(media => {
+      return media.map((media, index) => {
         if(media.file_type === 'Image') {
           console.log('Image');
-          return <img id="media-img" className="media-item" src={media.file ? media.file.file_url : null} />
-          console.log('Image');
+          return <img key={index} id="media-img" className="media-item" alt='Media' src={media.file ? media.file.file_url : null} />
         } else if (media.file_type === 'Video') {
           console.log('Video');
-          return <video autoPlay muted loop className="media-item" id="media-vid">
+          return <video key={index} autoPlay muted loop className="media-item" id="media-vid">
             <source src={media.file ? media.file.file_url : null} />
           </video>
         } else if (media.file_type === 'Document') {
           console.log('Document');
-          return <embed className="media-item" src={media.file ? media.file.file_url : null} width="500" height="705" type="application/pdf" />
+          return <embed key={index} className="media-item" src={media.file ? media.file.file_url : null} width="500" height="705" type="application/pdf" />
         }
       })
     }

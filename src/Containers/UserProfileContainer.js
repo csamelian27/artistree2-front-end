@@ -1,8 +1,7 @@
 import React from 'react'
 import MediaListContainer from './MediaListContainer'
-import ResumeContainer from './ResumeContainer'
 import UserInfoContainer from './UserInfoContainer'
-import { Button, Image, Grid, Header } from 'semantic-ui-react'
+import { Image, Grid, Header } from 'semantic-ui-react'
 // import { connect } from 'react-redux'
 import { withRouter } from "react-router-dom";
 

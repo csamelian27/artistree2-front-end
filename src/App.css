@@ -38,6 +38,14 @@
   width: 100vw;
 }
 
+.dropdown {
+  z-index: 999;
+}
+
+#browse-header {
+  z-index: -999;
+}
+
 #media-pg {
   background-color: rgb(135	75	122	);
   height: 100vh;
@@ -295,6 +303,7 @@
   opacity: 0.9;
   height: 2vw;
   font-size: 1vw;
+  z-index: 999;
 }
 
 /* END NAV-MENU CSS */

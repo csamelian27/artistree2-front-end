@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { Button, Header, Modal, Image, Form, Input, TextArea, Select, Label } from 'semantic-ui-react'
+import { Button, Header, Modal, Form, Input, TextArea, Select } from 'semantic-ui-react'
 import { getMedia, patchMedia, deleteMedia } from '../Actions/mediaItemActions'
 
 class MediaDetail extends React.Component {
@@ -39,7 +39,6 @@ class MediaDetail extends React.Component {
 
   handlePatchMedia = (e) => {
     e.preventDefault()
-    const { title, description, category } = this.state
     this.props.patchMedia(this.state, this.props.clickedMedia.id)
     // this.props.history.push('/profile')
     this.close()
@@ -68,13 +67,6 @@ class MediaDetail extends React.Component {
       { key: 'art', text: 'Art', value: 'art' },
       { key: 'poetry', text: 'Poetry', value: 'poetry' },
     ]
-
-    const mediaOptions = [
-      { key: 'Video', text: 'Video', value: 'Video'},
-      { key: 'Image', text: 'Image', value: 'Image'},
-      { key: 'Document', text: 'Document (PDF)', value: 'Document'},
-      { key: 'Audio', text: 'Audio', value: 'Audio'}
-    ]
     return(
       <div>
         <Button secondary onClick={this.props.history.goBack}>Back</Button>
@@ -85,7 +77,7 @@ class MediaDetail extends React.Component {
 
         {this.props.clickedMedia.file_type === 'Video' ? <video id="detail" controls autoPlay loop> <source src={this.props.clickedMedia.file.file_url} /></video> : null}
 
-        {this.props.clickedMedia.file_type === 'Image' ? <img id="detail" src={this.props.clickedMedia.file.file_url} /> : null}
+        {this.props.clickedMedia.file_type === 'Image' ? <img id="detail" src={this.props.clickedMedia.file.file_url} alt='Detail' /> : null}
 
         {this.props.clickedMedia.file_type === 'Document' ? <embed id="detail" src={this.props.clickedMedia.file.file_url} type="application/pdf" /> : null}
 

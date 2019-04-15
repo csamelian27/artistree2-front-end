@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Input, TextArea, Select, Button, Label } from 'semantic-ui-react'
+import { Form, Button, Label } from 'semantic-ui-react'
 import { withRouter } from "react-router-dom";
 import { connect } from 'react-redux'
 import { createResume } from '../Actions/resumeActions'
@@ -35,11 +35,11 @@ class ResumeUpload extends React.Component {
   }
 
   render(){
-    const resumeOptions = [
-      { key: 'PDF', text: 'PDF', value: 'PDF'},
-      { key: 'jpeg/jpg', text: 'jpeg/jpg', value: 'jpeg/jpg'},
-      { key: 'doc', text: 'doc', value: 'doc'}
-    ]
+    // const resumeOptions = [
+    //   { key: 'PDF', text: 'PDF', value: 'PDF'},
+    //   { key: 'jpeg/jpg', text: 'jpeg/jpg', value: 'jpeg/jpg'},
+    //   { key: 'doc', text: 'doc', value: 'doc'}
+    // ]
 
     return(
       <div id="resume-upload">

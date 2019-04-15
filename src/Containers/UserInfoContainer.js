@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Header, Divider } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 
 import WorkExperiencesContainer from './WorkExperiencesContainer'
 import ResumeContainer from './ResumeContainer'

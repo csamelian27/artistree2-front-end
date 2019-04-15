@@ -3,7 +3,7 @@ import MediaCard from '../Components/MediaCard'
 import { connect } from 'react-redux'
 import { getMedia } from '../Actions/mediaItemActions'
 import { withRouter } from 'react-router-dom'
-import { Grid, Button, Header } from 'semantic-ui-react'
+import { Grid, Button } from 'semantic-ui-react'
 
 class MediaListContainer extends React.Component {
 

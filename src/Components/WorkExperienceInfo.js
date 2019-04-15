@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Card, Segment, Label, Table, Header, Rating } from 'semantic-ui-react'
+import { Table } from 'semantic-ui-react'
 
 class WorkExperienceInfo extends React.Component {
 

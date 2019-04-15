@@ -1,7 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Header, Card, Grid } from 'semantic-ui-react'
+import { Card } from 'semantic-ui-react'
 import { getAllUsers } from '../Actions/userActions'
 import UserCard from '../Components/UserCard'
 

@@ -1,15 +1,15 @@
 import React from 'react'
-import { Card, Icon, Image } from 'semantic-ui-react'
+import { Card, Icon } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { getOneUser } from '../Actions/userActions'
 
 const UserCard = (props) => {
   const extra = (
-    <a>
+      <div>
       <Icon name='archive' />
       {props.userObj.media_items.length} Media Items
-    </a>
+      </div>
   )
 
   const handleClickUser = () => {

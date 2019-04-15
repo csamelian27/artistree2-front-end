@@ -23,7 +23,7 @@ class UserShow extends React.Component {
 
   render(){
     console.log(this.props);
-    const { open } = this.state
+    // const { open } = this.state
     return(
       <div>
         <section className="strips">
@@ -34,7 +34,7 @@ class UserShow extends React.Component {
                 <h2>Ettrics</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia sapiente deserunt consectetur, quod reiciendis corrupti quo ea aliquid! Repellendus numquam quo, voluptate. Suscipit soluta omnis quibusdam facilis, illo voluptates odit!</p>
                 <p>
-                  <a href="https://twitter.com/ettrics" target="_blank"><i className="fa fa-twitter"></i></a>
+                  <a href="https://twitter.com/ettrics" target="_blank" rel='noopener noreferrer'><i className="fa fa-twitter"></i></a>
                 </p>
               </div>
 
@@ -47,7 +47,7 @@ class UserShow extends React.Component {
                 <h2>Ettrics</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia sapiente deserunt consectetur, quod reiciendis corrupti quo ea aliquid! Repellendus numquam quo, voluptate. Suscipit soluta omnis quibusdam facilis, illo voluptates odit!</p>
                 <p>
-                  <a href="https://twitter.com/ettrics" target="_blank"><i className="fa fa-twitter"></i></a>
+                  <a href="https://twitter.com/ettrics" target="_blank" rel='noopener noreferrer'><i className="fa fa-twitter"></i></a>
                 </p>
               </div>
             </div>
@@ -59,7 +59,7 @@ class UserShow extends React.Component {
                 <h2>Ettrics</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia sapiente deserunt consectetur, quod reiciendis corrupti quo ea aliquid! Repellendus numquam quo, voluptate. Suscipit soluta omnis quibusdam facilis, illo voluptates odit!</p>
                 <p>
-                  <a href="https://twitter.com/ettrics" target="_blank"><i className="fa fa-twitter"></i></a>
+                  <a href="https://twitter.com/ettrics" target="_blank" rel='noopener noreferrer'><i className="fa fa-twitter"></i></a>
                 </p>
               </div>
             </div>

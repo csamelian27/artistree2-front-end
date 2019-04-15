@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getWorkExps } from '../Actions/workExpActions'
 import WorkExperienceInfo from './WorkExperienceInfo'
-import { Container, Grid, Card, Segment, Label, Table, Header, Rating, Button, Popup, Modal, Input } from 'semantic-ui-react'
+import { Container, Grid, Segment, Label, Table, Header, Button } from 'semantic-ui-react'
 
 class WorkExps extends React.Component {
 

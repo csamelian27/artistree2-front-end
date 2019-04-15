@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Header, Label } from 'semantic-ui-react'
+import { Grid, Label } from 'semantic-ui-react'
 import ReactAudioPlayer from 'react-audio-player';
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -17,7 +17,7 @@ const MediaCard = (props) => {
   return (
     <div id="media-card">
       <Grid.Column>
-          {props.media.file_type === 'Image' ? <img onClick={handleClickMedia} id="media-img" className="media-item" src={props.media && props.media.file ? props.media.file.file_url : <h3>fucked up</h3>} /> : null}
+          {props.media.file_type === 'Image' ? <img onClick={handleClickMedia} id="media-img" className="media-item" alt='Media' src={props.media && props.media.file ? props.media.file.file_url : <h3>fucked up</h3>} /> : null}
 
           {props.media.file_type === 'Document' ? <embed onClick={handleClickMedia} className="media-item" src={props.media.file.file_url} width="500" height="705" type="application/pdf" /> : null}
 

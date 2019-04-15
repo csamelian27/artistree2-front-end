@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
-import { Menu, Button, Select, Input, Dropdown } from 'semantic-ui-react'
-// import { Route, Switch, withRouter } from "react-router-dom";
+import { Menu, Button, Input, Dropdown } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 class Nav extends React.Component {
@@ -13,8 +12,6 @@ class Nav extends React.Component {
   render() {
     console.log(this.props);
     const { activeItem } = this.state
-    let userName
-    if(this.props.user) {userName = this.props.user.full_name}
 
     let loginOptions = null;
     if(localStorage.token) {
@@ -68,11 +65,11 @@ class Nav extends React.Component {
       )
     }
 
-        const options = [
-        { key: 'all', text: 'All', value: 'all' },
-        { key: 'articles', text: 'Articles', value: 'articles' },
-        { key: 'products', text: 'Products', value: 'products' },
-        ]
+        // const options = [
+        // { key: 'all', text: 'All', value: 'all' },
+        // { key: 'articles', text: 'Articles', value: 'articles' },
+        // { key: 'products', text: 'Products', value: 'products' },
+        // ]
 
     return (
               <Menu id="nav-menu">
