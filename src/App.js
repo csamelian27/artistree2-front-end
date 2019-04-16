@@ -22,6 +22,7 @@ import CollabContainer from './Containers/CollabContainer'
 import Resume from './Components/Resume'
 import WorkExps from './Components/WorkExps'
 import Media from './Components/Media'
+import UserInfo from './Components/UserInfo'
 
 class App extends Component {
 
@@ -47,7 +48,7 @@ class App extends Component {
             });
             this.props.logInUser(user)
           })
-      : this.props.history.push("/signup");
+      : this.props.history.push("/home");
     };
 
   // Sign up submit handler posts userInfo (which is the current sign up form state) to
@@ -117,6 +118,9 @@ class App extends Component {
       <div className="App">
         <NavBar user={this.state.user} handleLogout={this.handleLogout} />
         <Switch>
+          <AnimatedRoute exact path='/users/user-info' component={UserInfo} atEnter={{ offset: -100 }} atLeave={{ offset: -100 }} atActive={{ offset: 0 }} mapStyles={(styles) => ({
+            transform: `translateX(${styles.offset}%)`,
+          })} />
           <AnimatedRoute exact path='/users/resume' component={Resume} atEnter={{ offset: -100 }} atLeave={{ offset: -100 }} atActive={{ offset: 0 }} mapStyles={(styles) => ({
             transform: `translateX(${styles.offset}%)`,
           })} />

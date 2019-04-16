@@ -11,15 +11,14 @@ class BrowseUsersContainer extends React.Component {
   render() {
     console.log(this.props);
     return (
-      <Grid>
+      <Grid id='browse-grid'>
       <img id="browse-bg-pic" src="https://static.parade.com/wp-content/uploads/2014/03/Is-Marilyn-a-Good-Artist-ftr.jpg" alt="media-upload-pic" />
-        <Grid.Row>
+        <Grid.Row id='browse-grid'>
           <Grid.Column width={6}>
-            <Header as='h3'>Live Media Upload Feed</Header>
             <MediaFeedContainer />
           </Grid.Column>
           <Grid.Column width={10}>
-            <Header as='h1' id='browse-header'>Browse Users</Header>
+            <Header as='h3'>Browse Artists</Header>
             <AllUsersContainer loggedInUser={this.props.loggedInUser} />
           </Grid.Column>
         </Grid.Row>

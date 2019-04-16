@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Form, Image, Header, Container } from 'semantic-ui-react'
 // import { connect } from 'react-redux'
 // import { createUser } from '../Actions/userActions'
 
@@ -38,50 +39,31 @@ class Signup extends Component {
   render(){
     console.log(this.state);
     return (
-      <div id="signup">
-        <div className="user">
-          <header className="user__header">
-              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
-              <h1 className="user__title">Welcome to ArtisTree!</h1>
-              <p><strong>All Fields Required</strong></p>
-          </header>
+      <div id='signup-form'>
+        <img id='signup-pic' src='https://png.pngtree.com/thumb_back/fw800/back_pic/05/15/88/5159afd18b309b9.jpg' />
+        <Container>
+          <Header as='h1' className="user__title">Create Your Artist Profile!</Header>
+          (All Fields Required)
+        </Container><br></br>
 
-          <form className="form" onSubmit={this.handleSubmit}>
-              <div className="form__group">
-                  <input type="text" name="full_name" placeholder="Name" className="form__input" value={this.state.name} onChange={this.handleChange} />
-              </div>
+        <Form onSubmit={this.handleSubmit}>
+          <Form.Group widths='equal'>
+            <Form.Input fluid label='Full Name' name='full_name' placeholder='Full Name' value={this.state.name} onChange={this.handleChange} />
+            <Form.Input fluid label='Email' name='email' placeholder='Email' value={this.state.email} onChange={this.handleChange} />
+          </Form.Group>
+          <Form.Group widths='equal'>
+            <Form.Input fluid label='Password' name='password' placeholder='Password' value={this.state.password} onChange={this.handleChange} />
+            <Form.Input fluid label='Confirm Password' name='password_confirmation' placeholder='Password Confirmation' value={this.state.password_confirmation} onChange={this.handleChange} />
+          </Form.Group>
 
-              <div className="form__group">
-                  <input type="email" name="email" placeholder="Email" className="form__input" value={this.state.email} onChange={this.handleChange} />
-              </div>
-
-              <div className="form__group">
-                  <input type="password" name="password" placeholder="Password" className="form__input" value={this.state.password} onChange={this.handleChange} />
-              </div>
-
-              <div className="form__group">
-                  <input type="password" name="password_confirmation" placeholder="Confirm Password" className="form__input" value={this.state.password_confirmation} onChange={this.handleChange} />
-              </div>
-
-              <div className="form__group">
-                  <input type="text" name="artist_type" placeholder="What type of Artist are you?" className="form__input" value={this.state.artist_type} onChange={this.handleChange} />
-              </div>
-
-              <div className="form__group">
-                  <textarea rows='3' columns='7' name="bio" placeholder="Artist Bio" className="form__input" value={this.state.bio} onChange={this.handleChange} />
-              </div>
-
-              <label name="avatar">Choose a profile picture <strong>(jpeg/jpg only)</strong>:</label>
-              <br></br>
-              <input type="file" id="avatar" name="avatar" accept="image/*" onChange={this.handleFile} />
-
-
-              <br></br>
-              <br></br>
-              <button className="btn" type="submit">Register</button>
-          </form>
-        </div>
-      </div>
+          <Form.Input fluid label='Artist Type' name='artist_type' placeholder='Artist Type' value={this.state.artist_type} onChange={this.handleChange} />
+          <Form.TextArea label='Artist Bio' name='bio' placeholder='Tell us more about you...' value={this.state.bio} onChange={this.handleChange} />
+          <label name="avatar">Choose a profile picture <strong>(jpeg/jpg only)</strong>:</label>
+          <br></br>
+          <input type="file" id="avatar" name="avatar" accept="image/*" onChange={this.handleFile} /><br></br>
+        <Form.Button>Submit</Form.Button>
+      </Form>
+    </div>
     )
   }
 }
@@ -96,43 +78,4 @@ export default Signup
 
 // <div className="form__group">
 // <input type="text" name="avatar" placeholder="Profile Picture" className="form__input" value={this.state.avatar} onChange={this.handleChange} />
-// </div>
-
-
-
-
-
-
-// <div className="ui form">
-//   <div className="fields">
-//
-//     <div className="field">
-//       <label>Username</label>
-//       <input type="text" placeholder="Username"/>
-//     </div>
-//
-//     <div className="field">
-//       <label>Password</label>
-//       <input type="password"/>
-//     </div>
-//
-//   </div>
-//
-//   <div className="equal width fields">
-//     <div className="field">
-//       <label>First name</label>
-//       <input type="text" placeholder="First Name"/>
-//     </div>
-//
-//     <div className="field">
-//       <label>Middle name</label>
-//       <input type="text" placeholder="Middle Name"/>
-//     </div>
-//
-//     <div className="field">
-//       <label>Last name</label>
-//       <input type="text" placeholder="Last Name"/>
-//     </div>
-//
-//   </div>
 // </div>

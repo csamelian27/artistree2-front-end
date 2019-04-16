@@ -80,7 +80,7 @@ class Nav extends React.Component {
                 <Menu.Item as={NavLink} exact to="/collaborations" name="Collaborations" active={activeItem === 'Collaborations'} />
 
                 <Menu.Menu position='right'>
-                  <Menu.Item header as='h1' id="site-title">Welcome To ArtisTree!</Menu.Item>
+                  <Menu.Item header as='h1' id="site-title">ArtisTree!</Menu.Item>
                 </Menu.Menu>
 
                 {loginOptions}

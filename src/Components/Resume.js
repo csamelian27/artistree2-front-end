@@ -16,9 +16,11 @@ class Resume extends React.Component {
     console.log(this.props);
     return(
       <Container id="resume-pg">
-        <Header as='h1'>Resume</Header>
-        <Button secondary onClick={this.props.history.goBack}>Back</Button>
-        <embed className="resume-embed" src={this.props.resumes.length > 0 ? this.props.resumes[this.props.resumes.length-1].resume.resume_url : null} width="495" height="705" type="application/pdf" />
+        <div id='resume-header-div'>
+          <Header id='resume-header' as='h1'>{this.props.clickedUser.full_name}'s Resume</Header>
+        </div>
+        <Button id='resume-back-btn' secondary onClick={this.props.history.goBack}>Back</Button>
+        {this.props.resumes.length > 0 ? <embed className="resume-embed" src={this.props.resumes.length > 0 ? this.props.resumes[this.props.resumes.length-1].resume.resume_url : null} width="495" height="705" type="application/pdf" /> : <img id='template-resume' src='https://d.novoresume.com/images/doc/functional-resume-template.png' />}
       </Container>
     )
   }

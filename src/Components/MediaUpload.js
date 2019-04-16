@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Input, TextArea, Select, Button, Label } from 'semantic-ui-react'
+import { Form, Input, TextArea, Select, Button, Label, Header } from 'semantic-ui-react'
 import { withRouter } from "react-router-dom";
 import { connect } from 'react-redux'
 import { createMedia } from '../Actions/mediaItemActions'
@@ -57,9 +57,9 @@ class MediaUpload extends React.Component {
     return (
       <div id="upload">
         <br></br>
-        <h2>Upload Media</h2>
         <img id="upload-pic" src="https://bmoca.org/media/exhibition_images/1773/small_IMG_8326_cew_large.jpg" alt="media-upload-pic" />
         <div id="media-upload">
+        <Header as='h1'>Upload New Media</Header>
           <Form>
             <Form.Group widths='equal'>
               <Form.Field
@@ -71,15 +71,7 @@ class MediaUpload extends React.Component {
                 placeholder='Title'
                 onChange={this.handleChange}
               />
-              <Form.Field
-                id='form-input-control-description'
-                className="form-input"
-                control={TextArea}
-                label='Description of Work'
-                name="description"
-                placeholder='Description'
-                onChange={this.handleChange}
-              />
+
               <Form.Field
                 id="form-input-control-category"
                 className="form-input"
@@ -95,6 +87,16 @@ class MediaUpload extends React.Component {
                 }}
               />
             </Form.Group>
+
+            <Form.Field
+              id='form-input-control-description'
+              className="form-input"
+              control={TextArea}
+              label='Description of Work'
+              name="description"
+              placeholder='Description'
+              onChange={this.handleChange}
+            />
 
             <Form.Group widths="equal">
               <strong><Label for="media" id="media" className="form-input">Media:

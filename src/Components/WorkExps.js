@@ -38,7 +38,7 @@ class WorkExps extends React.Component {
                 </Table.Row>
               </Table.Header>
 
-              <Table.Body>
+              <Table.Body className="table-body">
                 {this.renderCards()}
               </Table.Body>
 
