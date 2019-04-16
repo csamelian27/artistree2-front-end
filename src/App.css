@@ -42,9 +42,8 @@
   z-index: 999;
 }
 
-#collab-post-form {
-  /* margin-left: 20vw;
-  margin-right: 20vw; */
+#collabs {
+  padding: 2vw 2vw 2vw 2vw;
 }
 
 #form-container {

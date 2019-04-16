@@ -18,7 +18,7 @@ import WorkExperienceUpload from './Components/WorkExperienceUpload'
 import BrowseUsersContainer from './Containers/BrowseUsersContainer'
 import UserShow from './Components/UserShow'
 import MediaDetail from './Components/MediaDetail'
-import CollabContainer from './Containers/CollabContainer'
+import CollabPostHome from './Containers/CollabPostHome'
 import Resume from './Components/Resume'
 import WorkExps from './Components/WorkExps'
 import Media from './Components/Media'
@@ -132,7 +132,7 @@ class App extends Component {
           })} />
 
 
-          <Route exact path="/collaborations" render={() => <CollabContainer user={this.state.user} />} />
+          <Route exact path="/collaborations" render={() => <CollabPostHome user={this.state.user} />} />
           <Route exact path="/users/:name" render={() => <UserShow loggedInUser={this.state.user} />} />
           <Route exact path="/media/:id" render={() => <MediaDetail user={this.state.user} />} />
           <Route exact path="/browse-users" render={() => <BrowseUsersContainer loggedInUser={this.state.user} />} />
