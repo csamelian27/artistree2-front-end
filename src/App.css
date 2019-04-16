@@ -42,6 +42,15 @@
   z-index: 999;
 }
 
+#collab-post-form {
+  /* margin-left: 20vw;
+  margin-right: 20vw; */
+}
+
+#form-container {
+  padding: 2vw 2vw 2vw 2vw;
+}
+
 #home {
   z-index: -999;
 }

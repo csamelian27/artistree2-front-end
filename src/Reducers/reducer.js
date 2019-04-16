@@ -7,7 +7,8 @@ const initialState = {
   clickedUser: {},
   clickedMedia: {},
   loggedInUser: {},
-  allMedia: []
+  allMedia: [],
+  collabPosts: []
 }
 
  export default function reducer(state = initialState, action) {
@@ -39,6 +40,8 @@ const initialState = {
     case('SHOW_ALL_MEDIA'):
       console.log(action.payload);
       return {...state, allMedia: action.payload}
+    case('SHOW_ALL_COLLABS'):
+      return {...state, collabPosts: action.payload}
 
     case('ADD_RESUME'):
       console.log('inside add resume reducer');
