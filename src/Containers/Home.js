@@ -28,26 +28,28 @@ class Home extends React.Component {
 
         <header>
           <section className="header-content">
-            <video autoPlay muted loop id="myVideo" className="rocky-dashed animate-pop-in" >
-              <source src='rain.mp4' type="video/mp4" />
+            <video autoPlay loop id="myVideo" className="rocky-dashed animate-pop-in" >
+              <source src='Home-vid.mp4' type="video/mp4" />
             </video>
             <Container id='home-splash'>
               <p id='titles' className="header-title animate-pop-in">WELCOME TO ARTISTREE</p>
               <p id='titles' className="header-subtitle animate-pop-in">A one stop shop for Artists' portfolios, collaborations & inspiration!</p>
             </Container>
           </section>
+          <div id="content">
+            <h3>Created by</h3>
+            <h5>Cassidy Samelian</h5>
+          </div>
         </header>
 
-        <div id="content">
-          <h3>Created by</h3>
-          <h5>Cassidy Samelian</h5>
-        </div>
+
       </div>
     )
   }
 }
 
 export default withRouter(Home)
+
 
 
 

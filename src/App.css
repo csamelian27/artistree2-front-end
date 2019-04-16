@@ -351,7 +351,7 @@
 #content {
   position: fixed;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.2);
   color: #f1f1f1;
   width: 100%;
   padding: 20px;
@@ -671,7 +671,7 @@ header:before {
 }
 
 header:after {
-  animation: rotate-up .5s .5s cubic-bezier(0, 0.5, 0, 1) forwards;
+  /* animation: rotate-up .5s .5s cubic-bezier(0, 0.5, 0, 1) forwards;
   background: #F9FCFF;
   content: "";
   height: 40rem;
@@ -680,7 +680,7 @@ header:after {
     right: -5%;
     top: 90%;
   transform-origin: 0 0;
-  z-index: 0;
+  z-index: 0; */
 }
 
 .header-title, .header-subtitle {

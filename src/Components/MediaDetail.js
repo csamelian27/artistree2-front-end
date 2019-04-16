@@ -71,7 +71,7 @@ class MediaDetail extends React.Component {
       <div>
         <Button secondary onClick={this.props.history.goBack}>Back</Button>
 
-        {this.props.loggedInUser.id === this.props.clickedMedia.user_id && this.props.user.id === this.props.clickedMedia.user_id ? <Button secondary onClick={this.handleEditMedia}>Edit</Button> : null}
+        {this.props.user.id === this.props.clickedMedia.user_id && this.props.user.id === this.props.clickedMedia.user_id ? <Button secondary onClick={this.handleEditMedia}>Edit</Button> : null}
 
         <Header>{this.props.clickedMedia.title}</Header>
 

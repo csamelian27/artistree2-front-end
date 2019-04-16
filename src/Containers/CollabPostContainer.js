@@ -33,10 +33,12 @@ class CollabPostContainer extends React.Component {
               <Table.HeaderCell>Title of Work</Table.HeaderCell>
               <Table.HeaderCell>Seeking</Table.HeaderCell>
               <Table.HeaderCell>Description</Table.HeaderCell>
+              <Table.HeaderCell>View Post</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
 
           <Table.Body>
+            {this.renderCards()}
             {this.renderCards()}
           </Table.Body>
         </Table>
