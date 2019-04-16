@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getAllCollabs } from '../Actions/collabPostActions'
 import CollabPostCard from '../Components/CollabPostCard'
-import { Table } from 'semantic-ui-react'
+import { Table, Button } from 'semantic-ui-react'
 
 class CollabPostContainer extends React.Component {
 
@@ -11,16 +11,10 @@ class CollabPostContainer extends React.Component {
     this.props.getAllCollabs()
   }
 
-  componentDidUpdate = (prevProps) => {
-    console.log('PREVPROPS', prevProps);
-    console.log('CURRENTPROPS', this.props);
-    if(this.props.collabPosts.length !== prevProps.collabPosts.length) {
-      this.props.getAllCollabs()
-    }
-  }
-
   renderCards = () => {
-    return this.props.collabPosts.map(post => <CollabPostCard key={post.id} post={post} />)
+    if(this.props.collabPosts.length){
+      return this.props.collabPosts.map(post => <CollabPostCard key={post.id} post={post} />)
+    }
   }
 
   render(){
@@ -38,7 +32,6 @@ class CollabPostContainer extends React.Component {
           </Table.Header>
 
           <Table.Body>
-            {this.renderCards()}
             {this.renderCards()}
           </Table.Body>
         </Table>

@@ -27,7 +27,7 @@ class ResumeShow extends React.Component {
     return(
       <div id="resume-container">
         <Segment centered>
-          <Label id="label" attached='top'>{this.props.resumes.length ? this.props.user.full_name + 's Resume' : 'UPLOAD A RESUME - see template below'}</Label>
+          <Label id="label" attached='top'>{this.props.resumes.length ? this.props.user.full_name + 's Resume' : 'UPLOAD A RESUME'}</Label>
 
           <Grid.Row>
             <embed className="resume-embed" src={this.props.resumes.length ? this.props.resumes[this.props.resumes.length-1].resume.resume_url : null} width="495" height="705" type="application/pdf" />

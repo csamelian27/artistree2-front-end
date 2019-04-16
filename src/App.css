@@ -55,7 +55,7 @@
 }
 
 #home-splash {
-  margin-top: 20vh;
+  margin-top: 25vh;
   font-size: 3em;
   z-index: -999;
 }
@@ -104,9 +104,30 @@
   color: rgb(89, 87, 103);
 }
 
+#prof-art-type {
+  margin-top: -1vh;
+  margin-bottom: -1vh;
+  font-size: 1.5vw;
+  color: white;
+}
+
+#right-btn {
+  margin-left: 10vw;
+}
+
+#table-user-info {
+  margin-left: 27vw;
+  width: 20vw;
+  text-align: center;
+}
+
+#table-user-info-bio {
+  background-color: rgb(227	133	137	);
+}
+
 #media-btn {
   margin-top: -2vh;
-  background-color: rgb(229	119	126);
+  background-color: rgb(162	218	254	);
 }
 
 #btn {
@@ -356,7 +377,7 @@
   width: 100%;
   padding: 20px;
   height: 20vh;
-  margin-bottom: -3vh;
+  /* margin-bottom: -3vh; */
 }
 
 /* Style the button used to pause/play the video */

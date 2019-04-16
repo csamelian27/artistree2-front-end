@@ -36,6 +36,26 @@ export const getOneUser = (userId) => {
   }
 }
 
+export const patchUserBio = (userId, bioData) => {
+  console.log(bioData);
+  return dispatch => {
+    let token = localStorage.token
+    const formData = new FormData()
+
+    formData.append('user[bio]', bioData)
+
+    return fetch(`http://localhost:3000/api/v1/users/${userId}`, {
+      method: 'PATCH',
+      headers: {
+        "Authorization": `Bearer ${token}`
+      },
+      body: formData
+    })
+      .then(resp => resp.json())
+      .then(console.log)
+  }
+}
+
 
 
 // const addUser = (user) => ({type: 'ADD_USER', payload: user})

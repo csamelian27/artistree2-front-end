@@ -37,8 +37,9 @@ class Home extends React.Component {
             </Container>
           </section>
           <div id="content">
-            <h3>Created by</h3>
-            <h5>Cassidy Samelian</h5>
+            <h5>Created by Cassidy Samelian</h5>
+            <h5>Video: DV8 Physical Theatre - The Cost of Living</h5>
+            <h6>Music: Cher - Believe</h6>
           </div>
         </header>
 
