@@ -39,7 +39,7 @@ export const postCollabPost = (postData, userId) => {
     })
       .then(resp => resp.json())
       .then(collabPost => {
-        console.log(collabPost);
+        dispatch(getAllCollabs())
       })
   }
 }
