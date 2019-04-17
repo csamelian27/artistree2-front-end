@@ -28,10 +28,6 @@ class UserProfileContainer extends React.Component {
     })
   }
 
-  handlePatchBio = () => {
-
-  }
-
   render(){
     console.log(this.state);
     return (

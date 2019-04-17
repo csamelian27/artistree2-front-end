@@ -52,7 +52,9 @@ export const patchUserBio = (userId, bioData) => {
       body: formData
     })
       .then(resp => resp.json())
-      .then(console.log)
+      .then(user => {
+        console.log(user);
+      })
   }
 }
 
