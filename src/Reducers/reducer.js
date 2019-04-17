@@ -8,7 +8,8 @@ const initialState = {
   clickedMedia: {},
   loggedInUser: {},
   allMedia: [],
-  collabPosts: []
+  collabPosts: [],
+  userCollabs: []
 }
 
  export default function reducer(state = initialState, action) {
@@ -56,6 +57,8 @@ const initialState = {
 
     case('SET_CLICKED_MEDIA'):
       return {...state, clickedMedia: action.payload}
+    case('GATHER_COLLABS'):
+      return {...state, userCollabs: [action.payload, ...state.userCollabs]}
 
      default:
       return state

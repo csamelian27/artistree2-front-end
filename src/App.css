@@ -44,6 +44,11 @@
 
 #collabs {
   padding: 2vw 2vw 2vw 2vw;
+  z-index: -999;
+}
+
+#collab-post {
+  z-index: -999;
 }
 
 #form-container {

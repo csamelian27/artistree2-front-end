@@ -2,6 +2,7 @@ import React from 'react'
 import { Grid, Image } from 'semantic-ui-react'
 import CollabPostForm from '../Components/CollabPostForm'
 import CollabPostContainer from './CollabPostContainer'
+import UserCollabs from '../Components/UserCollabs'
 
 class CollabPostHome extends React.Component {
 
@@ -10,10 +11,11 @@ class CollabPostHome extends React.Component {
     return (
       <div id='collabs'>
         <Grid columns={2}>
-          <Grid.Column width={4}>
+          <Grid.Column width={6}>
             <CollabPostForm />
+            <UserCollabs />
           </Grid.Column>
-          <Grid.Column width={12}>
+          <Grid.Column width={10}>
             <Grid.Row>
               <CollabPostContainer />
             </Grid.Row>

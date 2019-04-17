@@ -33,7 +33,11 @@ class CollabPostForm extends React.Component {
   handleSubmitCollab = () => {
     const { title, description, seeking } = this.state
     if(title !== '' && description !== '' && seeking !== '') {
-      this.props.postCollabPost(this.state, this.props.loggedInUser.id)
+      if(this.props.loggedInUser.user) {
+          this.props.postCollabPost(this.state, this.props.loggedInUser.user.id)
+      } else {
+        this.props.postCollabPost(this.state, this.props.loggedInUser.id)
+      }
       this.setState({
         title: '',
         description: '',
@@ -44,6 +48,7 @@ class CollabPostForm extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div>
         {this.state.clicked ? <Container id='form-container'>
