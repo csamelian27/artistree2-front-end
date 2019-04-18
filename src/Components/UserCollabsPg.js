@@ -31,7 +31,7 @@ class UserCollabsPg extends React.Component {
     console.log(this.props);
     return(
       <Container id="collab-post-pg">
-        <img id='signup-pic' src='https://www.flowermeaning.com/flower-pics/Tulip-4.jpg' />
+        <img id='collabs-pic' src='https://media.gettyimages.com/photos/close-up-of-tulips-over-yellow-background-picture-id928656458' />
         <Button id='media-back-btn' secondary onClick={this.props.history.goBack}>Back</Button>
         <Header id='media-header' as='h1'>{this.props.clickedUser.full_name}'s Media</Header>
 

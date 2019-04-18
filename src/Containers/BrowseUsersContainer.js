@@ -18,7 +18,7 @@ class BrowseUsersContainer extends React.Component {
             <MediaFeedContainer />
           </Grid.Column>
           <Grid.Column width={10}>
-            <Header as='h3'>Browse Artists</Header>
+            <Header id='browse-header' as='h3'>Browse Artists</Header>
             <AllUsersContainer loggedInUser={this.props.loggedInUser} />
           </Grid.Column>
         </Grid.Row>

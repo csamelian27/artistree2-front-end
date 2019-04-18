@@ -30,7 +30,7 @@ class ResumeShow extends React.Component {
           <Label id="label" attached='top'>{this.props.resumes.length ? this.props.user.full_name + 's Resume' : 'UPLOAD A RESUME'}</Label>
 
           <Grid.Row>
-            <embed className="resume-embed" src={this.props.resumes.length ? this.props.resumes[this.props.resumes.length-1].resume.resume_url : null} width="495" height="705" type="application/pdf" />
+            <embed className="resume-embed" src={this.props.resumes.length ? this.props.resumes[this.props.resumes.length-1].resume.resume_url : null} width="495" height="625" type="application/pdf" />
           </Grid.Row>
         </Segment>
         <Button secondary onClick={this.props.handleClose}>Close</Button>

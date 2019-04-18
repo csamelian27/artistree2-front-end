@@ -59,8 +59,8 @@ class MediaUpload extends React.Component {
         <br></br>
         <img id="upload-pic" src="https://bmoca.org/media/exhibition_images/1773/small_IMG_8326_cew_large.jpg" alt="media-upload-pic" />
         <div id="media-upload">
-        <Header as='h1'>Upload New Media</Header>
-          <Form>
+        <Header id='media-upload-header' as='h1'>Upload New Media</Header>
+          <Form id='media-upload-form'>
             <Form.Group widths='equal'>
               <Form.Field
                 id='form-input-control-title'

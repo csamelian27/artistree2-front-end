@@ -37,7 +37,7 @@ class Media extends React.Component {
     console.log(this.props);
     return(
       <Container id="media-pg">
-        <img id='signup-pic' src='https://images.immediate.co.uk/volatile/sites/10/2018/02/f9d1af50-fd2f-43e6-9964-0a74f0f1e08c-6b6985c.jpg?quality=90&lb=620,413&background=white' />
+        <img id='signup-pic' src='https://media.gettyimages.com/photos/purple-hydrangea-flowers-picture-id760155711' />
         <Button id='media-back-btn' secondary onClick={this.props.history.goBack}>Back</Button>
         <Header id='media-header' as='h1'>{this.props.clickedUser.full_name}'s Media</Header>
         <div id="media-card">

@@ -33,7 +33,7 @@
 }
 
 #collab-post-pg {
-  background-color: rgba(247,	182,	69,	0.1);
+  /* background-color: rgba(247,	182,	69,	0.1); */
   height: 100vh;
   width: 100vw;
 }
@@ -164,8 +164,8 @@
 }
 
 #table-user-info {
-  margin-left: 27vw;
-  width: 20vw;
+  margin-left: 25vw;
+  width: 23vw;
   text-align: center;
 }
 
@@ -190,8 +190,45 @@
   margin-top: 3.5vw;
 }
 
+#media-detail-back-btn {
+  margin-right: 80vw;
+  margin-top: 1vh;
+}
+
 #detail {
-  max-height: 60vh;
+  max-height: 50vh;
+  border-radius: 2px;
+}
+
+#desc-container {
+  padding: 1.25vh 1vw 1.25vh 1vw;
+  font-size: 3em;
+  margin-top: 1vh;
+  font-family: 'Amatic SC', cursive;
+  color: white;
+  background-color: rgba(75,	85,	98,	0.9);
+  min-height: 15vh;
+  width: 45vw;
+  border-radius: 2px;
+}
+
+#media-detail-header {
+  color: white;
+  font-family: 'Amatic SC', cursive;
+  font-size: 5em;
+  margin-top: -2vh;
+}
+
+#media-detail-pic {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  min-width: 120vw;
+  min-height: 100vh;
+  z-index: -2;
+  opacity: 0.9;
 }
 
 .media-item {
@@ -213,7 +250,7 @@
 
 #site-title {
   font-size: 2em;
-  margin-right: 10vw;
+  margin-right: 4vw;
   font-family: 'Amatic SC', cursive;
 }
 
@@ -222,6 +259,18 @@
   margin-bottom: 1vw;
   width: 18vw;
   padding: 0.55vw 3vw 0.55vw 3vw;
+}
+
+#collabs-pic {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  z-index: -2;
+  opacity: 0.85;
 }
 
 /* START MediaUpload CSS */
@@ -281,14 +330,25 @@
   margin-top: -2vw;
 }
 
+#media-upload-header {
+  font-family: 'Amatic SC', cursive;
+  font-size: 3em;
+}
+
+#media-upload-form label {
+  font-size: 1em;
+  font-family: 'Amatic SC', cursive;
+}
+
 #media-upload {
   padding: 2vw 2vw 2vw 2vw;
   position: absolute;
   top: 10vw;
   left: 27vw;
   right: 27vw;
-  margin-top: 5vw;
+  margin-top: 1vh;
   box-shadow: 0.7em 0.7em .4em white, -0.7em 0 .7em white;
+  background-color: rgba(238,	238,	238,	0.4)
 }
 
 #browse-bg-pic {
@@ -385,13 +445,21 @@
   width: 7vw;
 }
 
+#browse-header {
+  /* color: white; */
+  font-size: 3em;
+  margin-right: 25vw;
+  margin-top: 2vh;
+}
+
 #add-post-btn {
   margin-bottom: 3vh;
+  margin-top: -3vh;
 }
 
 #feed-container {
   margin-left: 5vw;
-  margin-top: 2vw;
+  margin-top: 9vh;
   width: 27vw;
 }
 
@@ -547,11 +615,12 @@
 /* START NAV-MENU CSS */
 
 #nav-menu {
-  background-color: lightgrey;
+  font-family: 'Amatic SC', cursive;
+  background-color: rgb(206	211	214	);
   margin-bottom: -0.1vh;
   opacity: 0.9;
   height: 5vh;
-  font-size: 1vw;
+  font-size: 1.15vw;
   z-index: 999;
 }
 

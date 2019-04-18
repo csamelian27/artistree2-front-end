@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { Button, Header, Modal, Form, Input, TextArea, Select } from 'semantic-ui-react'
+import { Button, Header, Modal, Form, Input, TextArea, Select, Container } from 'semantic-ui-react'
 import { getMedia, patchMedia, deleteMedia } from '../Actions/mediaItemActions'
 
 class MediaDetail extends React.Component {
@@ -69,11 +69,12 @@ class MediaDetail extends React.Component {
     ]
     return(
       <div>
-        <Button secondary onClick={this.props.history.goBack}>Back</Button>
+        <img id='media-detail-pic' src='https://media.gettyimages.com/photos/directly-above-shot-of-technological-equipment-on-blue-table-picture-id1004082176' />
+        <Button id='media-detail-back-btn' secondary onClick={this.props.history.goBack}>Back</Button>
 
         {this.props.user.id === this.props.clickedMedia.user_id && this.props.user.id === this.props.clickedMedia.user_id ? <Button secondary onClick={this.handleEditMedia}>Edit</Button> : null}
 
-        <Header>{this.props.clickedMedia.title}</Header>
+        <Header id='media-detail-header'>{this.props.clickedMedia.title}</Header>
 
         {this.props.clickedMedia.file_type === 'Video' ? <video id="detail" controls autoPlay loop> <source src={this.props.clickedMedia.file.file_url} /></video> : null}
 
@@ -81,11 +82,11 @@ class MediaDetail extends React.Component {
 
         {this.props.clickedMedia.file_type === 'Document' ? <embed id="detail" src={this.props.clickedMedia.file.file_url} type="application/pdf" /> : null}
 
-        <div>{this.props.clickedMedia.description}</div>
+        <Container id='desc-container'>{this.props.clickedMedia.description}</Container>
 
         {this.state.clickedEdit ?
           <Modal dimmer={dimmer} open={open} onClose={this.close}>
-            <Modal.Header>Edit Media<Button id='back-btn' size='mini' secondary onClick={this.props.history.goBack} position='right'>Back</Button></Modal.Header>
+            <Modal.Header>Edit Media<Button id='back-btn' size='mini' secondary onClick={this.props.history.goBack} position='left'>Back</Button></Modal.Header>
             <Modal.Content>
               <Modal.Description>
                 <Header>Change Media Details</Header>
