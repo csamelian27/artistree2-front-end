@@ -44,7 +44,7 @@ class UserProfileContainer extends React.Component {
     return (
       <div id="profile">
       <img id="profile-bg-pic" src="https://mymodernmet.com/wp/wp-content/uploads/archive/crXl0cLM7z4SZa3p3rUI_1082141960.jpeg" alt="bg-pic" />
-        <Button onClick={this.handleDeleteUser}>Delete Account</Button>
+        <Button size='mini' color='red' id='delete-user-btn' onClick={this.handleDeleteUser}>Delete Account</Button>
         <Grid fluid>
           <Grid.Row columns={1}>
             <Grid.Column>

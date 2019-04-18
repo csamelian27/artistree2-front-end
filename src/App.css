@@ -154,7 +154,7 @@
 }
 
 #prof-name {
-  margin-top: -1.5vh;
+  margin-top: -7vh;
   font-size: 3.5vw;
   color: rgb(89, 87, 103);
 }
@@ -573,6 +573,12 @@
   min-height: 100vh;
   z-index: -1;
   opacity: 0.8;
+}
+
+#delete-user-btn {
+  margin-left: 80vw;
+  width: 5vw;
+  margin-top: 2vh;
 }
 
 /* END MEDIA-UPLOAD CSS */
