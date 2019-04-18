@@ -411,18 +411,11 @@
 
 #resume-back-btn {
   margin-right: 80vw;
-  margin-top: 0vh;
+  margin-top: 1vw;
 }
 
 #resume-header-div {
   padding-top: 3vh;
-}
-
-#resume-header {
-  font-size: 6vh;
-  color: white;
-  margin-top: 2vh;
-  margin-bottom: -1vh;
 }
 
 #work-exp-header {
@@ -430,6 +423,25 @@
   color: white;
   margin-top: -3vh;
   margin-bottom: -1vh;
+}
+
+#resume-header {
+  font-size: 6vh;
+  color: white;
+  margin-top: -2vh;
+  margin-bottom: -1vh;
+}
+
+#media-header {
+  font-size: 6vh;
+  color: white;
+  margin-top: -3vh;
+  margin-bottom: -1vh;
+}
+
+#media-back-btn {
+  margin-right: 80vw;
+  margin-top: 2vw;
 }
 
 #feed-doc {
@@ -445,6 +457,7 @@
   max-height: 60vh;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   max-width: auto;
+  margin-top: 2vw;
 }
 
 #back-btn-collab-posts {

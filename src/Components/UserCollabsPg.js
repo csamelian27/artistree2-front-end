@@ -1,7 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Container, Button, Segment, Table, Icon } from 'semantic-ui-react'
+import { Container, Button, Segment, Table, Icon, Header } from 'semantic-ui-react'
 
 class UserCollabsPg extends React.Component {
 
@@ -32,9 +32,8 @@ class UserCollabsPg extends React.Component {
     return(
       <Container id="collab-post-pg">
         <img id='signup-pic' src='https://www.flowermeaning.com/flower-pics/Tulip-4.jpg' />
-        <br></br><div id='back-btn-collab-posts'>
-          <Button secondary onClick={this.props.history.goBack}>Back</Button>
-        </div>
+        <Button id='media-back-btn' secondary onClick={this.props.history.goBack}>Back</Button>
+        <Header id='media-header' as='h1'>{this.props.clickedUser.full_name}'s Media</Header>
 
         <Table fixed id='collab-table-show'>
           <Table.Header>

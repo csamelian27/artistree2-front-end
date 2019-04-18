@@ -2,7 +2,7 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getMedia } from '../Actions/mediaItemActions'
-import { Container, Grid, Label, Button } from 'semantic-ui-react'
+import { Container, Grid, Label, Button, Header } from 'semantic-ui-react'
 import ReactAudioPlayer from 'react-audio-player';
 
 class Media extends React.Component {
@@ -38,9 +38,10 @@ class Media extends React.Component {
     return(
       <Container id="media-pg">
         <img id='signup-pic' src='https://images.immediate.co.uk/volatile/sites/10/2018/02/f9d1af50-fd2f-43e6-9964-0a74f0f1e08c-6b6985c.jpg?quality=90&lb=620,413&background=white' />
+        <Button id='media-back-btn' secondary onClick={this.props.history.goBack}>Back</Button>
+        <Header id='media-header' as='h1'>{this.props.clickedUser.full_name}'s Media</Header>
         <div id="media-card">
           <Grid.Column>
-            <br></br><Button secondary onClick={this.props.history.goBack}>Back</Button><br></br>
             {this.renderCards()}
 
           </Grid.Column>
