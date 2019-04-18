@@ -22,7 +22,7 @@ import CollabPostHome from './Containers/CollabPostHome'
 import Resume from './Components/Resume'
 import WorkExps from './Components/WorkExps'
 import Media from './Components/Media'
-import UserInfo from './Components/UserInfo'
+import UserCollabsPg from './Components/UserCollabsPg'
 
 class App extends Component {
 
@@ -118,7 +118,7 @@ class App extends Component {
       <div className="App">
         <NavBar user={this.state.user} handleLogout={this.handleLogout} />
         <Switch>
-          <AnimatedRoute exact path='/users/user-info' component={UserInfo} atEnter={{ offset: -100 }} atLeave={{ offset: -100 }} atActive={{ offset: 0 }} mapStyles={(styles) => ({
+          <AnimatedRoute exact path='/users/user-info' component={UserCollabsPg} atEnter={{ offset: -100 }} atLeave={{ offset: -100 }} atActive={{ offset: 0 }} mapStyles={(styles) => ({
             transform: `translateX(${styles.offset}%)`,
           })} />
           <AnimatedRoute exact path='/users/resume' component={Resume} atEnter={{ offset: -100 }} atLeave={{ offset: -100 }} atActive={{ offset: 0 }} mapStyles={(styles) => ({

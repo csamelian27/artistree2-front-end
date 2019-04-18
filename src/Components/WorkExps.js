@@ -22,6 +22,7 @@ class WorkExps extends React.Component {
     console.log(this.props);
     return(
       <Container id="work-exp-pg">
+        <img id='work-exp-pic' src='https://ae01.alicdn.com/kf/HTB1g0ixnL5TBuNjSspmq6yDRVXar/7x5FT-White-Floral-Flowers-Branch-Turquoise-Wood-Wall-Custom-Photo-Background-Studio-Backdrop-Vinyl-220cm-x.jpg_640x640.jpg' />
         <Header as='h1'>Work Experiences</Header>
         <Button secondary onClick={this.props.history.goBack}>Back</Button>
         <Segment id='work-exps-table' padded>

@@ -25,8 +25,8 @@ const UserCard = (props) => {
       id="user-card"
       image={props.userObj.avatar ? props.userObj.avatar.avatar_url : null}
       header={props.userObj.full_name ? props.userObj.full_name : null}
-      meta='Art Type'
-      description='Artist Bio'
+      meta={props.userObj.artist_type ? props.userObj.artist_type : null}
+      description={props.userObj.bio ? props.userObj.bio : null}
       extra={extra}
       onClick={handleClickUser}
     />
