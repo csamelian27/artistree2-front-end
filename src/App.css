@@ -124,8 +124,8 @@
 }
 
 #work-exps-table {
-  margin-left: 25vw;
-  margin-right: 25vw;
+  margin-left: 15vw;
+  margin-right: 15vw;
 }
 
 #collab-table-show {
@@ -445,7 +445,7 @@
   margin-top: 13vh;
   margin-left: 40vw;
   margin-right: 40vw;
-  height: 37vh;
+  height: 43vh;
   box-shadow: 0.5em 0.5em .4em rgba(64, 89, 112, .5), -0.5em 0 .5em rgba(64,	89,	112, .5);
 }
 
