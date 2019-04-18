@@ -14,17 +14,26 @@ class WorkExps extends React.Component {
   }
 
   renderCards = () => {
-    if(this.props.workExps){
-    return this.props.workExps.map((workExpObj, index) => <WorkExperienceInfo key={index} workExp={workExpObj} user={this.props.user} />)}
+    if(this.props.workExps.length){
+      return this.props.workExps.map((workExpObj, index) => <WorkExperienceInfo key={index} workExp={workExpObj} user={this.props.user} />)
+    } else {
+      return (<Table.Row>
+        <Table.Cell singleLine>No Work</Table.Cell>
+        <Table.Cell singleLine>Experience</Table.Cell>
+        <Table.Cell singleLine>Listed</Table.Cell>
+        <Table.Cell singleLine>So Far</Table.Cell>
+        <Table.Cell singleLine>!!!!!</Table.Cell>
+      </Table.Row>)
+    }
   }
 
   render(){
     console.log(this.props);
     return(
       <Container id="work-exp-pg">
-        <img id='work-exp-pic' src='https://ae01.alicdn.com/kf/HTB1g0ixnL5TBuNjSspmq6yDRVXar/7x5FT-White-Floral-Flowers-Branch-Turquoise-Wood-Wall-Custom-Photo-Background-Studio-Backdrop-Vinyl-220cm-x.jpg_640x640.jpg' />
-        <Header as='h1'>Work Experiences</Header>
-        <Button secondary onClick={this.props.history.goBack}>Back</Button>
+        <img id='work-exp-pic' src='https://media.gettyimages.com/photos/aqua-and-green-psychedelic-fractal-background-like-floral-petal-picture-id1088155908' />
+        <Button id='work-exp-btn-back' secondary onClick={this.props.history.goBack}>Back</Button>
+        <Header id='work-exp-header' as='h1'>Work Experiences</Header><br></br>
         <Segment id='work-exps-table' padded>
           <Label attached='top'>{this.props.clickedUser.full_name}'s Work Exp</Label>
           <Grid.Row>

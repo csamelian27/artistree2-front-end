@@ -31,7 +31,8 @@ class UserCollabsPg extends React.Component {
     console.log(this.props);
     return(
       <Container id="collab-post-pg">
-        <div id='back-btn-collab-posts'>
+        <img id='signup-pic' src='https://www.flowermeaning.com/flower-pics/Tulip-4.jpg' />
+        <br></br><div id='back-btn-collab-posts'>
           <Button secondary onClick={this.props.history.goBack}>Back</Button>
         </div>
 
