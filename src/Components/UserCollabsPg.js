@@ -6,7 +6,7 @@ import { Container, Button, Segment, Table, Icon, Header } from 'semantic-ui-rea
 class UserCollabsPg extends React.Component {
 
   renderCollabPosts = () => {
-    if(this.props.clickedUser && this.props.clickedUser.collab_posts){
+    if(this.props.clickedUser && this.props.clickedUser.collab_posts.length){
       return this.props.clickedUser.collab_posts.map(collab => {
         return (<Table.Row>
           <Table.Cell>{collab.title}</Table.Cell>
@@ -33,7 +33,7 @@ class UserCollabsPg extends React.Component {
       <Container id="collab-post-pg">
         <img id='collabs-pic' src='https://media.gettyimages.com/photos/close-up-of-tulips-over-yellow-background-picture-id928656458' />
         <Button id='media-back-btn' secondary onClick={this.props.history.goBack}>Back</Button>
-        <Header id='media-header' as='h1'>{this.props.clickedUser.full_name}'s Media</Header>
+        <Header id='media-header' as='h1'>{this.props.clickedUser.full_name}'s Collaboration Posts</Header>
 
         <Table fixed id='collab-table-show'>
           <Table.Header>
