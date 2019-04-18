@@ -24,7 +24,7 @@ class UserCollabs extends React.Component {
           <Table.Cell><Button color='red' icon='trash'></Button></Table.Cell>
         </Table.Row>)
       })
-    } else {
+    } else if(!this.props.userCollaborations.length > 0 && !this.props.userCollabPosts.length > 0) {
       return (<Table.Row>
         <Table.Cell>Add/Claim</Table.Cell>
         <Table.Cell>Some</Table.Cell>
@@ -53,7 +53,7 @@ class UserCollabs extends React.Component {
     console.log(this.props);
     return(
       <div>
-        <Header>{this.props.loggedInUser.user ? this.props.loggedInUser.user.full_name : this.props.loggedInUser.full_name}'s Upcoming Collabs</Header>
+        <Header id='collab-container'>{this.props.loggedInUser.user ? this.props.loggedInUser.user.full_name : this.props.loggedInUser.full_name}'s Upcoming Collabs</Header>
         <Table fixed>
           <Table.Header>
             <Table.Row>
