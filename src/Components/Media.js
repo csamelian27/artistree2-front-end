@@ -1,7 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { getMedia } from '../Actions/mediaItemActions'
+import { getMedia, setClickedMedia } from '../Actions/mediaItemActions'
 import { Container, Grid, Label, Button, Header } from 'semantic-ui-react'
 import ReactAudioPlayer from 'react-audio-player';
 
@@ -13,21 +13,27 @@ class Media extends React.Component {
     }
   }
 
+  handleClickMedia = (media) => {
+    console.log(media);
+    this.props.setClickedMedia(media)
+    this.props.history.push(`/media/${this.props.media.id}`)
+  }
+
   renderCards = () => {
     const { media } = this.props
     if(media) {
       return media.map((media, index) => {
         if(media.file_type === 'Image') {
           console.log('Image');
-          return <img key={index} id="media-img" className="media-item" alt='Media' src={media.file ? media.file.file_url : null} />
+          return <img key={index} onClick={() => this.handleClickMedia(media)} id="media-img" className="media-item" alt='Media' src={media.file ? media.file.file_url : null} />
         } else if (media.file_type === 'Video') {
           console.log('Video');
-          return <video key={index} autoPlay muted loop className="media-item" id="media-vid">
+          return <video key={index} onClick={() => this.handleClickMedia(media)} autoPlay muted loop className="media-item" id="media-vid">
             <source src={media.file ? media.file.file_url : null} />
           </video>
         } else if (media.file_type === 'Document') {
           console.log('Document');
-          return <embed key={index} className="media-item" src={media.file ? media.file.file_url : null} width="500" height="705" type="application/pdf" />
+          return <embed onClick={() => this.handleClickMedia(media)} key={index} className="media-item" src={media.file ? media.file.file_url : null} width="500" height="705" type="application/pdf" />
         }
       })
     }
@@ -66,4 +72,4 @@ const mapStateToProps = ({clickedUser, media}) => {
   return {clickedUser, media}
 }
 
-export default withRouter(connect(mapStateToProps, { getMedia })(Media))
+export default withRouter(connect(mapStateToProps, { getMedia, setClickedMedia })(Media))

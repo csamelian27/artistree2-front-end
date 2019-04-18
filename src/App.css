@@ -242,6 +242,8 @@
   width: 20vw;
   max-height: 40vh;
   padding: 0vw 1vw 0vw 1vw;
+  border-radius: 20px;
+  margin-bottom: 0vh;
 }
 
 #category-header {
@@ -427,7 +429,7 @@
 }
 
 #signup-form {
-  background-color: rgba(132,	190,	213,	0.7);
+  background-color: rgba(132,	190,	213,	0.6);
   border-radius: 0.3em;
   padding: 4vh 1vw 1vw 1vw;
   margin-top: 13vh;
@@ -437,7 +439,7 @@
 }
 
 #login-form {
-  background-color: rgba(198,	216,	195,	0.3);
+  background-color: rgba(198,	216,	195,	0.4);
   border-radius: 0.3em;
   padding: 5vh 1vw 1vw 1vw;
   margin-top: 13vh;
@@ -511,7 +513,7 @@
   font-size: 6vh;
   color: white;
   margin-top: -3vh;
-  margin-bottom: -1vh;
+  margin-bottom: 2vh;
 }
 
 #media-back-btn {
