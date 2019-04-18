@@ -1,5 +1,6 @@
 const showAllCollabs = (collabPosts) => ({type: 'SHOW_ALL_COLLABS', payload: collabPosts})
-const gatherCollabs = (collab) => ({type: 'GATHER_COLLABS', payload: collab})
+const getUserCollabPosts = (collabPosts) => ({type: 'GET_USER_COLLAB_POSTS', payload: collabPosts})
+const getUserCollabs = (collabs) => ({type: 'GET_USER_COLLABS', payload: collabs})
 
 export const getAllCollabs = () => {
   return dispatch => {
@@ -67,7 +68,7 @@ export const createCollaboration = (creatorId, claimerId, collabId) => {
       let token = localStorage.token
       const formData = new FormData()
 
-      formData.append('collab_post[claimed?]', true)
+      formData.append('collab_post[claimed]', true)
 
       return fetch(`http://localhost:3000/api/v1/collab_posts/${collabId}`, {
         method: 'PATCH',
@@ -98,6 +99,10 @@ export const getAllUserCollabs = (userId) => {
       .then(user => {
         console.log(user);
         console.log(user.collab_posts);
+        if(user.collab_posts) {
+          dispatch(getUserCollabPosts(user.collab_posts))
+        }
+
         console.log(user.collaborated_users);
         if(user.collaborated_users){
           user.collaborated_users.map(collab => {
@@ -108,8 +113,8 @@ export const getAllUserCollabs = (userId) => {
               }
             })
               .then(resp => resp.json())
-              .then(collabPost => {
-                dispatch(gatherCollabs(collabPost))
+              .then(collabPosts => {
+                dispatch(getUserCollabs(collabPosts))
               })
           })
         }

@@ -14,12 +14,18 @@ class UserProfileContainer extends React.Component {
   }
 
   handleClickEditBio = (e) => {
+    console.log(e.target.parentNode.parentElement.parentElement.parentElement.textContent.split('Artist Bio')[1]);
+
+    if(e.target.innerText === 'Confirm') {
+      this.setState({
+        bio: e.target.parentNode.parentElement.parentElement.parentElement.textContent.split('Artist Bio')[1],
+        clickedEditBio: !this.state.clickedEditBio
+      })
+      this.props.patchUserBio(this.props.user.id, this.state.bio)
+    }
     this.setState({
       clickedEditBio: !this.state.clickedEditBio
     })
-    if(e.target.innerText === 'Confirm') {
-      this.props.patchUserBio(this.props.user.id, this.state.bio)
-    }
   }
 
   handleChange = (e) => {

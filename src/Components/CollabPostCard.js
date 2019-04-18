@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Image, Table, Button } from 'semantic-ui-react'
+import { Grid, Image, Table, Button, Header, Icon } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { createCollaboration } from '../Actions/collabPostActions'
 
@@ -26,7 +26,7 @@ class CollabPostCard extends React.Component {
         <Table.Cell>{this.props.post.title}</Table.Cell>
         <Table.Cell>{this.props.post.seeking}</Table.Cell>
         <Table.Cell>{this.props.post.description}</Table.Cell>
-        <Table.Cell><Button color={this.state.clicked ? 'teal' : 'yellow'} onClick={this.handleClaimCollab}>{this.state.clicked || this.props.post.claimed ? 'Claimed ✔️' : 'Claim'}</Button></Table.Cell>
+        <Table.Cell>{this.props.post.claimed || this.state.clicked ? <Icon color='yellow' name='handshake' id='centered'></Icon> : <Button color='teal' icon='add circle' onClick={this.handleClaimCollab}></Button>}</Table.Cell>
       </Table.Row>
     )
   }

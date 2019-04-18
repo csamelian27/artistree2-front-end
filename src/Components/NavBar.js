@@ -5,9 +5,13 @@ import { connect } from 'react-redux'
 
 class Nav extends React.Component {
 
-  state = { activeItem: '' }
+  state = { activeItem: ''}
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  handleItemClick = (e, { name }) => {
+    this.setState({
+      activeItem: name
+    })
+  }
 
   render() {
     console.log(this.props);
@@ -17,34 +21,27 @@ class Nav extends React.Component {
     if(localStorage.token) {
         loginOptions = (
           <Menu.Menu position='right'>
-            <Menu.Item>
-                <Input icon="search" placeholder="Search..." />
-              </Menu.Item>
-
-            <Dropdown
-                item
-                id='dropdown'
-                text={this.props.loggedInUser.user ? this.props.loggedInUser.user.full_name : this.props.loggedInUser.full_name}
-                active={(activeItem === "user").toString()}
-                onClick={this.handleItemClick}
-              >
-                <Dropdown.Menu id='dropdown'>
-                  <Dropdown.Item id='dropdown' as={NavLink} exact to="/profile">
-                    Profile
-                  </Dropdown.Item>
-                  <Dropdown.Item id='dropdown' as={NavLink} exact to="/logout" onClick={this.props.handleLogout}>
-                    Logout
-                  </Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
+            <Menu.Item
+              as={NavLink}
+              exact
+              to="/profile"
+              name={this.props.loggedInUser.user ? this.props.loggedInUser.user.full_name : this.props.loggedInUser.full_name}
+              active={activeItem === "Profile"}
+              onClick={this.handleItemClick}
+            />
+            <Menu.Item
+              as={NavLink}
+              exact
+              to="/logout"
+              name="Logout"
+              active={activeItem === "Logout"}
+              onClick={this.props.handleLogout}
+            />
           </Menu.Menu>
         )
     } else {
       loginOptions = (
         <Menu.Menu position='right'>
-          <Menu.Item>
-            <Input icon="search" placeholder="Search..." />
-          </Menu.Item>
           <Menu.Item
             as={NavLink}
             exact
@@ -64,12 +61,6 @@ class Nav extends React.Component {
         </Menu.Menu>
       )
     }
-
-        // const options = [
-        // { key: 'all', text: 'All', value: 'all' },
-        // { key: 'articles', text: 'Articles', value: 'articles' },
-        // { key: 'products', text: 'Products', value: 'products' },
-        // ]
 
     return (
               <Menu id="nav-menu">
@@ -97,13 +88,63 @@ const mapStateToProps = ({ loggedInUser }) => {
 export default connect(mapStateToProps)(Nav);
 
 
-
-// <Dropdown.Item as={NavLink} exact to="/profile">
-//   Profile
-// </Dropdown.Item>
+// {this.state.clickedLogout ? null : <Menu.Item header as='h5'>{this.props.loggedInUser.user ? this.props.loggedInUser.user.full_name : this.props.loggedInUser.full_name}</Menu.Item>}
 
 
-// import { Button, Dropdown, Image, Input, Menu } from 'semantic-ui-react'
-
-
-// {this.props.user && localStorage.token ? <button type="button" className="btn btn-light navbar-btn navbar-right" onClick={this.props.handleLogout} >Log Out</button> : <button type="button" className="btn btn-light navbar-btn navbar-right">Log in</button>}
+// if(localStorage.token) {
+//     loginOptions = (
+//       <Menu.Menu position='right'>
+//         <Menu.Item>
+//             <Input icon="search" placeholder="Search..." />
+//           </Menu.Item>
+//
+// SEARCH OPTIONS (goes under render() before return):
+//    const options = [
+//    { key: 'all', text: 'All', value: 'all' },
+//    { key: 'articles', text: 'Articles', value: 'articles' },
+//    { key: 'products', text: 'Products', value: 'products' },
+//    ]
+//
+//         <Dropdown
+//             item
+//             id='dropdown'
+//             text={this.props.loggedInUser.user ? this.props.loggedInUser.user.full_name : this.props.loggedInUser.full_name}
+//             active={(activeItem === "user").toString()}
+//             onClick={this.handleItemClick}
+//           >
+//             <Dropdown.Menu id='dropdown'>
+//               <Dropdown.Item id='dropdown' as={NavLink} exact to="/profile">
+//                 Profile
+//               </Dropdown.Item>
+//               <Dropdown.Item id='dropdown' as={NavLink} exact to="/logout" onClick={this.props.handleLogout}>
+//                 Logout
+//               </Dropdown.Item>
+//             </Dropdown.Menu>
+//           </Dropdown>
+//       </Menu.Menu>
+//     )
+// } else {
+//   loginOptions = (
+//     <Menu.Menu position='right'>
+//       <Menu.Item>
+//         <Input icon="search" placeholder="Search..." />
+//       </Menu.Item>
+//       <Menu.Item
+//         as={NavLink}
+//         exact
+//         to="/signup"
+//         name="signup"
+//         active={activeItem === "signup"}
+//         onClick={this.handleItemClick}
+//       />
+//       <Menu.Item
+//         as={NavLink}
+//         exact
+//         to="/login"
+//         name="login"
+//         active={activeItem === "login"}
+//         onClick={this.handleItemClick}
+//       />
+//     </Menu.Menu>
+//   )
+// }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container, Header, Form } from 'semantic-ui-react'
 // import { connect } from 'react-redux'
 // import { createAuth } from '../Actions/userActions'
 
@@ -22,14 +23,22 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div className="login wrapper">
-           <form className="form-signin" onSubmit={this.handleLogin}>
-             <h1 className="form-signin-heading">Log In</h1>
-             <input className="form-control" type="email" name="email" placeholder="email" value={this.state.email} onChange={this.changeHandler} /><br></br>
-             <input className="form-control" type="password" name="password" placeholder="password" value={this.state.password} onChange={this.changeHandler} /><br></br>
-             <button id="login-btn" type="submit">Log In</button>
-           </form>
-         </div>
+      <div id='login-form'>
+        <img id='login-pic' src='https://image.invaluable.com/static/category/SG2BIX3JPJ.png' />
+        <Container>
+          <Header as='h1' className="user__title">Log In!</Header>
+        </Container><br></br>
+
+        <Form onSubmit={this.handleLogin}>
+          <Form.Group widths='equal'>
+            <Form.Input fluid label='Email' type="email" name="email" placeholder="email" value={this.state.email} onChange={this.changeHandler} />
+          </Form.Group>
+          <Form.Group widths='equal'>
+            <Form.Input type='password' fluid label='Password' type="password" name="password" placeholder="password" value={this.state.password} onChange={this.changeHandler} />
+          </Form.Group>
+        <Form.Button>Submit</Form.Button>
+      </Form>
+    </div>
     )
   }
 }

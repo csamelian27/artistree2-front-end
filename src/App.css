@@ -45,10 +45,28 @@
 #collabs {
   padding: 2vw 2vw 2vw 2vw;
   z-index: -999;
+  margin: 3vh 5vw 5vh 5vw;
 }
 
 #collab-post {
   z-index: -999;
+}
+
+#collab-post-form label,
+#collab-post-header {
+  color: white;
+}
+
+#centered {
+  margin-left: 1vw;
+}
+
+#collab-post-header {
+  font-size: 2em;
+}
+
+#collab-btns {
+  margin-left: 13.5vw;
 }
 
 #form-container {
@@ -57,6 +75,10 @@
 
 #home {
   z-index: -999;
+}
+
+#collab-header {
+  font-size: 4vh;
 }
 
 #home-splash {
@@ -101,6 +123,10 @@
 #user-card {
   padding: 1vw 1vw 1vw 1vw;
   margin-left: 2vw;
+}
+
+.ui .image {
+  max-height: 13vw;
 }
 
 #prof-name {
@@ -165,7 +191,7 @@
 
 #site-title {
   font-size: 2em;
-  margin-left: 5vw;
+  margin-right: 10vw;
   font-family: 'Amatic SC', cursive;
 }
 
@@ -260,27 +286,61 @@
   bottom: 0;
   min-width: 100vw;
   min-height: 100vh;
-  z-index: -1;
-  opacity: 0.8;
+  z-index: -2;
+  opacity: 0.7;
+}
+
+#collab-img {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  z-index: -2;
+  opacity: 0.7;
+}
+
+#login-pic {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  z-index: -2;
 }
 
 #signup-form {
-  padding: 1vw 1vw 1vw 1vw;
-  margin-top: 10vh;
-  margin-left: 31vw;
-  margin-right: 31vw;
+  background-color: rgba(132,	190,	213,	0.7);
+  border-radius: 0.3em;
+  padding: 4vh 1vw 1vw 1vw;
+  margin-top: 13vh;
+  margin-left: 35vw;
+  margin-right: 35vw;
   box-shadow: 0.5em 0.5em .4em rgb(64	89	112	), -0.5em 0 .5em rgb(64	89	112	);
 }
 
-.form-signin input {
-  background: url('https://media2.giphy.com/media/GW7eKwEzQilP2/giphy.gif?cid=790b76115cafb92c5535476e6b55c654');
-  height: 27vh;
-  width: 26vw;
-  font-size: 2vw;
-  color: white;
-  text-align: center;
-  border-radius: 5px;
-  margin-bottom: 0.25vh;
+#login-form {
+  background-color: rgba(198,	216,	195,	0.3);
+  border-radius: 0.3em;
+  padding: 5vh 1vw 1vw 1vw;
+  margin-top: 13vh;
+  margin-left: 40vw;
+  margin-right: 40vw;
+  height: 37vh;
+  box-shadow: 0.5em 0.5em .4em rgba(64, 89, 112, .5), -0.5em 0 .5em rgba(64,	89,	112, .5);
+}
+
+#submit-btn {
+  margin-top: 1vh;
+  width: 7vw;
+}
+
+#add-post-btn {
+  margin-bottom: 3vh;
 }
 
 #feed-container {
@@ -340,10 +400,21 @@
   border-radius: 5px;
 }
 
-.form-signin input::placeholder {
+/* .form-signin input::placeholder {
   color: white;
   text-align: center;
-}
+} */
+
+/* .form-signin input {
+  background: url('https://media2.giphy.com/media/GW7eKwEzQilP2/giphy.gif?cid=790b76115cafb92c5535476e6b55c654');
+  height: 27vh;
+  width: 26vw;
+  font-size: 2vw;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  margin-bottom: 0.25vh;
+} */
 
 #upload-pic {
   position: fixed;
@@ -369,7 +440,7 @@
   bottom: 0;
   margin: 0 0 0 0;
   padding: 0;
-  min-height: 100vh;
+  min-width: 100vw;
   z-index: -999;
 }
 
@@ -779,8 +850,8 @@ header:after {
 
 /* END CSS FOR HOME */
 
-/* START USER INFO CSS */
+/* START SIGNUP CSS */
 
 
 
-/* END USER INFO CSS */
+/* END SIGNUP CSS */

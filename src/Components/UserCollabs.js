@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { getAllUserCollabs } from '../Actions/collabPostActions'
-import { Header, Table, Button } from 'semantic-ui-react'
+import { Header, Table, Button, Icon } from 'semantic-ui-react'
 
 class UserCollabs extends React.Component {
 
@@ -13,15 +13,40 @@ class UserCollabs extends React.Component {
     }
   }
 
-  renderCollabs = () => {
-    return this.props.userCollabs.map(collab => {
+  renderCollabPosts = () => {
+    if(this.props.userCollabPosts.length > 0){
+      return this.props.userCollabPosts.map(collab => {
+        return (<Table.Row>
+          <Table.Cell>{collab.title}</Table.Cell>
+          <Table.Cell>{collab.seeking}</Table.Cell>
+          <Table.Cell>{collab.description}</Table.Cell>
+          <Table.Cell>{collab.claimed ? <Icon color='yellow' name='star'></Icon> : null}</Table.Cell>
+          <Table.Cell><Button color='red' icon='trash'></Button></Table.Cell>
+        </Table.Row>)
+      })
+    } else {
       return (<Table.Row>
-        <Table.Cell>{collab.title}</Table.Cell>
-        <Table.Cell>{collab.seeking}</Table.Cell>
-        <Table.Cell>{collab.description}</Table.Cell>
-        <Table.Cell><Button color='teal'>Unclaim</Button></Table.Cell>
+        <Table.Cell>Add/Claim</Table.Cell>
+        <Table.Cell>Some</Table.Cell>
+        <Table.Cell>Collabs</Table.Cell>
+        <Table.Cell><Icon name='frown outline' color='pink'></Icon></Table.Cell>
+        <Table.Cell><Button color='red' icon='angle double right'></Button></Table.Cell>
       </Table.Row>)
-    })
+    }
+  }
+
+  renderCollaborations = () => {
+    if(this.props.userCollaborations.length > 0){
+      return this.props.userCollaborations.map(collab => {
+        return (<Table.Row>
+          <Table.Cell>{collab.title}</Table.Cell>
+          <Table.Cell>{collab.seeking}</Table.Cell>
+          <Table.Cell>{collab.description}</Table.Cell>
+          <Table.Cell>{collab.claimed}</Table.Cell>
+          <Table.Cell><Button color='red' icon='cancel'></Button></Table.Cell>
+        </Table.Row>)
+      })
+    }
   }
 
   render() {
@@ -35,12 +60,14 @@ class UserCollabs extends React.Component {
               <Table.HeaderCell>Title of Work</Table.HeaderCell>
               <Table.HeaderCell>Seeking</Table.HeaderCell>
               <Table.HeaderCell>Description</Table.HeaderCell>
+              <Table.HeaderCell>Claimed?</Table.HeaderCell>
               <Table.HeaderCell>View Post</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
 
           <Table.Body>
-            {this.renderCollabs()}
+            {this.renderCollabPosts()}
+            {this.renderCollaborations()}
           </Table.Body>
         </Table>
       </div>
@@ -48,8 +75,8 @@ class UserCollabs extends React.Component {
   }
 }
 
-const mapStateToProps = ({ userCollabs, loggedInUser }) => {
-  return { userCollabs, loggedInUser }
+const mapStateToProps = ({ userCollaborations, loggedInUser, userCollabPosts }) => {
+  return { userCollaborations, loggedInUser, userCollabPosts }
 }
 
 export default connect(mapStateToProps, { getAllUserCollabs })(UserCollabs)

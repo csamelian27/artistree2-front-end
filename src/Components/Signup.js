@@ -40,7 +40,7 @@ class Signup extends Component {
     console.log(this.state);
     return (
       <div id='signup-form'>
-        <img id='signup-pic' src='https://png.pngtree.com/thumb_back/fw800/back_pic/05/15/88/5159afd18b309b9.jpg' />
+        <img id='signup-pic' src='https://prod-uploads-pub.useast1.kadenze.com/prod/usr/uploads/course/93/logo/cinema_otis_the_modern_genius_hero_image.png' />
         <Container>
           <Header as='h1' className="user__title">Create Your Artist Profile!</Header>
           (All Fields Required)
@@ -61,7 +61,7 @@ class Signup extends Component {
           <label name="avatar">Choose a profile picture <strong>(jpeg/jpg only)</strong>:</label>
           <br></br>
           <input type="file" id="avatar" name="avatar" accept="image/*" onChange={this.handleFile} /><br></br>
-        <Form.Button>Submit</Form.Button>
+        <Form.Button id='submit-btn'>Submit</Form.Button>
       </Form>
     </div>
     )

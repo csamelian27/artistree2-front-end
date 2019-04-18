@@ -52,7 +52,7 @@ class CollabPostForm extends React.Component {
     return (
       <div>
         {this.state.clicked ? <Container id='form-container'>
-          <Header>Create a New Collaboration</Header>
+          <Header id='collab-post-header'>Create a New Collaboration</Header>
           <Form id='collab-post-form' onSubmit={this.handleSubmitCollab}>
             <Form.Group widths='equal'>
               <Form.Input fluid label='Title of Work' name='title' placeholder='Title' value={this.state.title} onChange={this.handleChange} />
@@ -63,10 +63,12 @@ class CollabPostForm extends React.Component {
 
             <Form.TextArea label='Description of Work' name='description' placeholder='Describe your work...' value={this.state.description} onChange={this.handleChange} />
 
-          <Form.Button>Submit</Form.Button>
-          <Button onClick={this.handleClickClose}>Close</Button>
+          <Form.Group id='collab-btns'>
+            <Form.Button size='mini'>Submit</Form.Button>
+            <Form.Button size='mini' onClick={this.handleClickClose}>Close</Form.Button>
+          </Form.Group>
         </Form>
-      </Container> : <Button onClick={this.handleClick}>Add CollabPost</Button>}
+      </Container> : <Button color='yellow' id='add-post-btn' onClick={this.handleClick}>Add CollabPost</Button>}
     </div>
     )
   }
