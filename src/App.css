@@ -581,6 +581,7 @@
 /* START HOMEPAGE CSS */
 
 #myVideo {
+  filter:brightness(110%);
   position: fixed;
   top: 0;
   right: 0;

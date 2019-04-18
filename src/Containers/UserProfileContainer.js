@@ -4,7 +4,7 @@ import UserInfoContainer from './UserInfoContainer'
 import { Image, Grid, Header, Table, Button, Form } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { withRouter } from "react-router-dom";
-import { patchUserBio } from '../Actions/userActions'
+import { patchUserBio, deleteUser } from '../Actions/userActions'
 
 class UserProfileContainer extends React.Component {
 
@@ -34,11 +34,17 @@ class UserProfileContainer extends React.Component {
     })
   }
 
+  handleDeleteUser = () => {
+    this.props.deleteUser(this.props.user.id)
+    this.props.history.push('/home')
+  }
+
   render(){
     console.log(this.state);
     return (
       <div id="profile">
       <img id="profile-bg-pic" src="https://mymodernmet.com/wp/wp-content/uploads/archive/crXl0cLM7z4SZa3p3rUI_1082141960.jpeg" alt="bg-pic" />
+        <Button onClick={this.handleDeleteUser}>Delete Account</Button>
         <Grid fluid>
           <Grid.Row columns={1}>
             <Grid.Column>
@@ -77,4 +83,4 @@ class UserProfileContainer extends React.Component {
 //   return {user: state.user}
 // }
 
-export default withRouter(connect(null, { patchUserBio })(UserProfileContainer))
+export default withRouter(connect(null, { patchUserBio, deleteUser })(UserProfileContainer))

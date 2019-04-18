@@ -1,6 +1,7 @@
 const showAllUsers = (users) => ({type: 'SHOW_ALL_USERS', payload: users})
 const showOneUser = (user) => ({type: 'SHOW_ONE_USER', payload: user})
 export const logInUser = (user) => ({type: 'LOG_IN_USER', payload: user})
+const removeUser = () => ({type: 'REMOVE_USER'})
 
 export const getAllUsers = () => {
   return dispatch => {
@@ -58,6 +59,22 @@ export const patchUserBio = (userId, bioData) => {
   }
 }
 
+export const deleteUser = (userId) => {
+  return dispatch => {
+    let token = localStorage.token
+
+    return fetch(`http://localhost:3000/api/v1/users/${userId}`, {
+      method: 'DELETE',
+      headers: {
+        "Authorization": `Bearer ${token}`
+      }
+    })
+      .then(resp => resp.json())
+      .then(user => {
+        dispatch(removeUser())
+      })
+  }
+}
 
 
 // const addUser = (user) => ({type: 'ADD_USER', payload: user})

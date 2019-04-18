@@ -63,6 +63,10 @@ const initialState = {
     case('SET_CLICKED_MEDIA'):
       return {...state, clickedMedia: action.payload}
 
+    case('REMOVE_USER'):
+      localStorage.clear()
+      return {...state, loggedInUser: {}}
+
 
      default:
       return state
