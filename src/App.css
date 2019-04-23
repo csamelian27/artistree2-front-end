@@ -156,7 +156,7 @@
 #prof-name {
   margin-top: -7vh;
   font-size: 3.5vw;
-  color: rgb(89, 87, 103);
+  color: rgba(89, 87, 103, 1);
 }
 
 #prof-art-type {
@@ -177,20 +177,20 @@
 }
 
 #table-user-info-bio {
-  background-color: rgb(227	133	137	);
+  background-color: rgba(227,	133,	137,	1);
 }
 
 #media-btn {
   margin-top: -2vh;
-  background-color: rgb(162	218	254	);
+  background-color: rgba(162,	218,	254,	1);
 }
 
 #btn {
-  background-color: rgb(112	128	201	);
+  background-color: rgba(112,	128,	201,	1);
 }
 
 #btn-upload {
-  background-color: rgb(191	159	193	);
+  background-color: rgba(191,	159,	193,	1);
 }
 
 #media-vid {
@@ -435,7 +435,7 @@
   margin-top: 13vh;
   margin-left: 35vw;
   margin-right: 35vw;
-  box-shadow: 0.5em 0.5em .4em rgb(64	89	112	), -0.5em 0 .5em rgb(64	89	112	);
+  box-shadow: 0.5em 0.5em .4em rgba(64,	89,	112,	1), -0.5em 0 .5em rgba(64,	89,	112,	1);
 }
 
 #login-form {
@@ -632,7 +632,7 @@
 
 #nav-menu {
   font-family: 'Amatic SC', cursive;
-  background-color: rgb(206	211	214	);
+  background-color: rgba(206,	211,	214,	1);
   margin-bottom: -0.1vh;
   opacity: 0.9;
   height: 5vh;
