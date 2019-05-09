@@ -4,10 +4,10 @@
 
 You must create/sign into an account to be able to use this website.
 
-Link to Backend
+## Link to Backend
 https://github.com/csamelian27/artistree2-back-end
 
-Demo Video
+## Demo Video
 https://vimeo.com/332568343
 
 
