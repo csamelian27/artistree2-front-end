@@ -1,6 +1,6 @@
 # ArtisTree
 
-## A one stop shop for artists to share their media samples, work experiences, and resumes as well as to find project collaborators and daily inspiration.
+**A one stop shop for artists to share their media samples, work experiences, and resumes as well as to find project collaborators and daily inspiration.**
 
 You must create/sign into an account to be able to use this website.
 
