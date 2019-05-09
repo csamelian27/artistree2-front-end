@@ -12,12 +12,12 @@ https://vimeo.com/332568343
 
 
 
-Run
+## Run
 npm install
 
 npm start
 
-Built With
+## Built With
 Ruby on Rails (Backend)
 
 React.js & Redux.js (Frontend)
@@ -26,5 +26,5 @@ Semantic UI React
 
 AWS S3
 
-Created by
+### Created by
 Cassidy Samelian https://github.com/csamelian27
