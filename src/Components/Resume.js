@@ -16,10 +16,10 @@ class Resume extends React.Component {
     console.log(this.props);
     return(
       <Container id="resume-pg">
-        <img id='resume-pic' src='https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/the-spring-flowering-stachyurus-praecox-shrub-or-royalty-free-image-919659436-1544472182.jpg' />
+        <img id='resume-pic' alt='resume-pic' src='https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/the-spring-flowering-stachyurus-praecox-shrub-or-royalty-free-image-919659436-1544472182.jpg' />
           <Button id='resume-back-btn' secondary onClick={this.props.history.goBack}>Back</Button>
           <Header id='resume-header' as='h1'>{this.props.clickedUser.full_name}'s Resume</Header>
-        {this.props.resumes.length > 0 ? <embed id='template-resume' className="resume-embed" src={this.props.resumes.length > 0 ? this.props.resumes[this.props.resumes.length-1].resume.resume_url : null} width="495" height="705" type="application/pdf" /> : <img id='template-resume' src='https://d.novoresume.com/images/doc/functional-resume-template.png' />}
+        {this.props.resumes.length > 0 ? <embed id='template-resume' className="resume-embed" src={this.props.resumes.length > 0 ? this.props.resumes[this.props.resumes.length-1].resume.resume_url : null} width="495" height="705" type="application/pdf" /> : <img id='template-resume' alt='template-resume' src='https://d.novoresume.com/images/doc/functional-resume-template.png' />}
       </Container>
     )
   }

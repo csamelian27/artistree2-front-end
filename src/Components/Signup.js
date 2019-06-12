@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Image, Header, Container } from 'semantic-ui-react'
+import { Form, Header, Container } from 'semantic-ui-react'
 // import { connect } from 'react-redux'
 // import { createUser } from '../Actions/userActions'
 
@@ -40,7 +40,7 @@ class Signup extends Component {
     console.log(this.state);
     return (
       <div id='signup-form'>
-        <img id='signup-pic' src='https://prod-uploads-pub.useast1.kadenze.com/prod/usr/uploads/course/93/logo/cinema_otis_the_modern_genius_hero_image.png' />
+        <img id='signup-pic' alt='signup-pic' src='https://prod-uploads-pub.useast1.kadenze.com/prod/usr/uploads/course/93/logo/cinema_otis_the_modern_genius_hero_image.png' />
         <Container>
           <Header as='h1' className="user__title">Create Your Artist Profile!</Header>
           (All Fields Required)

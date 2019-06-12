@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Image } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 import CollabPostForm from '../Components/CollabPostForm'
 import CollabPostContainer from './CollabPostContainer'
 import UserCollabs from '../Components/UserCollabs'

@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
-import { Menu, Button, Input, Dropdown } from 'semantic-ui-react'
+import { Menu } from 'semantic-ui-react'
+// import { Menu, Button, Input, Dropdown } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 class Nav extends React.Component {

@@ -69,7 +69,7 @@ class MediaDetail extends React.Component {
     ]
     return(
       <div>
-        <img id='media-detail-pic' src='https://media.gettyimages.com/photos/directly-above-shot-of-technological-equipment-on-blue-table-picture-id1004082176' />
+        <img id='media-detail-pic' alt='media-detail-pic' src='https://media.gettyimages.com/photos/directly-above-shot-of-technological-equipment-on-blue-table-picture-id1004082176' />
         <Button id='media-detail-back-btn' secondary onClick={this.props.history.goBack}>Back</Button>
 
         {this.props.user.id === this.props.clickedMedia.user_id && this.props.user.id === this.props.clickedMedia.user_id ? <Button secondary onClick={this.handleEditMedia}>Edit</Button> : null}

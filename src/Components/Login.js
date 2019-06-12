@@ -24,7 +24,7 @@ class Login extends React.Component {
   render() {
     return (
       <div id='login-form'>
-        <img id='login-pic' src='https://image.invaluable.com/static/category/SG2BIX3JPJ.png' />
+        <img id='login-pic' alt='login-pic' src='https://image.invaluable.com/static/category/SG2BIX3JPJ.png' />
         <Container>
           <Header as='h1' className="user__title">Log In!</Header>
         </Container><br></br>
@@ -34,7 +34,7 @@ class Login extends React.Component {
             <Form.Input fluid label='Email' type="email" name="email" placeholder="email" value={this.state.email} onChange={this.changeHandler} />
           </Form.Group>
           <Form.Group widths='equal'>
-            <Form.Input type='password' fluid label='Password' type="password" name="password" placeholder="password" value={this.state.password} onChange={this.changeHandler} />
+            <Form.Input type='password' fluid label='Password' name="password" placeholder="password" value={this.state.password} onChange={this.changeHandler} />
           </Form.Group>
         <Form.Button>Submit</Form.Button>
       </Form>

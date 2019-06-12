@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getAllCollabs } from '../Actions/collabPostActions'
 import CollabPostCard from '../Components/CollabPostCard'
-import { Table, Button, Header, Icon } from 'semantic-ui-react'
+import { Table, Header, Icon } from 'semantic-ui-react'
 
 class CollabPostContainer extends React.Component {
 

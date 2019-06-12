@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Image, Table, Button, Header, Icon } from 'semantic-ui-react'
+import { Table, Button, Icon } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { createCollaboration } from '../Actions/collabPostActions'
 

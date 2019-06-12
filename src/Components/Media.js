@@ -2,8 +2,8 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getMedia, setClickedMedia } from '../Actions/mediaItemActions'
-import { Container, Grid, Label, Button, Header } from 'semantic-ui-react'
-import ReactAudioPlayer from 'react-audio-player';
+import { Container, Grid, Button, Header } from 'semantic-ui-react'
+// import ReactAudioPlayer from 'react-audio-player';
 
 class Media extends React.Component {
 
@@ -43,7 +43,7 @@ class Media extends React.Component {
     console.log(this.props);
     return(
       <Container id="media-pg">
-        <img id='signup-pic' src='https://media.gettyimages.com/photos/purple-hydrangea-flowers-picture-id760155711' />
+        <img id='signup-pic' alt='signup-pic' src='https://media.gettyimages.com/photos/purple-hydrangea-flowers-picture-id760155711' />
         <Button id='media-back-btn' secondary onClick={this.props.history.goBack}>Back</Button>
         <Header id='media-header' as='h1'>{this.props.clickedUser.full_name}'s Media</Header>
         <div id="media-card">

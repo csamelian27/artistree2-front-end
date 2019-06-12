@@ -1,7 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Container, Button, Segment, Table, Icon, Header } from 'semantic-ui-react'
+import { Container, Button, Table, Icon, Header } from 'semantic-ui-react'
 
 class UserCollabsPg extends React.Component {
 
@@ -31,7 +31,7 @@ class UserCollabsPg extends React.Component {
     console.log(this.props);
     return(
       <Container id="collab-post-pg">
-        <img id='collabs-pic' src='https://media.gettyimages.com/photos/close-up-of-tulips-over-yellow-background-picture-id928656458' />
+        <img id='collabs-pic' alt='collabs-pic' src='https://media.gettyimages.com/photos/close-up-of-tulips-over-yellow-background-picture-id928656458' />
         <Button id='media-back-btn' secondary onClick={this.props.history.goBack}>Back</Button>
         <Header id='media-header' as='h1'>{this.props.clickedUser.full_name}'s Collaboration Posts</Header>
 
